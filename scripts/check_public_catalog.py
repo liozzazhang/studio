@@ -5,6 +5,9 @@ import json
 import os
 import re
 import subprocess
+import time
+from collections import Counter
+from urllib.error import HTTPError
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -22,31 +25,41 @@ def main():
     def verify(item):
         slug = item['slug']
         if item.get('visibility') != 'public' or not re.fullmatch(r'[A-Za-z0-9_.-]+', slug):
-            return False
+            return (False, 'invalid-catalog-entry')
         endpoint = 'repos/liozzazhang/' + slug
-        try:
-            if args.gh:
-                env = os.environ.copy()
-                env.pop('GITHUB_TOKEN', None)
-                env.pop('GH_TOKEN', None)
-                result = subprocess.run([args.gh, 'api', endpoint], env=env, capture_output=True, text=True, timeout=30, check=True)
-                metadata = json.loads(result.stdout)
-            else:
-                headers = {'Accept': 'application/vnd.github+json', 'User-Agent': 'Studio-Public-Catalog-Check'}
-                if token:
-                    headers['Authorization'] = 'Bearer ' + token
-                # The only authenticated destination is the fixed GitHub API origin.
-                with urlopen(Request('https://api.github.com/' + endpoint, headers=headers), timeout=30) as response:
-                    metadata = json.load(response)
-            return metadata.get('visibility') == 'public' and metadata.get('full_name', '').casefold() == ('liozzazhang/' + slug).casefold()
-        except Exception:
-            return False
+        failure = 'unavailable'
+        for attempt in range(3):
+            try:
+                if args.gh:
+                    env = os.environ.copy()
+                    env.pop('GITHUB_TOKEN', None)
+                    env.pop('GH_TOKEN', None)
+                    result = subprocess.run([args.gh, 'api', endpoint], env=env, capture_output=True, text=True, timeout=30, check=True)
+                    metadata = json.loads(result.stdout)
+                else:
+                    headers = {'Accept': 'application/vnd.github+json', 'User-Agent': 'Studio-Public-Catalog-Check'}
+                    if token:
+                        headers['Authorization'] = 'Bearer ' + token
+                    # The only authenticated destination is the fixed GitHub API origin.
+                    with urlopen(Request('https://api.github.com/' + endpoint, headers=headers), timeout=30) as response:
+                        metadata = json.load(response)
+                public = metadata.get('visibility') == 'public' and metadata.get('full_name', '').casefold() == ('liozzazhang/' + slug).casefold()
+                return (public, 'not-public' if not public else '')
+            except HTTPError as error:
+                failure = 'HTTP-' + str(error.code)
+            except Exception as error:
+                failure = type(error).__name__
+            if attempt < 2:
+                time.sleep(attempt + 1)
+        return (False, failure)
 
-    with ThreadPoolExecutor(max_workers=4) as pool:
+    with ThreadPoolExecutor(max_workers=3) as pool:
         results = list(pool.map(verify, projects))
-    failed = len(results) - sum(results)
+    failures = Counter(reason for passed, reason in results if not passed)
+    failed = sum(failures.values())
     if failed:
-        raise SystemExit(f'Public visibility check failed for {failed} catalog entries. Review the public snapshot before deployment.')
+        details = ", ".join(f"{reason}: {count}" for reason, count in sorted(failures.items()))
+        raise SystemExit(f'Public visibility check failed for {failed} catalog entries ({details}). Review the public snapshot before deployment.')
     print(f'Confirmed {len(projects)} catalog repositories are currently public.')
 
 
