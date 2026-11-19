@@ -25,4 +25,4 @@
 
 ## 发布
 
-待预览确认后提交并推送 `main`，由 GitHub Pages 工作流发布。
+已发布：[部署记录](https://github.com/liozzazhang/studio/actions/runs/44551363241)，提交 `00c741433b8b04d7feebad9c660440e54c138e04`，完成于 2026-11-19 23:08（Asia/Shanghai）。线上首页默认英文，简历下载节存在，PDF 下载返回 200。
