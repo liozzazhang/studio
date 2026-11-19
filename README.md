@@ -2,7 +2,7 @@
 
 面向面试官、HR 与工程同行的个人网站。首页以详细履历、工程演进、代表作品和联系方式介绍我，项目目录作为履历的进一步证据与补充。
 
-站点地址：[liozzazhang.github.io/studio](https://liozzazhang.github.io/studio/) · [GitHub 仓库](https://github.com/liozzazhang/studio)。本次改版的发布结果以仓库的 GitHub Actions 与线上页面为准。
+站点地址：[liozzazhang.github.io/studio](https://liozzazhang.github.io/studio/) · [GitHub 仓库](https://github.com/liozzazhang/studio)。本次改版已于 2026-11-19 发布，桌面、手机及线上私有项目申请入口已核对。[部署记录](https://github.com/liozzazhang/studio/actions/runs/44481910241)。
 
 采用纯静态 HTML、CSS 与 JavaScript，通过 GitHub Pages 发布，无需 VM 或运行时后端。当前内容包含 **38 个仓库：30 个公开、8 个私有摘要，分为 8 类**；其中工程与参考项目 30 个，WoW 项目 8 个。
 
