@@ -1,0 +1,836 @@
+{
+  "owner": "liozzazhang",
+  "checked_at": "2026-11-19",
+  "scope": "public repositories excluding studio",
+  "projects": [
+    {
+      "slug": "ansible-collection-ops-pipeline",
+      "title": {
+        "zh": "ansible-collection-ops-pipeline",
+        "en": "ansible-collection-ops-pipeline"
+      },
+      "summary": {
+        "zh": "可扩展的 Ansible 集合，为软件包、容器及服务操作提供分阶段执行、健康检查与回滚能力。",
+        "en": "An extensible Ansible collection for staged package, container, and service operations, with health checks and rollback capabilities."
+      },
+      "url": "https://github.com/liozzazhang/ansible-collection-ops-pipeline",
+      "tags": [
+        "Ansible",
+        "Python",
+        "Deployment Pipelines",
+        "Health Checks"
+      ],
+      "category": "platform",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "mcp-jenkins",
+      "title": {
+        "zh": "mcp-jenkins",
+        "en": "mcp-jenkins"
+      },
+      "summary": {
+        "zh": "面向受限定 Jenkins 作业范围的 MCP 服务，提供作业与构建查询、参数化触发、控制台日志及完成轮询。",
+        "en": "An MCP server for a restricted Jenkins job scope, offering job and build inspection, parameterized triggers, console logs, and completion polling."
+      },
+      "url": "https://github.com/liozzazhang/mcp-jenkins",
+      "tags": [
+        "Python",
+        "MCP",
+        "Jenkins",
+        "CI/CD",
+        "Docker"
+      ],
+      "category": "ai",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "metrics-deploy",
+      "title": {
+        "zh": "metrics-deploy",
+        "en": "metrics-deploy"
+      },
+      "summary": {
+        "zh": "使用可复用插件、配置组合与目标定义，生成、校验并通过 Ansible 部署 Telegraf 采集配置。",
+        "en": "Render and validate Telegraf collector configuration from reusable plugins, profiles, and targets, then deploy it with Ansible."
+      },
+      "url": "https://github.com/liozzazhang/metrics-deploy",
+      "tags": [
+        "Python",
+        "Telegraf",
+        "Jinja2",
+        "Ansible"
+      ],
+      "category": "observability",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "BeneUI",
+      "title": {
+        "zh": "BeneUI · 界面主题底座",
+        "en": "BeneUI · UI Theme Foundation"
+      },
+      "summary": {
+        "zh": "为 Bene 系列组织字体、材质、配色与插件外观覆盖，并通过公开接口连接 EllesmereUI 的配置方案。",
+        "en": "A shared theme foundation for Bene addons, organizing fonts, textures, colors, and addon styling with EllesmereUI profile integration."
+      },
+      "url": "https://github.com/liozzazhang/BeneUI",
+      "tags": [
+        "UI Themes",
+        "Shared Components",
+        "EllesmereUI Integration",
+        "Lua"
+      ],
+      "category": "wow",
+      "sub_category": "interface",
+      "group": "wow",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false,
+      "features": {
+        "zh": [
+          "统一主题与详细外观偏好",
+          "共享 BeneKit 控件与主题继承",
+          "单插件外观覆盖",
+          "原生配置桥与只读诊断"
+        ],
+        "en": [
+          "Shared themes and appearance preferences",
+          "BeneKit components and theme inheritance",
+          "Per-addon style overrides",
+          "Native profile bridge and read-only diagnostics"
+        ]
+      }
+    },
+    {
+      "slug": "raid_playbook",
+      "title": {
+        "zh": "Bene Raid · 团长战术板",
+        "en": "Bene Raid · Raid Playbook"
+      },
+      "summary": {
+        "zh": "把团本报名、首领时间轴与减伤任务排在开打之前，并向团员同步任务和文字语音提醒。",
+        "en": "Plan raid signups, boss timelines, and cooldown assignments before the pull, then share tasks and provide text and voice reminders."
+      },
+      "url": "https://github.com/liozzazhang/raid_playbook",
+      "tags": [
+        "Raid Planning",
+        "Signups",
+        "Boss Timelines",
+        "Task Reminders"
+      ],
+      "category": "wow",
+      "sub_category": "planning",
+      "group": "wow",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false,
+      "features": {
+        "zh": [
+          "多来源活动报名名单",
+          "首领时间轴录制与编辑",
+          "减伤和任务分配与同步",
+          "团员任务 HUD 与中文语音提醒"
+        ],
+        "en": [
+          "Combined raid signup lists",
+          "Boss timeline recording and editing",
+          "Cooldown assignments and task sharing",
+          "Member task HUD and Chinese voice reminders"
+        ]
+      }
+    },
+    {
+      "slug": "rolling-update-controller",
+      "title": {
+        "zh": "rolling-update-controller",
+        "en": "rolling-update-controller"
+      },
+      "summary": {
+        "zh": "基于 Ansible 的服务软件包滚动更新控制器，整合阶段化执行、健康检查与失败恢复。",
+        "en": "An Ansible-based controller for rolling service package updates, combining staged execution, health checks, and recovery."
+      },
+      "url": "https://github.com/liozzazhang/rolling-update-controller",
+      "tags": [
+        "Ansible",
+        "Rolling Updates",
+        "Health Checks",
+        "Automation"
+      ],
+      "category": "platform",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "mcp-servicenow-chg",
+      "title": {
+        "zh": "mcp-servicenow-chg",
+        "en": "mcp-servicenow-chg"
+      },
+      "summary": {
+        "zh": "将 ServiceNow 的变更与事件查询，以及变更和操作文档管理接入 AI 客户端的 MCP 服务。",
+        "en": "An MCP server connecting AI clients to ServiceNow change and incident queries, with change and procedure record management."
+      },
+      "url": "https://github.com/liozzazhang/mcp-servicenow-chg",
+      "tags": [
+        "Python",
+        "MCP",
+        "ServiceNow",
+        "Tool Integration"
+      ],
+      "category": "ai",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "pg-repmgr-rolling-upgrade",
+      "title": {
+        "zh": "pg-repmgr-rolling-upgrade",
+        "en": "pg-repmgr-rolling-upgrade"
+      },
+      "summary": {
+        "zh": "面向 repmgr 管理的 PostgreSQL 集群，以 Ansible 编排操作系统与软件包滚动升级，并提供健康与复制检查。",
+        "en": "Ansible playbooks for rolling OS and package upgrades of repmgr-managed PostgreSQL clusters, with health and replication checks."
+      },
+      "url": "https://github.com/liozzazhang/pg-repmgr-rolling-upgrade",
+      "tags": [
+        "Ansible",
+        "PostgreSQL",
+        "repmgr",
+        "Rolling Upgrades"
+      ],
+      "category": "platform",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "airflow-etl-framework",
+      "title": {
+        "zh": "airflow-etl-framework",
+        "en": "airflow-etl-framework"
+      },
+      "summary": {
+        "zh": "以类组织 Airflow ETL 流程，提供配置加载、存储适配与任务通知等通用能力。",
+        "en": "A class-based Airflow ETL framework with configuration loading, storage adapters, and task notifications."
+      },
+      "url": "https://github.com/liozzazhang/airflow-etl-framework",
+      "tags": [
+        "Python",
+        "Apache Airflow",
+        "ETL",
+        "Docker"
+      ],
+      "category": "platform",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "https-proxy",
+      "title": {
+        "zh": "https-proxy",
+        "en": "https-proxy"
+      },
+      "summary": {
+        "zh": "以声明式 YAML 生成 nginx 配置，并通过 Ansible 交付容器化 HTTPS 反向代理的工具。",
+        "en": "A declarative YAML workflow that renders nginx configuration and deploys a containerized HTTPS reverse proxy with Ansible."
+      },
+      "url": "https://github.com/liozzazhang/https-proxy",
+      "tags": [
+        "Python",
+        "nginx",
+        "Ansible",
+        "Docker",
+        "TLS"
+      ],
+      "category": "platform",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "group_board",
+      "title": {
+        "zh": "Bene 集合石 · 预组队工具",
+        "en": "BeneStone · Group Finder"
+      },
+      "summary": {
+        "zh": "基于暴雪正式服预组队列表，整合队伍搜索、条件筛选、招募申请与队友记录。",
+        "en": "A retail group-finder interface built on Blizzard listings, combining search, filters, recruitment, applications, and player notes."
+      },
+      "url": "https://github.com/liozzazhang/group_board",
+      "tags": [
+        "Group Finder",
+        "Search & Filters",
+        "Recruitment",
+        "BeneUI Integration"
+      ],
+      "category": "wow",
+      "sub_category": "interface",
+      "group": "wow",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false,
+      "features": {
+        "zh": [
+          "暴雪预组队搜索与本地筛选",
+          "招募与申请信息管理",
+          "团长与队友记录",
+          "独立主题或跟随 BeneUI"
+        ],
+        "en": [
+          "Blizzard group search and local filters",
+          "Recruitment and application information",
+          "Leader and teammate notes",
+          "Standalone themes or BeneUI inheritance"
+        ]
+      }
+    },
+    {
+      "slug": "mplus_roadbook",
+      "title": {
+        "zh": "Bene Route · 大秘境路书",
+        "en": "Bene Route · Mythic+ Roadbook"
+      },
+      "summary": {
+        "zh": "收录玩家自己的 MDT 路线，逐波整理计划和标记，并在副本中通过 HUD、声音与语音展示。",
+        "en": "Collect your own MDT routes, annotate pull plans and markers, and display them through an in-dungeon HUD with audio reminders."
+      },
+      "url": "https://github.com/liozzazhang/mplus_roadbook",
+      "tags": [
+        "Mythic+",
+        "MDT Routes",
+        "Pull Planning",
+        "HUD"
+      ],
+      "category": "wow",
+      "sub_category": "planning",
+      "group": "wow",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false,
+      "features": {
+        "zh": [
+          "从玩家安装的 MDT 收录路线快照",
+          "逐波计划、备注与标记安排",
+          "波次 HUD 与语音播报",
+          "玩家触发的计划分享与标记宏"
+        ],
+        "en": [
+          "Route snapshots from the player's MDT installation",
+          "Pull plans, notes, and marker assignments",
+          "Pull HUD and voice announcements",
+          "Player-triggered plan sharing and marking macros"
+        ]
+      }
+    },
+    {
+      "slug": "key_skill_reminder",
+      "title": {
+        "zh": "Bene KeySpell · 读条提醒",
+        "en": "Bene KeySpell · Cast Alerts"
+      },
+      "summary": {
+        "zh": "把可读取的敌对读条集中显示在屏幕中央，并提供本地姓名板强调与分副本外观设置。",
+        "en": "Bring available hostile cast information to central bars, with local nameplate emphasis and per-dungeon appearance settings."
+      },
+      "url": "https://github.com/liozzazhang/key_skill_reminder",
+      "tags": [
+        "Cast Information",
+        "Nameplates",
+        "Visual Alerts",
+        "Lua"
+      ],
+      "category": "wow",
+      "sub_category": "information",
+      "group": "wow",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false,
+      "features": {
+        "zh": [
+          "中央读条与姓名板强调可分别开关",
+          "副本配置与外观调整",
+          "首领官方预警信息展示",
+          "配置导入导出与自检"
+        ],
+        "en": [
+          "Independent central cast bars and nameplate emphasis",
+          "Dungeon profiles and appearance controls",
+          "Official boss-warning display",
+          "Profile import/export and diagnostics"
+        ]
+      }
+    },
+    {
+      "slug": "self_skill_reminder",
+      "title": {
+        "zh": "Bene SelfSpell · 自身技能提醒",
+        "en": "Bene SelfSpell · Personal Reminders"
+      },
+      "summary": {
+        "zh": "为自身增益、技能、饰品与药水设置计时和组合条件，并通过文字、语音或音效提醒。",
+        "en": "Configure timers and combined conditions for personal buffs, abilities, trinkets, and potions, with text, voice, and sound reminders."
+      },
+      "url": "https://github.com/liozzazhang/self_skill_reminder",
+      "tags": [
+        "Buff Timers",
+        "Cooldown Reminders",
+        "Conditional Alerts",
+        "Voice"
+      ],
+      "category": "wow",
+      "sub_category": "information",
+      "group": "wow",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false,
+      "features": {
+        "zh": [
+          "持续时间与冷却提醒",
+          "技能、饰品、物品和被动触发监控",
+          "组合条件与多种提醒时机",
+          "计时条、图标和文字语音展示"
+        ],
+        "en": [
+          "Duration and cooldown reminders",
+          "Ability, trinket, item, and proc monitors",
+          "Combined conditions and alert timing",
+          "Timer bars, icons, text, and voice display"
+        ]
+      }
+    },
+    {
+      "slug": "engineering-evolution",
+      "title": {
+        "zh": "Engineering Evolution",
+        "en": "Engineering Evolution"
+      },
+      "summary": {
+        "zh": "以交互式图谱整理云基础设施、平台架构与 AI 工作流方向的个人工程经历。",
+        "en": "An interactive map of personal engineering experience across cloud infrastructure, platform architecture, and AI workflows."
+      },
+      "url": "https://github.com/liozzazhang/engineering-evolution",
+      "tags": [
+        "Engineering",
+        "Architecture",
+        "HTML",
+        "Documentation"
+      ],
+      "category": "visualization",
+      "group": "engineering",
+      "kind": "visualization",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "jumpserver-helper",
+      "title": {
+        "zh": "jumpserver-helper",
+        "en": "jumpserver-helper"
+      },
+      "summary": {
+        "zh": "用于 SSH 跳板机延迟探测、选择与目标别名管理的 Shell 工具集，支持生成 ProxyJump 配置。",
+        "en": "Shell tools for SSH jump-host latency probing, selection, and target aliases, with generated ProxyJump configuration."
+      },
+      "url": "https://github.com/liozzazhang/jumpserver-helper",
+      "tags": [
+        "Shell",
+        "SSH",
+        "ProxyJump",
+        "CLI"
+      ],
+      "category": "security",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "py-duo",
+      "title": {
+        "zh": "py-duo",
+        "en": "py-duo"
+      },
+      "summary": {
+        "zh": "面向 Duo 等身份提供方的 Python SAML SP 客户端，提供身份校验、组与属性策略、FastAPI 适配和调试工具。",
+        "en": "A Python SAML SP client for Duo and other identity providers, with identity validation, group and attribute policies, a FastAPI adapter, and debugging tools."
+      },
+      "url": "https://github.com/liozzazhang/py-duo",
+      "tags": [
+        "Python",
+        "SAML",
+        "SSO",
+        "Duo",
+        "FastAPI"
+      ],
+      "category": "security",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "pyrel",
+      "title": {
+        "zh": "pyrel",
+        "en": "pyrel"
+      },
+      "summary": {
+        "zh": "按配置构建 Python 包，并向启用的 Git、GitHub Releases 或 PyPI 目标执行发布的命令行工具。",
+        "en": "A CLI that builds Python packages and publishes to enabled Git, GitHub Releases, or PyPI targets from a shared configuration."
+      },
+      "url": "https://github.com/liozzazhang/pyrel",
+      "tags": [
+        "Python",
+        "CLI",
+        "Packaging",
+        "PyPI",
+        "Release Automation"
+      ],
+      "category": "tools",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "set_mtu",
+      "title": {
+        "zh": "set_mtu",
+        "en": "set_mtu"
+      },
+      "summary": {
+        "zh": "用于查询 Linux 网卡 MTU 状态，并进行临时与持久化设置的 Shell 工具。",
+        "en": "A Shell utility for inspecting Linux interface MTU values and applying temporary or persistent settings."
+      },
+      "url": "https://github.com/liozzazhang/set_mtu",
+      "tags": [
+        "Shell",
+        "Linux",
+        "Networking",
+        "CLI"
+      ],
+      "category": "tools",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "super-dict",
+      "title": {
+        "zh": "super-dict",
+        "en": "super-dict"
+      },
+      "summary": {
+        "zh": "为 Python 嵌套字典提供点路径读取、写入、合并与展开，并支持自定义路径分隔符。",
+        "en": "A Python nested-dictionary wrapper supporting dot-path access, updates, merges, flattening, and custom path separators."
+      },
+      "url": "https://github.com/liozzazhang/super-dict",
+      "tags": [
+        "Python",
+        "Data Structures",
+        "Developer Tools"
+      ],
+      "category": "tools",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": false
+    },
+    {
+      "slug": "CI-CD",
+      "title": {
+        "zh": "CI-CD",
+        "en": "CI-CD"
+      },
+      "summary": {
+        "zh": "早期 GitLab CI/CD 流水线架构与集成说明，配有流程图和示例文档。",
+        "en": "Early architecture and integration notes for GitLab CI/CD pipelines, with diagrams and examples."
+      },
+      "url": "https://github.com/liozzazhang/CI-CD",
+      "tags": [
+        "GitLab CI",
+        "CI/CD",
+        "Architecture",
+        "Documentation"
+      ],
+      "category": "archive",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": true
+    },
+    {
+      "slug": "docker-builder",
+      "title": {
+        "zh": "docker-builder",
+        "en": "docker-builder"
+      },
+      "summary": {
+        "zh": "早期 Docker 镜像构建示例，包含 Makefile、GitLab CI 配置及构建流程说明。",
+        "en": "An early Docker image-building example with Makefiles, GitLab CI configuration, and workflow notes."
+      },
+      "url": "https://github.com/liozzazhang/docker-builder",
+      "tags": [
+        "Docker",
+        "GitLab CI",
+        "Makefile",
+        "Image Builds"
+      ],
+      "category": "archive",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": true
+    },
+    {
+      "slug": "ecs-helper",
+      "title": {
+        "zh": "ecs-helper",
+        "en": "ecs-helper"
+      },
+      "summary": {
+        "zh": "已归档的早期部署辅助代码，记录基于 Consul 的服务自动部署实践。",
+        "en": "Archived early deployment-helper code documenting Consul-driven service deployment automation."
+      },
+      "url": "https://github.com/liozzazhang/ecs-helper",
+      "tags": [
+        "Shell",
+        "Consul",
+        "Deployment Automation",
+        "Historical Code"
+      ],
+      "category": "archive",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": true,
+      "legacy": true
+    },
+    {
+      "slug": "events_handler",
+      "title": {
+        "zh": "events_handler",
+        "en": "events_handler"
+      },
+      "summary": {
+        "zh": "已归档的早期个人 Python 示例仓库，提供简要运行说明，具体功能未获 README 充分说明。",
+        "en": "An archived early personal Python sample repository with brief run instructions; its README does not sufficiently explain its functionality."
+      },
+      "url": "https://github.com/liozzazhang/events_handler",
+      "tags": [
+        "Python",
+        "Examples",
+        "Historical Code"
+      ],
+      "category": "archive",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": true,
+      "legacy": true
+    },
+    {
+      "slug": "heketi-glusterfs-cluster",
+      "title": {
+        "zh": "heketi-glusterfs-cluster",
+        "en": "heketi-glusterfs-cluster"
+      },
+      "summary": {
+        "zh": "基于 Helm 的 GlusterFS 与 Heketi 部署示例及安装文档，记录早期 Kubernetes 存储实践。",
+        "en": "An early Helm-based GlusterFS and Heketi deployment example with installation notes for Kubernetes storage."
+      },
+      "url": "https://github.com/liozzazhang/heketi-glusterfs-cluster",
+      "tags": [
+        "Kubernetes",
+        "Helm",
+        "GlusterFS",
+        "Heketi",
+        "Storage"
+      ],
+      "category": "archive",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": true
+    },
+    {
+      "slug": "JARVIS",
+      "title": {
+        "zh": "JARVIS",
+        "en": "JARVIS"
+      },
+      "summary": {
+        "zh": "早期个人 Python 代码仓库，README 仅标注运维管理方向，具体功能未获充分说明。",
+        "en": "An early personal Python code repository whose brief README mentions operations management without detailing its features."
+      },
+      "url": "https://github.com/liozzazhang/JARVIS",
+      "tags": [
+        "Python",
+        "Historical Code",
+        "Reference"
+      ],
+      "category": "archive",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": true
+    },
+    {
+      "slug": "kubernetes-handbook",
+      "title": {
+        "zh": "Kubernetes Handbook · Fork",
+        "en": "Kubernetes Handbook · Fork"
+      },
+      "summary": {
+        "zh": "Jimmy Song 的 Kubernetes 中文参考手册 Fork，作为云原生学习资料与参考索引收藏。",
+        "en": "A fork of Jimmy Song’s Chinese Kubernetes handbook, kept as a cloud-native learning and reference collection."
+      },
+      "url": "https://github.com/liozzazhang/kubernetes-handbook",
+      "tags": [
+        "Kubernetes",
+        "Cloud Native",
+        "Documentation"
+      ],
+      "category": "archive",
+      "group": "engineering",
+      "kind": "reference",
+      "visibility": "public",
+      "fork": true,
+      "archived": false,
+      "legacy": true
+    },
+    {
+      "slug": "message-transfer",
+      "title": {
+        "zh": "Cloopy / message-transfer",
+        "en": "Cloopy / message-transfer"
+      },
+      "summary": {
+        "zh": "早期 Go 消息转发服务，支持将 Grafana 告警 Webhook 转换为企业微信机器人通知。",
+        "en": "An earlier Go message relay that converts Grafana alert webhooks into WeCom bot notifications."
+      },
+      "url": "https://github.com/liozzazhang/message-transfer",
+      "tags": [
+        "Go",
+        "Grafana",
+        "Webhooks",
+        "WeCom"
+      ],
+      "category": "archive",
+      "group": "engineering",
+      "kind": "source",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": true
+    },
+    {
+      "slug": "wowaddones",
+      "title": {
+        "zh": "WoW 旧版插件与配置收藏",
+        "en": "WoW Addon & Configuration Archive"
+      },
+      "summary": {
+        "zh": "保留早期使用过的第三方插件与界面配置，记录个人游戏环境的历史形态。",
+        "en": "A historical collection of third-party addons and interface configuration, recording an earlier personal game setup."
+      },
+      "url": "https://github.com/liozzazhang/wowaddones",
+      "tags": [
+        "Historical Archive",
+        "Third-party Addons",
+        "UI Configuration",
+        "2018"
+      ],
+      "category": "wow",
+      "sub_category": "collection",
+      "group": "wow",
+      "kind": "collection",
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "legacy": true,
+      "features": {
+        "zh": [
+          "历史插件目录",
+          "界面配置收藏",
+          "第三方作者归属保留"
+        ],
+        "en": [
+          "Historical addon directories",
+          "Interface-configuration collection",
+          "Separate third-party attribution"
+        ]
+      }
+    }
+  ]
+}
