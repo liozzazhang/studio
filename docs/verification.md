@@ -10,3 +10,10 @@
 - GitHub Actions先检查仓库可见性，再构建并发布site/；使用固定官方Actions SHA及所需权限，令牌只供构建检查使用，不进入前端资源。
 - 本地CLI可见性检查已确认29项当前均为public。
 - 线上状态以GitHub Actions和Pages部署结果为准；后续部署记录由实际成功结果补充。
+
+## 线上发布结果
+
+- 2026-11-19 已创建公开仓库 `liozzazhang/studio` 并启用 GitHub Actions Pages，HTTPS 强制开启。
+- [部署 44478097083](https://github.com/liozzazhang/studio/actions/runs/44478097083) 已成功：29项公开状态检查、生成、上传和部署步骤均通过。部署源码提交为 `1657787965e83f3ab4344cae682632c24792a646`。
+- [Studio](https://liozzazhang.github.io/studio/)、个人主页、全部项目、工程工具箱与WoW目录均已在线核对，未知路径返回404。
+- 实际浏览器确认线上搜索可筛出对应项目，清空后恢复29项；最终线上首页已保留为浏览器输出。

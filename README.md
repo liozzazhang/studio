@@ -2,7 +2,9 @@
 
 个人主页与公开作品目录，使用 GitHub Pages 静态托管。导航首页连接个人介绍、全部公开项目、工程工具箱与 WoW 插件目录。
 
-**当前阶段：页面已完成，发布状态以 GitHub Actions/Pages 为准。** 目标仓库为 `liozzazhang/studio`，目标入口为 `https://liozzazhang.github.io/studio/`；本文不以页面文件已生成来断言发布成功。
+**已上线**：[访问 Studio](https://liozzazhang.github.io/studio/)。2026-11-19 已核对首页、个人主页、全部项目、工程与 WoW 目录，以及线上关键词搜索。
+
+[成功部署记录](https://github.com/liozzazhang/studio/actions/runs/44478097083) · [仓库](https://github.com/liozzazhang/studio)
 
 项目目录按 **2026-11-19（Asia/Shanghai）** 的公开快照整理，共 **29 个项目、8 个分类**，不含 `studio` 自身，也不包含私有仓库。
 
