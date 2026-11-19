@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ai",
+    "order": 10,
+    "title": {"zh": "AI 应用工程与智能运维", "en": "AI workflow engineering"},
+    "description": {"zh": "面向 AI 应用工程、智能运维与平台方向岗位：AI 运维工作流、Skills 工程体系、GitOps 排障与支撑它们的执行平台。", "en": "For AI application engineering, intelligent operations and platform roles: AI operations workflows, skill engineering, GitOps diagnosis and the execution platforms behind them."},
+    "files": [
+      {"lang": "zh", "format": "pdf", "file": "Lei_Zhang_AI_Resume_ZH.pdf"},
+      {"lang": "zh", "format": "docx", "file": "Lei_Zhang_AI_Resume_ZH.docx"},
+      {"lang": "en", "format": "pdf", "file": "Lei_Zhang_AI_Resume_EN.pdf"},
+      {"lang": "en", "format": "docx", "file": "Lei_Zhang_AI_Resume_EN.docx"}
+    ]
+  },
+  {
+    "id": "technical",
+    "order": 20,
+    "title": {"zh": "平台架构与云基础设施", "en": "Platform architecture & cloud infrastructure"},
+    "description": {"zh": "面向架构师与技术负责人岗位：领域建模、框架抽象、核心实现与安全交付的技术细节。", "en": "For architect and technical lead roles: domain modeling, framework design, core implementation and secure delivery in technical detail."},
+    "files": [
+      {"lang": "zh", "format": "pdf", "file": "Lei_Zhang_Resume_Technical_ZH.pdf"},
+      {"lang": "zh", "format": "docx", "file": "Lei_Zhang_Resume_Technical_ZH.docx"},
+      {"lang": "en", "format": "pdf", "file": "Lei_Zhang_Resume_Technical_EN.pdf"},
+      {"lang": "en", "format": "docx", "file": "Lei_Zhang_Resume_Technical_EN.docx"}
+    ]
+  },
+  {
+    "id": "management",
+    "order": 30,
+    "title": {"zh": "云平台工程与技术管理", "en": "Engineering management & cloud platforms"},
+    "description": {"zh": "面向工程经理与技术管理岗位：技术方向、团队领导、跨团队复用、服务接管与工程规范。", "en": "For engineering management roles: technical direction, team leadership, cross-team reuse, service transitions and engineering standards."},
+    "files": [
+      {"lang": "zh", "format": "pdf", "file": "Lei_Zhang_Resume_Management_ZH.pdf"},
+      {"lang": "zh", "format": "docx", "file": "Lei_Zhang_Resume_Management_ZH.docx"},
+      {"lang": "en", "format": "pdf", "file": "Lei_Zhang_Resume_Management_EN.pdf"},
+      {"lang": "en", "format": "docx", "file": "Lei_Zhang_Resume_Management_EN.docx"}
+    ]
+  },
+  {
+    "id": "casebook",
+    "order": 40,
+    "title": {"zh": "AI 方向深度项目经历", "en": "AI engineering project casebook"},
+    "description": {"zh": "13–14 页的项目补充材料：每个项目的背景、设计理念与关键决策、核心实现、成果，以及与 AI 工作流的关联。", "en": "A 13–14 page project supplement: context, design decisions, core implementation, outcomes and AI workflow relevance for each project."},
+    "files": [
+      {"lang": "zh", "format": "pdf", "file": "Lei_Zhang_AI_Project_Casebook_ZH.pdf"},
+      {"lang": "zh", "format": "docx", "file": "Lei_Zhang_AI_Project_Casebook_ZH.docx"},
+      {"lang": "en", "format": "pdf", "file": "Lei_Zhang_AI_Project_Casebook_EN.pdf"},
+      {"lang": "en", "format": "docx", "file": "Lei_Zhang_AI_Project_Casebook_EN.docx"}
+    ]
+  }
+]

@@ -18,7 +18,8 @@ function applyFilters() {
     card.hidden = !(categoryMatch && visibilityMatch && searchMatch);
     if (!card.hidden) visible += 1;
   }
-  countLabel.textContent = document.documentElement.lang === 'en' ? `Showing ${visible} of ${cards.length} projects` : `显示 ${visible} / ${cards.length} 个项目`;
+  const template = countLabel.getAttribute(document.documentElement.lang === 'en' ? 'data-filtered-en' : 'data-filtered-zh');
+  countLabel.textContent = template.replace('{visible}', String(visible)).replace('{total}', String(cards.length));
   clearButton.hidden = !searchInput.value;
   emptyState.hidden = visible !== 0;
 }

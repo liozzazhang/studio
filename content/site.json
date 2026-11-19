@@ -2,6 +2,7 @@
   "owner": "liozzazhang",
   "base_path": "/studio/",
   "origin": "https://liozzazhang.github.io",
+  "default_language": "en",
   "checked_at": "2026-11-19",
   "featured_limit": 6
 }

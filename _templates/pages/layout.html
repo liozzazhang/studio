@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" class="no-js" data-title-zh="{{TITLE_ZH}}" data-title-en="{{TITLE_EN}}">
+<html lang="{{HTML_LANG}}" class="no-js" data-default-language="{{LANG}}" data-title-zh="{{TITLE_ZH}}" data-title-en="{{TITLE_EN}}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,14 +17,14 @@
   <link rel="stylesheet" href="/studio/assets/studio.css">
   <script src="/studio/assets/studio.js" defer></script>
   {{SCRIPTS}}
-  <title>{{TITLE_ZH}}</title>
+  <title>{{TITLE}}</title>
 </head>
 <body>
-  <a class="skip-link" href="#main" data-zh="跳到主要内容" data-en="Skip to content">跳到主要内容</a>
+  {{SKIP_LINK}}
   {{HEADER}}
   <main id="main">{{BODY}}</main>
   {{FOOTER}}
   {{DIALOG}}
-  <noscript><p class="noscript">当前为中文版；项目与履历可直接阅读，私有仓库链接会打开权限申请说明。启用 JavaScript 可切换语言与筛选项目。 / English and project filtering require JavaScript.</p></noscript>
+  <noscript><p class="noscript">{{NOSCRIPT}}</p></noscript>
 </body>
 </html>

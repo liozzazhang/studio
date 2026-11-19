@@ -11,6 +11,17 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / 'content'
 SITE = ROOT / 'site'
 SLUG = re.compile(r'[A-Za-z0-9][A-Za-z0-9_.-]{0,99}')
+DOWNLOAD_FILE = re.compile(r'[A-Za-z0-9][A-Za-z0-9_.-]{0,119}\.(pdf|docx)')
+DOWNLOAD_SIGNATURES = {'pdf': b'%PDF-', 'docx': b'PK\x03\x04'}
+MAX_DOWNLOAD_BYTES = 5 * 1024 * 1024
+HOME_SECTIONS = ('highlights', 'focus', 'experience', 'evolution', 'selected', 'resume', 'beyond', 'contact')
+STALE_OUTPUT = re.compile(r'projects/[A-Za-z0-9_.-]+/(?:access/)?index\.html|downloads/[A-Za-z0-9][A-Za-z0-9_.-]*\.(?:pdf|docx)')
+
+# Shared copy for the current build; filled by build() before any page is rendered.
+UI = {}
+PROFILE = {}
+DOWNLOADS = []
+LANGUAGE = {'default': 'zh'}
 
 
 def read_json(path):
@@ -28,7 +39,28 @@ def bi(value, en=None, tag='span', attrs=''):
         value = {'zh': value, 'en': en}
     if not isinstance(value, dict) or not all(isinstance(value.get(lang), str) for lang in ('zh', 'en')):
         raise ValueError('Bilingual copy needs zh and en text')
-    return f'<{tag} data-zh="{esc(value["zh"])}" data-en="{esc(value["en"])}"{(" " + attrs) if attrs else ""}>{esc(value["zh"])}</{tag}>'
+    return f'<{tag} data-zh="{esc(value["zh"])}" data-en="{esc(value["en"])}"{(" " + attrs) if attrs else ""}>{esc(value[LANGUAGE["default"]])}</{tag}>'
+
+
+def txt(value, tag='span', attrs=''):
+    """Render language-neutral text or bilingual copy."""
+    if isinstance(value, str):
+        return f'<{tag}{(" " + attrs) if attrs else ""}>{esc(value)}</{tag}>'
+    return bi(value, tag=tag, attrs=attrs)
+
+
+def pick(value):
+    return value[LANGUAGE['default']] if isinstance(value, dict) else value
+
+
+def fill(value, **values):
+    def apply(text):
+        for key, replacement in values.items():
+            text = text.replace('{' + key + '}', str(replacement))
+        return text
+    if isinstance(value, dict):
+        return {lang: apply(value[lang]) for lang in ('zh', 'en')}
+    return apply(value)
 
 
 def url(value):
@@ -42,6 +74,8 @@ def load_content():
     config = read_json(CONTENT / 'site.json')
     if config['owner'] != 'liozzazhang' or config['base_path'] != '/studio/' or config['origin'] != 'https://liozzazhang.github.io':
         raise ValueError('Unexpected publication destination')
+    if config.get('default_language', 'zh') not in ('zh', 'en'):
+        raise ValueError('default_language must be zh or en')
     profile = read_json(CONTENT / 'profile.json')
     categories = read_json(CONTENT / 'categories.json')
     category_ids = set()
@@ -84,6 +118,48 @@ def load_content():
     if not projects:
         raise ValueError('No project modules found')
     return config, profile, categories, projects
+
+
+def load_ui():
+    ui = read_json(CONTENT / 'ui.json')
+    if not isinstance(ui.get('home_sections'), list) or not set(ui['home_sections']) <= set(HOME_SECTIONS) or len(set(ui['home_sections'])) != len(ui['home_sections']):
+        raise ValueError('ui.json home_sections must list known sections once')
+    return ui
+
+
+def load_downloads():
+    """Read the reviewed resume manifest; files not listed there are never published."""
+    manifest = CONTENT / 'downloads' / 'downloads.json'
+    if not manifest.exists():
+        return []
+    groups, ids, names = [], set(), set()
+    for group in read_json(manifest):
+        if not re.fullmatch(r'[a-z][a-z0-9-]*', str(group.get('id', ''))) or group['id'] in ids:
+            raise ValueError('Invalid or duplicate download group')
+        ids.add(group['id'])
+        bi(group['title'])
+        bi(group['description'])
+        if 'order' in group and (type(group['order']) is not int or group['order'] < 0):
+            raise ValueError('Download order must be a nonnegative integer')
+        files = []
+        for entry in group.get('files', []):
+            name = str(entry.get('file', ''))
+            match = DOWNLOAD_FILE.fullmatch(name)
+            if not match or '..' in name or entry.get('format') != match.group(1) or entry.get('lang') not in ('zh', 'en') or name.casefold() in names:
+                raise ValueError(f'Invalid download entry: {name}')
+            names.add(name.casefold())
+            path = CONTENT / 'downloads' / 'files' / name
+            if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_DOWNLOAD_BYTES:
+                raise ValueError(f'Download must be a regular file within the size limit: {name}')
+            data = path.read_bytes()
+            if not data.startswith(DOWNLOAD_SIGNATURES[entry['format']]):
+                raise ValueError(f'Download content does not match its format: {name}')
+            files.append({**entry, 'data': data})
+        if not files:
+            raise ValueError('Download groups need at least one file')
+        groups.append({**group, 'files': files})
+    groups.sort(key=lambda group: (group.get('order', 1000), group['id']))
+    return groups
 
 
 def inline_markdown(text):
@@ -141,31 +217,37 @@ def markdown(path):
 
 
 def header(active='home'):
-    links = [('home', '/studio/#about', '关于我', 'About'), ('experience', '/studio/#experience', '履历', 'Experience'), ('evolution', '/studio/#evolution', '工程演进', 'Evolution'), ('projects', '/studio/projects/', '作品', 'Projects')]
-    return '<header class="site-header shell"><a class="brand" href="/studio/">Lei Zhang<span> / Liozza</span></a><nav class="main-nav" aria-label="Main navigation">' + ''.join(f'<a href="{href}"' + (' aria-current="page"' if key == active else '') + '>' + bi(zh, en) + '</a>' for key, href, zh, en in links) + '</nav><div class="header-actions"><button type="button" class="language-toggle" data-language-toggle aria-label="Switch to English"><span data-language-label>EN</span></button><a class="contact-nav" href="/studio/#contact">' + bi('联系我 ↗', 'Contact ↗') + '</a></div></header>'
+    copy = UI['header']
+    links = ''.join(f'<a href="{esc(link["href"])}"' + (' aria-current="page"' if link['key'] == active else '') + '>' + bi(link['label']) + '</a>' for link in UI['nav'])
+    resume = '<a class="resume-nav" href="/studio/#resume">' + bi(copy['resume']) + '</a>' if DOWNLOADS else ''
+    return '<header class="site-header shell"><a class="brand" href="/studio/">' + esc(PROFILE['name']) + '<span> / ' + esc(PROFILE['alias']) + '</span></a><nav class="main-nav" aria-label="' + esc(copy['nav_label']) + '">' + links + '</nav><div class="header-actions"><button type="button" class="language-toggle" data-language-toggle aria-label="' + ('切换为中文' if LANGUAGE['default'] == 'en' else 'Switch to English') + '"><span data-language-label>' + ('中文' if LANGUAGE['default'] == 'en' else 'EN') + '</span></button>' + resume + '<a class="contact-nav" href="/studio/#contact">' + bi(copy['contact']) + '</a></div></header>'
 
 
 def footer():
-    return '<footer class="site-footer shell"><span>© <span data-year>2026</span> Lei Zhang / Liozza</span><a href="/studio/projects/">' + bi('项目目录', 'Project index') + '</a><a href="#main">' + bi('回到顶部 ↑', 'Back to top ↑') + '</a></footer>'
+    copy = UI['footer']
+    return '<footer class="site-footer shell"><span>© <span data-year>2026</span> ' + esc(PROFILE['name']) + ' / ' + esc(PROFILE['alias']) + '</span><a href="/studio/projects/">' + bi(copy['projects']) + '</a><a href="#main">' + bi(copy['top']) + '</a></footer>'
 
 
-def email_link(profile, slug=None):
-    address = profile['contacts'].get('email')
+def email_link(slug=None):
+    address = PROFILE['contacts'].get('email')
     if not address or not re.fullmatch(r'[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+', address):
         raise ValueError('A valid contact email is required for access requests')
     if not slug:
         return 'mailto:' + address
-    query = urlencode({'subject': f'Repository access request: {slug}', 'body': f'Hi Lei,\n\nI would like to request access to {slug}.\nGitHub username:\nPurpose / interview context:\nWhat I would like to review:\n\nThank you.'}, quote_via=quote)
+    copy = UI['access']
+    query = urlencode({'subject': fill(copy['email_subject'], slug=slug), 'body': fill(copy['email_body'], slug=slug)}, quote_via=quote)
     return 'mailto:' + address + '?' + query
 
 
-def access_dialog(profile):
-    return '<dialog id="access-dialog" aria-labelledby="access-title" aria-describedby="access-description"><div class="dialog-top"><span class="eyebrow">REPOSITORY ACCESS</span><button type="button" data-close-access aria-label="Close">×</button></div><h2 id="access-title">' + bi('申请查看项目', 'Request repository access') + '</h2><p class="access-repository" data-access-name></p><p id="access-description">' + bi('这个仓库是私有的。你可以先阅读本站的项目介绍；GitHub 负责验证实际访问权限。', 'This repository is private. You can read the project overview here; GitHub controls access to the repository itself.') + '</p><ol><li>' + bi('通过邮件提供你的 GitHub 用户名。', 'Email me your GitHub username.') + '</li><li>' + bi('注明希望查看的项目、用途或面试背景。', 'Include the project and your purpose or interview context.') + '</li><li>' + bi('我会根据可分享范围回复，并在合适时邀请协作。', 'I will reply with what can be shared and invite you when appropriate.') + '</li></ol><div class="dialog-actions"><a class="button button-dark" data-access-email href="' + esc(email_link(profile)) + '">' + bi('发邮件申请 ↗', 'Request by email ↗') + '</a><a class="text-link" data-access-github href="https://github.com/liozzazhang" target="_blank" rel="noopener noreferrer">' + bi('已有权限，前往 GitHub ↗', 'Already have access? GitHub ↗') + '</a></div></dialog>'
+def access_dialog():
+    copy = UI['access']
+    return '<dialog id="access-dialog" aria-labelledby="access-title" aria-describedby="access-description"><div class="dialog-top"><span class="eyebrow">' + esc(copy['eyebrow']) + '</span><button type="button" data-close-access aria-label="' + esc(copy['close']) + '">×</button></div><h2 id="access-title">' + bi(copy['title']) + '</h2><p class="access-repository" data-access-name></p><p id="access-description">' + bi(copy['description']) + '</p><ol>' + ''.join('<li>' + bi(step) + '</li>' for step in copy['steps']) + '</ol><div class="dialog-actions"><a class="button button-dark" data-access-email href="' + esc(email_link()) + '">' + bi(copy['email_button']) + '</a><a class="text-link" data-access-github href="https://github.com/liozzazhang" target="_blank" rel="noopener noreferrer">' + bi(copy['github_button']) + '</a></div></dialog>'
 
 
-def layout(title, description, body, route='', active='home', scripts='', profile=None):
+def layout(title, description, body, route='', active='home', scripts=''):
     template = (ROOT / '_templates/pages/layout.html').read_text(encoding='utf-8')
-    values = {'TITLE_ZH': esc(title['zh']), 'TITLE_EN': esc(title['en']), 'DESCRIPTION': esc(description), 'URL': 'https://liozzazhang.github.io/studio/' + route, 'HEADER': header(active), 'BODY': body, 'FOOTER': footer(), 'SCRIPTS': scripts, 'DIALOG': access_dialog(profile) if profile else ''}
+    language = LANGUAGE['default']
+    values = {'LANG': language, 'HTML_LANG': 'en' if language == 'en' else 'zh-CN', 'TITLE': esc(title[language]), 'TITLE_ZH': esc(title['zh']), 'TITLE_EN': esc(title['en']), 'DESCRIPTION': esc(pick(description)), 'URL': 'https://liozzazhang.github.io/studio/' + route, 'HEADER': header(active), 'BODY': body, 'FOOTER': footer(), 'SCRIPTS': scripts, 'DIALOG': access_dialog(), 'SKIP_LINK': bi(UI['skip_link'], tag='a', attrs='class="skip-link" href="#main"'), 'NOSCRIPT': esc(UI['noscript'])}
     for key, value in values.items():
         template = template.replace('{{' + key + '}}', value)
     if re.search(r'\{\{[A-Z_]+\}\}', template):
@@ -173,144 +255,248 @@ def layout(title, description, body, route='', active='home', scripts='', profil
     return '\n'.join(line.rstrip() for line in template.splitlines()) + '\n'
 
 
-def source_link(item, profile):
+def source_link(item):
+    copy = UI['project']
     if item['visibility'] == 'private':
-        return f'<a class="project-source private-source" href="/studio/projects/{esc(item["slug"])}/access/" data-private-repo="{esc(item["slug"])}" data-request-email="{esc(email_link(profile,item["slug"]))}" data-repository-url="{esc(item["url"])}">' + bi('申请访问 ↗', 'Request access ↗') + '</a>'
-    return f'<a class="project-source" href="{esc(item["url"])}" target="_blank" rel="noopener noreferrer">' + bi('查看仓库 ↗', 'View source ↗') + '</a>'
+        return f'<a class="project-source private-source" href="/studio/projects/{esc(item["slug"])}/access/" data-private-repo="{esc(item["slug"])}" data-request-email="{esc(email_link(item["slug"]))}" data-repository-url="{esc(item["url"])}">' + bi(copy['request_access']) + '</a>'
+    return f'<a class="project-source" href="{esc(item["url"])}" target="_blank" rel="noopener noreferrer">' + bi(copy['view_source']) + '</a>'
 
 
 def badge(item):
-    badges = [bi('私有', 'Private') if item['visibility'] == 'private' else bi('公开', 'Public')]
-    for flag, zh, en in [('fork','Fork 参考','Reference fork'), ('archived','已归档','Archived')]:
+    labels = UI['project']['badges']
+    badges = [bi(labels['private'] if item['visibility'] == 'private' else labels['public'])]
+    for flag in ('fork', 'archived'):
         if item.get(flag):
-            badges.append(bi(zh, en))
+            badges.append(bi(labels[flag]))
     if item.get('status'):
         badges.append(bi(item['status']))
     elif item.get('kind') == 'collection':
-        badges.append(bi('配置收藏', 'Collection'))
+        badges.append(bi(labels['collection']))
     elif item.get('legacy'):
-        badges.append(bi('早期实践', 'Earlier work'))
+        badges.append(bi(labels['legacy']))
     return '<div class="project-badges">' + ''.join(badges) + '</div>'
 
 
-def project_card(item, categories, profile, compact=False):
+def project_card(item, categories):
     category = next(category for category in categories if category['id'] == item['category'])
     search = ' '.join([item['slug'], *item['title'].values(), *item['summary'].values(), *item['tags']]).casefold()
-    return f'<article class="catalog-card" data-category="{esc(item["category"])}" data-visibility="{item["visibility"]}" data-search="{esc(search)}"><div class="project-top">' + bi(category) + badge(item) + '</div><h3><a href="/studio/projects/' + esc(item['slug']) + '/">' + bi(item['title']) + '</a></h3>' + bi(item['summary'], tag='p', attrs='class="project-summary"') + '<ul class="project-tags">' + ''.join('<li>' + esc(tag) + '</li>' for tag in item['tags'][:4]) + '</ul><div class="project-bottom"><a class="text-link" href="/studio/projects/' + esc(item['slug']) + '/">' + bi('项目介绍 →', 'Read overview →') + '</a>' + source_link(item, profile) + '</div></article>'
+    return f'<article class="catalog-card" data-category="{esc(item["category"])}" data-visibility="{item["visibility"]}" data-search="{esc(search)}"><div class="project-top">' + bi(category) + badge(item) + '</div><h3><a href="/studio/projects/' + esc(item['slug']) + '/">' + bi(item['title']) + '</a></h3>' + bi(item['summary'], tag='p', attrs='class="project-summary"') + '<ul class="project-tags">' + ''.join('<li>' + esc(tag) + '</li>' for tag in item['tags'][:4]) + '</ul><div class="project-bottom"><a class="text-link" href="/studio/projects/' + esc(item['slug']) + '/">' + bi(UI['project']['overview']) + '</a>' + source_link(item) + '</div></article>'
 
 
-def section_title(number, zh, en, note=None):
-    return f'<div class="section-title"><span class="section-number">{number}</span><h2>' + bi(zh, en) + '</h2>' + (bi(note, tag='p') if note else '') + '</div>'
+def section_title(number, copy):
+    return f'<div class="section-title"><span class="section-number">{number}</span><h2>' + bi(copy['title']) + '</h2>' + (bi(copy['note'], tag='p') if copy.get('note') else '') + '</div>'
 
 
-def contacts(profile, large=False):
-    contact = profile['contacts']
-    links = '<a href="' + esc(email_link(profile)) + '"><span>Email</span><strong>' + esc(contact['email']) + '</strong><i>↗</i></a>'
-    for field, label in [('linkedin', 'LinkedIn'), ('github', 'GitHub')]:
+def contacts(large=False):
+    contact, labels = PROFILE['contacts'], UI['contacts']
+    links = '<a href="' + esc(email_link()) + '"><span>' + esc(labels['email']) + '</span><strong>' + esc(contact['email']) + '</strong><i>↗</i></a>'
+    for field in ('linkedin', 'github'):
         if contact.get(field):
             value = url(contact[field])
-            links += '<a href="' + esc(value) + '" target="_blank" rel="noopener noreferrer"><span>' + label + '</span><strong>' + ('Lei Zhang' if field == 'linkedin' else '@liozzazhang') + '</strong><i>↗</i></a>'
+            links += '<a href="' + esc(value) + '" target="_blank" rel="noopener noreferrer"><span>' + esc(labels[field]) + '</span><strong>' + esc(contact[field + '_label']) + '</strong><i>↗</i></a>'
     if contact.get('wechat'):
-        links += '<div class="contact-value"><span>WeChat</span><strong>' + esc(contact['wechat']) + '</strong></div>'
+        links += '<div class="contact-value"><span>' + esc(labels['wechat']) + '</span><strong>' + esc(contact['wechat']) + '</strong></div>'
     else:
-        links += '<a href="' + esc(email_link(profile)) + '"><span>WeChat</span><strong>' + bi('通过邮件联系获取', 'Available by email') + '</strong><i>↗</i></a>'
+        links += '<a href="' + esc(email_link()) + '"><span>' + esc(labels['wechat']) + '</span><strong>' + bi(labels['wechat_fallback']) + '</strong><i>↗</i></a>'
     return '<div class="contact-list' + (' is-large' if large else '') + '">' + links + '</div>'
 
 
-def home(config, profile, categories, projects):
-    intro = ''.join(bi(value, tag='p') for value in profile['intro'])
-    hero = '<section class="profile-hero shell" id="about"><div class="hero-main"><p class="eyebrow">PERSONAL PROFILE / ENGINEERING & PRACTICE</p><h1>' + esc(profile['name']) + '<span>' + esc(profile['alias']) + '</span></h1>' + bi(profile['role'], tag='p', attrs='class="hero-role"') + '<div class="hero-intro">' + intro + '</div><div class="hero-actions"><a class="button button-dark" href="#experience">' + bi('阅读我的履历 ↓', 'Explore my experience ↓') + '</a><a class="text-link" href="projects/">' + bi('浏览作品 →', 'Explore projects →') + '</a><button type="button" class="print-link" data-print>' + bi('打印 / 存为 PDF', 'Print / save PDF') + '</button></div></div><aside class="profile-aside"><p class="eyebrow">AT A GLANCE</p><dl class="profile-facts"><div><dt>' + bi('目前', 'Currently') + '</dt><dd>Cisco</dd></div><div><dt>' + bi('方向', 'Focus') + '</dt><dd>' + bi('云平台 · 安全 · 自动化', 'Cloud · Security · Automation') + '</dd></div><div><dt>' + bi('所在地', 'Based in') + '</dt><dd>' + bi(profile['location']) + '</dd></div></dl>' + contacts(profile) + '</aside></section>'
-    strengths = '<section class="editorial-section shell" id="focus">' + section_title('01', '我的工作', 'What I do') + '<div class="strength-list">' + ''.join('<article><h3>' + bi(item['title']) + '</h3>' + bi(item['summary'], tag='p') + '</article>' for item in profile.get('strengths', [])) + '</div></section>'
+def related_links(slugs, known):
+    return ''.join('<a href="/studio/projects/' + esc(slug) + '/">' + esc(slug) + ' ↗</a>' for slug in slugs if slug in known)
+
+
+def size_label(data):
+    size = len(data)
+    return f'{size / 1024 / 1024:.1f} MB' if size >= 1024 * 1024 else f'{max(1, round(size / 1024))} KB'
+
+
+def hero():
+    copy = UI['hero']
+    intro = ''.join(bi(value, tag='p') for value in PROFILE['intro'])
+    resume = '<a class="text-link" href="#resume">' + bi(copy['resume_button']) + '</a>' if DOWNLOADS else ''
+    facts = ''.join('<div><dt>' + bi(fact['label']) + '</dt><dd>' + txt(fact['value']) + '</dd></div>' for fact in PROFILE['glance'])
+    return '<section class="profile-hero shell" id="about"><div class="hero-main"><p class="eyebrow">' + esc(copy['eyebrow']) + '</p><h1>' + esc(PROFILE['name']) + '<span>' + esc(PROFILE['alias']) + '</span></h1>' + bi(PROFILE['role'], tag='p', attrs='class="hero-role"') + '<div class="hero-intro">' + intro + '</div><div class="hero-actions"><a class="button button-dark" href="#experience">' + bi(copy['experience_button']) + '</a>' + resume + '<a class="text-link" href="projects/">' + bi(copy['projects_link']) + '</a><button type="button" class="print-link" data-print>' + bi(copy['print_button']) + '</button></div></div><aside class="profile-aside"><p class="eyebrow">' + esc(copy['glance_eyebrow']) + '</p><dl class="profile-facts">' + facts + '</dl>' + contacts() + '</aside></section>'
+
+
+def home_highlights(number, context):
+    items = PROFILE.get('highlights', [])
+    if not items:
+        return ''
+    return '<section class="highlight-band shell" id="highlights" aria-label="' + esc(UI['sections']['highlights']['label']) + '"><dl>' + ''.join('<div><dt>' + txt(item['value']) + '</dt><dd>' + bi(item['label']) + '</dd></div>' for item in items) + '</dl></section>'
+
+
+def home_focus(number, context):
+    skills = ''
+    if PROFILE.get('skills'):
+        skills = '<div class="skill-list">' + ''.join('<div><h4>' + bi(group['title']) + '</h4><p>' + esc(' / '.join(group['items'])) + '</p></div>' for group in PROFILE['skills']) + '</div>'
+    return '<section class="editorial-section shell" id="focus">' + section_title(number, UI['sections']['focus']) + '<div class="strength-list">' + ''.join('<article><h3>' + bi(item['title']) + '</h3>' + bi(item['summary'], tag='p') + '</article>' for item in PROFILE.get('strengths', [])) + skills + '</div></section>'
+
+
+def experience_details(entry, known):
+    """Metrics, points and related work shared by roles and their projects."""
+    metrics = '<ul class="experience-metrics">' + ''.join(bi(metric, tag='li') for metric in entry['metrics']) + '</ul>' if entry.get('metrics') else ''
+    points = '<ul>' + ''.join(bi(point, tag='li') for point in entry['points']) + '</ul>' if entry.get('points') else ''
+    related = related_links(entry.get('related', []), known)
+    related = '<p class="experience-related">' + bi(UI['experience']['related']) + related + '</p>' if related else ''
+    return metrics + points + related
+
+
+def home_experience(number, context):
+    known = context['known']
     timeline = ''
-    for job in profile['experience']:
-        timeline += '<article class="experience-item"><div class="experience-date">' + esc(job['period']) + '</div><div class="experience-body"><p class="company">' + esc(job['company']) + '</p><h3>' + bi(job['role']) + '</h3>' + (bi(job['summary'], tag='p') if job.get('summary') else '') + '<ul>' + ''.join(bi(point, tag='li') for point in job.get('points', [])) + '</ul></div></article>'
-    if profile.get('skills'):
-        skills = '<div class="skill-list">' + ''.join('<div><h4>' + bi(group['title']) + '</h4><p>' + esc(' / '.join(group['items'])) + '</p></div>' for group in profile['skills']) + '</div>'
-        strengths = strengths.replace('</div></section>', skills + '</div></section>')
-    experience = '<section class="editorial-section shell" id="experience">' + section_title('02', '职业履历', 'Experience', {'zh':'职责、个人贡献与工程方法。','en':'Responsibilities, contributions, and engineering practice.'}) + '<div class="experience-list">' + timeline + '</div></section>'
-    evolution_data = profile['evolution']
-    stages = ''.join('<article class="evolution-stage"><span class="stage-index">0' + str(index + 1) + '</span><p class="stage-period">' + esc(stage.get('period', '')) + '</p><h3>' + bi(stage['title']) + '</h3>' + bi(stage['summary'], tag='p') + '<ul>' + ''.join(bi(point, tag='li') for point in stage.get('points', [])) + '</ul></article>' for index, stage in enumerate(evolution_data['stages']))
+    for job in PROFILE['experience']:
+        team = '<span class="experience-team">' + bi(job['team']) + '</span>' if job.get('team') else ''
+        projects = ''.join('<section class="experience-project"><h4>' + bi(project['title']) + '</h4>' + experience_details(project, known) + '</section>' for project in job.get('projects', []))
+        timeline += '<article class="experience-item"><div class="experience-date">' + txt(job['period']) + '</div><div class="experience-body"><p class="company">' + esc(job['company']) + '</p><h3>' + bi(job['role']) + team + '</h3>' + (bi(job['summary'], tag='p') if job.get('summary') else '') + experience_details(job, known) + projects + '</div></article>'
+    return '<section class="editorial-section shell" id="experience">' + section_title(number, UI['sections']['experience']) + '<div class="experience-list">' + timeline + '</div></section>'
+
+
+def home_evolution(number, context):
+    data, copy, known = PROFILE['evolution'], UI['sections']['evolution'], context['known']
+    stages = ''.join('<article class="evolution-stage"><span class="stage-index">0' + str(index + 1) + '</span><p class="stage-period">' + txt(stage.get('period', '')) + '</p><h3>' + bi(stage['title']) + '</h3>' + bi(stage['summary'], tag='p') + '<ul>' + ''.join(bi(point, tag='li') for point in stage.get('points', [])) + '</ul></article>' for index, stage in enumerate(data['stages']))
     nodes = ''
-    known = {item['slug'] for item in projects}
-    for node in evolution_data.get('capabilities', []):
-        related = ''.join('<a href="/studio/projects/' + esc(slug) + '/">' + esc(slug) + ' ↗</a>' for slug in node.get('projects', []) if slug in known)
-        nodes += '<details class="capability"><summary>' + bi(node['title']) + '<span aria-hidden="true">+</span></summary><div>' + bi(node['summary'], tag='p') + '<ul>' + ''.join(bi(point,tag='li') for point in node.get('points',[])) + '</ul><div class="related-projects">' + related + '</div></div></details>'
-    evolution = '<section class="evolution-section" id="evolution"><div class="shell"><div class="evolution-heading">' + section_title('03','工程演进','Engineering evolution') + '<div>' + bi(evolution_data['intro'], tag='p') + '<a class="text-link" href="https://github.com/liozzazhang/engineering-evolution" target="_blank" rel="noopener noreferrer">engineering-evolution ↗</a></div></div><div class="evolution-stages">' + stages + '</div>' + ('<div class="capability-heading">' + bi('能力与方法 · 点击展开', 'Capabilities & methods · Expand to read', tag='h3') + '</div><div class="capability-grid">' + nodes + '</div>' if nodes else '') + '</div></section>'
-    featured = sorted([item for item in projects if item.get('featured')], key=lambda item:item['featured'])[:config.get('featured_limit',6)]
-    selected = '<section class="editorial-section shell" id="selected-work">' + section_title('04','代表作品','Selected work',{'zh':'从履历中的问题，到可以阅读的实现。','en':'From engineering challenges to implementations you can explore.'}) + '<div><div class="catalog-grid selected-grid">' + ''.join(project_card(item,categories,profile,True) for item in featured) + '</div><a class="all-projects-link" href="projects/">' + bi(f'浏览全部 {len(projects)} 个项目 →',f'Explore all {len(projects)} projects →') + '</a></div></section>'
-    personal = '<section class="editorial-section shell" id="beyond">' + section_title('05','工作之外','Beyond work') + '<div class="prose">' + ''.join(bi(text,tag='p') for text in profile.get('about',[])) + '<a class="text-link" href="wow/">' + bi('我的游戏与界面作品 →','Games & interface projects →') + '</a>'
-    for education in profile.get('education',[]):
-        personal += '<div class="education"><span>' + esc(education['period']) + '</span><h3>' + bi(education['institution']) + '</h3>' + bi(education['degree'],tag='p') + '</div>'
-    if profile.get('languages'):
-        personal += '<p class="language-skills">' + ' / '.join(bi(value) for value in profile['languages']) + '</p>'
-    personal += '</div></section>'
-    contact = '<section class="contact-section shell" id="contact">' + section_title('06','联系我','Get in touch') + '<div>' + bi('欢迎就平台工程、安全交付、AI 工作流与工程团队协作交流。面试或项目沟通，请直接发邮件。','I welcome conversations about platform engineering, secure delivery, AI workflows, and engineering teams. For interviews or project discussions, email is the best way to reach me.',tag='p',attrs='class="contact-intro"') + contacts(profile,True) + '</div></section>'
-    return layout({'zh':'Lei Zhang / Liozza — 履历与工程作品','en':'Lei Zhang / Liozza — Experience & engineering'},profile['intro'][0]['zh'],hero+strengths+experience+evolution+selected+personal+contact,profile=profile)
+    for node in data.get('capabilities', []):
+        nodes += '<details class="capability"><summary>' + bi(node['title']) + '<span aria-hidden="true">+</span></summary><div>' + bi(node['summary'], tag='p') + '<ul>' + ''.join(bi(point, tag='li') for point in node.get('points', [])) + '</ul><div class="related-projects">' + related_links(node.get('projects', []), known) + '</div></div></details>'
+    link = data.get('link')
+    link = '<a class="text-link" href="' + esc(url(link['url'])) + '" target="_blank" rel="noopener noreferrer">' + txt(link['label']) + '</a>' if link else ''
+    return '<section class="evolution-section" id="evolution"><div class="shell"><div class="evolution-heading">' + section_title(number, copy) + '<div>' + bi(data['intro'], tag='p') + link + '</div></div><div class="evolution-stages">' + stages + '</div>' + ('<div class="capability-heading">' + bi(copy['capabilities'], tag='h3') + '</div><div class="capability-grid">' + nodes + '</div>' if nodes else '') + '</div></section>'
 
 
-def catalog(route, title, description, projects, categories, config, profile):
-    nav = '<nav class="section-switcher" aria-label="Project directories">' + ''.join('<a href="/studio/' + slug + '/"' + (' aria-current="page"' if slug == route else '') + '>' + bi(zh,en) + '</a>' for slug,zh,en in [('projects','全部作品','All projects'),('lab','工程项目','Engineering'),('wow','游戏与界面','Games & interfaces')]) + '</nav>'
-    filters = '<button type="button" class="catalog-filter is-active" data-category-button="all" aria-pressed="true">' + bi('全部','All') + f'<small>{len(projects)}</small></button>'
+def home_selected(number, context):
+    copy, projects = UI['sections']['selected'], context['projects']
+    featured = sorted([item for item in projects if item.get('featured')], key=lambda item: item['featured'])[:context['config'].get('featured_limit', 6)]
+    return '<section class="editorial-section shell" id="selected-work">' + section_title(number, copy) + '<div><div class="catalog-grid selected-grid">' + ''.join(project_card(item, context['categories']) for item in featured) + '</div><a class="all-projects-link" href="projects/">' + bi(fill(copy['all_projects'], count=len(projects))) + '</a></div></section>'
+
+
+def home_resume(number, context):
+    if not DOWNLOADS:
+        return ''
+    copy = UI['downloads']
+    cards = ''
+    for group in DOWNLOADS:
+        rows = ''
+        for lang in ('zh', 'en'):
+            files = [entry for entry in group['files'] if entry['lang'] == lang]
+            if files:
+                rows += f'<div class="download-row" data-download-language="{lang}">' + bi(copy['languages'][lang], attrs='class="download-language"') + ''.join('<a href="/studio/downloads/' + esc(entry['file']) + '" download>' + esc(copy['formats'][entry['format']]) + '<small>' + size_label(entry['data']) + '</small></a>' for entry in files) + '</div>'
+        cards += '<article class="download-card"><h3>' + bi(group['title']) + '</h3>' + bi(group['description'], tag='p') + '<div class="download-rows">' + rows + '</div></article>'
+    return '<section class="editorial-section shell" id="resume">' + section_title(number, UI['sections']['resume']) + '<div class="download-list">' + cards + '</div></section>'
+
+
+def home_beyond(number, context):
+    copy = UI['sections']['beyond']
+    personal = '<section class="editorial-section shell" id="beyond">' + section_title(number, copy) + '<div class="prose">' + ''.join(bi(text, tag='p') for text in PROFILE.get('about', [])) + '<a class="text-link" href="wow/">' + bi(copy['wow_link']) + '</a>'
+    for education in PROFILE.get('education', []):
+        personal += '<div class="education">' + txt(education['period']) + '<h3>' + bi(education['institution']) + '</h3>' + bi(education['degree'], tag='p') + '</div>'
+    if PROFILE.get('languages'):
+        personal += '<p class="language-skills">' + ' / '.join(bi(value) for value in PROFILE['languages']) + '</p>'
+    return personal + '</div></section>'
+
+
+def home_contact(number, context):
+    copy = UI['sections']['contact']
+    return '<section class="contact-section shell" id="contact">' + section_title(number, copy) + '<div>' + bi(copy['intro'], tag='p', attrs='class="contact-intro"') + contacts(True) + '</div></section>'
+
+
+HOME_RENDERERS = {'highlights': home_highlights, 'focus': home_focus, 'experience': home_experience, 'evolution': home_evolution, 'selected': home_selected, 'resume': home_resume, 'beyond': home_beyond, 'contact': home_contact}
+
+
+def home(config, categories, projects):
+    context = {'config': config, 'categories': categories, 'projects': projects, 'known': {item['slug'] for item in projects}}
+    body, number = hero(), 0
+    for key in UI['home_sections']:
+        numbered = 'title' in UI['sections'][key]
+        rendered = HOME_RENDERERS[key](f'{number + 1:02d}', context)
+        if rendered and numbered:
+            number += 1
+        body += rendered
+    return layout(UI['titles']['home'], PROFILE['intro'][0], body)
+
+
+def catalog(route, projects, categories, config):
+    copy, page = UI['catalog'], UI['catalogs'][route]
+    title, description = page['title'], page['description']
+    nav = '<nav class="section-switcher" aria-label="' + esc(copy['switcher_label']) + '">' + ''.join('<a href="/studio/' + esc(link['route']) + '/"' + (' aria-current="page"' if link['route'] == route else '') + '>' + bi(link['label']) + '</a>' for link in copy['switcher']) + '</nav>'
+    filters = '<button type="button" class="catalog-filter is-active" data-category-button="all" aria-pressed="true">' + bi(copy['all']) + f'<small>{len(projects)}</small></button>'
     for category in categories:
         count = sum(item['category'] == category['id'] for item in projects)
         if count:
             filters += f'<button type="button" class="catalog-filter" data-category-button="{category["id"]}" aria-pressed="false">' + bi(category) + f'<small>{count}</small></button>'
-    body = '<div class="shell catalog-main">' + nav + '<section class="catalog-hero"><p class="eyebrow">PROJECT INDEX / ' + config['checked_at'] + '</p><h1>' + bi(title) + '</h1>' + bi(description,tag='p') + '<div class="catalog-meta">' + bi(f'{len(projects)} 个项目 · {sum(item["visibility"] == "public" for item in projects)} 公开 · {sum(item["visibility"] == "private" for item in projects)} 私有', f'{len(projects)} projects · {sum(item["visibility"] == "public" for item in projects)} public · {sum(item["visibility"] == "private" for item in projects)} private') + '</div></section><section aria-label="Project catalog"><div class="catalog-toolbar"><div class="catalog-filters" role="group" aria-label="Filter by area">' + filters + '</div><label class="catalog-search"><span class="sr-only">' + bi('搜索项目','Search projects') + '</span><input type="search" id="catalog-search" autocomplete="off" placeholder="搜索项目、功能或技术" data-placeholder-zh="搜索项目、功能或技术" data-placeholder-en="Search projects, features, or technologies"><button id="clear-search" hidden type="button">' + bi('清空','Clear') + '</button></label></div><div class="catalog-status"><p id="catalog-result-count" role="status" aria-live="polite" data-total="' + str(len(projects)) + '">' + bi(f'显示 {len(projects)} 个项目',f'Showing {len(projects)} projects') + '</p><label class="visibility-select">' + bi('可见性','Visibility') + '<select id="visibility-filter"><option value="all" data-zh="全部" data-en="All">全部</option><option value="public" data-zh="公开仓库" data-en="Public">公开仓库</option><option value="private" data-zh="私有仓库" data-en="Private">私有仓库</option></select></label></div><div class="catalog-grid">' + ''.join(project_card(item,categories,profile) for item in projects) + '</div><div id="catalog-empty" class="catalog-empty" hidden><h2>' + bi('没有匹配的项目','No matching projects') + '</h2>' + bi('请调整关键词或筛选条件。','Try different keywords or filters.',tag='p') + '<button type="button" data-reset-filters>' + bi('重置筛选','Reset filters') + '</button></div></section><aside class="catalog-footnote">' + bi('私有项目展示经整理的公开摘要；仓库内容仍由 GitHub 权限控制。设计文档、早期实践与 Fork 均单独标识。','Private projects have curated public summaries; GitHub still controls access to repository contents. Design work, earlier projects, and forks are labeled.',tag='p') + '</aside></div>'
-    return layout(title,description['zh'],body,route+'/',active='projects',scripts='<script src="/studio/assets/catalog.js" defer></script>',profile=profile)
+    total = len(projects)
+    public = sum(item['visibility'] == 'public' for item in projects)
+    visibility = copy['visibility']
+    filtered = copy['showing_filtered']
+    options = ''.join(f'<option value="{value}" data-zh="{esc(visibility[value]["zh"])}" data-en="{esc(visibility[value]["en"])}">{esc(visibility[value][LANGUAGE["default"]])}</option>' for value in ('all', 'public', 'private'))
+    body = '<div class="shell catalog-main">' + nav + '<section class="catalog-hero"><p class="eyebrow">' + esc(fill(copy['eyebrow'], date=config['checked_at'])) + '</p><h1>' + bi(title) + '</h1>' + bi(description, tag='p') + '<div class="catalog-meta">' + bi(fill(copy['meta'], total=total, public=public, private=total - public)) + '</div></section><section aria-label="' + esc(copy['catalog_label']) + '"><div class="catalog-toolbar"><div class="catalog-filters" role="group" aria-label="' + esc(copy['filter_label']) + '">' + filters + '</div><label class="catalog-search"><span class="sr-only">' + bi(copy['search_label']) + '</span><input type="search" id="catalog-search" autocomplete="off" placeholder="' + esc(pick(copy['search_placeholder'])) + '" data-placeholder-zh="' + esc(copy['search_placeholder']['zh']) + '" data-placeholder-en="' + esc(copy['search_placeholder']['en']) + '"><button id="clear-search" hidden type="button">' + bi(copy['clear']) + '</button></label></div><div class="catalog-status"><p id="catalog-result-count" role="status" aria-live="polite" data-total="' + str(total) + '" data-filtered-zh="' + esc(filtered['zh']) + '" data-filtered-en="' + esc(filtered['en']) + '">' + bi(fill(copy['showing'], total=total)) + '</p><label class="visibility-select">' + bi(visibility['label']) + '<select id="visibility-filter">' + options + '</select></label></div><div class="catalog-grid">' + ''.join(project_card(item, categories) for item in projects) + '</div><div id="catalog-empty" class="catalog-empty" hidden><h2>' + bi(copy['empty_title']) + '</h2>' + bi(copy['empty_body'], tag='p') + '<button type="button" data-reset-filters>' + bi(copy['reset']) + '</button></div></section><aside class="catalog-footnote">' + bi(copy['footnote'], tag='p') + '</aside></div>'
+    return layout(title, description, body, route + '/', active='projects', scripts='<script src="/studio/assets/catalog.js" defer></script>')
 
 
-def detail(item, categories, profile):
+def detail(item):
+    copy = UI['project']
     content = ''
-    for lang in ('zh','en'):
-        path = item['_directory'] / f'README.{lang}.md'
-        rendered = markdown(path)
-        if not rendered:
-            rendered = '<p>' + esc(item['summary'][lang]) + '</p>'
-        if rendered:
-            content += f'<div class="localized-content prose" data-content-language="{lang}"' + (' hidden' if lang == 'en' else '') + '>' + rendered + '</div>'
-    if not content:
-        content = bi(item['summary'],tag='p',attrs='class="prose"')
-    body = '<div class="shell detail-main"><a class="breadcrumb" href="/studio/projects/">' + bi('← 全部项目','← All projects') + '</a><section class="detail-heading">' + badge(item) + '<h1>' + bi(item['title']) + '</h1>' + bi(item['summary'],tag='p') + '<ul class="project-tags">' + ''.join('<li>' + esc(tag) + '</li>' for tag in item['tags']) + '</ul>' + source_link(item,profile) + '</section><section class="project-content">' + content + '</section>'
+    for lang in ('zh', 'en'):
+        rendered = markdown(item['_directory'] / f'README.{lang}.md') or '<p>' + esc(item['summary'][lang]) + '</p>'
+        content += f'<div class="localized-content prose" data-content-language="{lang}"' + (' hidden' if lang != LANGUAGE['default'] else '') + '>' + rendered + '</div>'
+    body = '<div class="shell detail-main"><a class="breadcrumb" href="/studio/projects/">' + bi(copy['back']) + '</a><section class="detail-heading">' + badge(item) + '<h1>' + bi(item['title']) + '</h1>' + bi(item['summary'], tag='p') + '<ul class="project-tags">' + ''.join('<li>' + esc(tag) + '</li>' for tag in item['tags']) + '</ul>' + source_link(item) + '</section><section class="project-content">' + content + '</section>'
     if item.get('features'):
-        body += '<ul class="detail-features">' + ''.join(bi(zh,en,tag='li') for zh,en in zip(item['features']['zh'],item['features']['en'])) + '</ul>'
+        body += '<ul class="detail-features">' + ''.join(bi(zh, en, tag='li') for zh, en in zip(item['features']['zh'], item['features']['en'])) + '</ul>'
     if item['visibility'] == 'private':
-        body += '<aside class="private-note">' + bi('此页仅介绍项目的功能和设计思路。源码需要单独申请权限。','This page covers functionality and design only. Repository access requires a separate request.',tag='p') + source_link(item,profile) + '</aside>'
+        body += '<aside class="private-note">' + bi(copy['private_note'], tag='p') + source_link(item) + '</aside>'
     body += '</div>'
-    return layout(item['title'],item['summary']['zh'],body,f'projects/{item["slug"]}/',active='projects',profile=profile)
+    return layout(item['title'], item['summary'], body, f'projects/{item["slug"]}/', active='projects')
 
 
-def access_page(item,profile):
-    body = '<section class="shell access-page"><a class="breadcrumb" href="/studio/projects/' + esc(item['slug']) + '/">' + bi('← 返回项目介绍','← Back to overview') + '</a><p class="eyebrow">PRIVATE REPOSITORY</p><h1>' + bi('申请仓库访问权限','Request repository access') + '</h1><h2>' + esc(item['slug']) + '</h2>' + bi('仓库为私有状态，本站不会授予或绕过 GitHub 权限。请发邮件提供你的 GitHub 用户名、希望查看的内容和用途。我会根据可分享范围回复。','This repository is private. This site cannot grant or bypass GitHub permissions. Email me your GitHub username, what you would like to review, and your purpose. I will reply with what can be shared.',tag='p') + '<div class="dialog-actions"><a class="button button-dark" href="' + esc(email_link(profile,item['slug'])) + '">' + bi('发邮件申请 ↗','Request by email ↗') + '</a><a class="text-link" href="' + esc(item['url']) + '" target="_blank" rel="noopener noreferrer">' + bi('已有权限，前往 GitHub ↗','Already have access? GitHub ↗') + '</a></div></section>'
-    return layout({'zh':'申请访问 · '+item['slug'],'en':'Request access · '+item['slug']},'Repository access request',body,f'projects/{item["slug"]}/access/',active='projects',profile=profile)
+def access_page(item):
+    copy = UI['access']
+    body = '<section class="shell access-page"><a class="breadcrumb" href="/studio/projects/' + esc(item['slug']) + '/">' + bi(copy['page_back']) + '</a><p class="eyebrow">' + esc(copy['page_eyebrow']) + '</p><h1>' + bi(copy['page_title']) + '</h1><h2>' + esc(item['slug']) + '</h2>' + bi(copy['page_body'], tag='p') + '<div class="dialog-actions"><a class="button button-dark" href="' + esc(email_link(item['slug'])) + '">' + bi(copy['email_button']) + '</a><a class="text-link" href="' + esc(item['url']) + '" target="_blank" rel="noopener noreferrer">' + bi(copy['github_button']) + '</a></div></section>'
+    return layout(fill(UI['titles']['access'], slug=item['slug']), copy['page_description'], body, f'projects/{item["slug"]}/access/', active='projects')
+
+
+def not_found():
+    copy = UI['not_found']
+    body = '<section class="shell access-page"><p class="eyebrow">' + esc(copy['eyebrow']) + '</p><h1>' + bi(copy['title']) + '</h1><p>' + bi(copy['body']) + '</p><div class="dialog-actions"><a class="button button-dark" href="/studio/">' + bi(copy['home']) + '</a><a class="text-link" href="/studio/projects/">' + bi(copy['projects']) + '</a></div></section>'
+    return layout(UI['titles']['not_found'], copy['description'], body, '404.html')
+
+
+def portfolio_redirect():
+    copy = UI['portfolio_redirect']
+    name = esc(PROFILE['name']) + ' / ' + esc(PROFILE['alias'])
+    return '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src \'self\'; object-src \'none\'; base-uri \'none\'; form-action \'none\'"><meta http-equiv="refresh" content="0;url=/studio/#experience"><link rel="canonical" href="https://liozzazhang.github.io/studio/"><title>' + name + '</title></head><body><h1>' + name + '</h1><p>' + esc(copy['body']) + '<a href="/studio/#experience">' + esc(copy['link']) + '</a></p></body></html>\n'
 
 
 def build():
-    config,profile,categories,projects = load_content()
-    outputs = {SITE/'index.html':home(config,profile,categories,projects)}
-    for route,title,description,items in [
-        ('projects',{'zh':'作品与项目','en':'Projects & practice'},{'zh':'这些项目记录了我的工程实践：做过什么、如何设计，以及如何把经验变成工具。','en':'A record of my engineering practice: what I built, how I designed it, and how experience became reusable tools.'},projects),
-        ('lab',{'zh':'工程项目','en':'Engineering projects'},{'zh':'平台交付、安全、可观测性、AI 集成与开发工具。','en':'Platform delivery, security, observability, AI integrations, and developer tools.'},[item for item in projects if item['group']!='wow']),
-        ('wow',{'zh':'游戏与界面','en':'Games & interfaces'},{'zh':'从信息展示、团队协作到技能提醒，把游戏中的想法写成工具。','en':'Interface design, group collaboration, and ability reminders: turning ideas from games into tools.'},[item for item in projects if item['group']=='wow'])]:
-        outputs[SITE/route/'index.html'] = catalog(route,title,description,items,categories,config,profile)
+    config, profile, categories, projects = load_content()
+    LANGUAGE['default'] = config.get('default_language', 'zh')
+    UI.clear()
+    UI.update(load_ui())
+    PROFILE.clear()
+    PROFILE.update(profile)
+    DOWNLOADS[:] = load_downloads()
+    outputs = {SITE / 'index.html': home(config, categories, projects)}
+    for route, items in [('projects', projects), ('lab', [item for item in projects if item['group'] != 'wow']), ('wow', [item for item in projects if item['group'] == 'wow'])]:
+        outputs[SITE / route / 'index.html'] = catalog(route, items, categories, config)
     for item in projects:
-        outputs[SITE/'projects'/item['slug']/'index.html'] = detail(item,categories,profile)
+        outputs[SITE / 'projects' / item['slug'] / 'index.html'] = detail(item)
         if item['visibility'] == 'private':
-            outputs[SITE/'projects'/item['slug']/'access'/'index.html'] = access_page(item,profile)
-    outputs[SITE/'portfolio'/'index.html'] = '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src \'self\'; object-src \'none\'; base-uri \'none\'; form-action \'none\'"><meta http-equiv="refresh" content="0;url=/studio/#experience"><link rel="canonical" href="https://liozzazhang.github.io/studio/"><title>Lei Zhang / Liozza</title></head><body><h1>Lei Zhang / Liozza</h1><p>个人介绍已移至首页。<a href="/studio/#experience">阅读履历 / Read my experience</a></p></body></html>\n'
-    outputs[SITE/'404.html'] = layout({'zh':'页面未找到 — Lei Zhang','en':'Page not found — Lei Zhang'},'Page not found','<section class="shell access-page"><p class="eyebrow">404 / PAGE NOT FOUND</p><h1>' + bi('这个页面暂时没有内容','This page could not be found') + '</h1><p>' + bi('可以返回个人主页，或继续浏览项目目录。','Return to my profile or browse the project index.') + '</p><div class="dialog-actions"><a class="button button-dark" href="/studio/">' + bi('个人主页','My profile') + '</a><a class="text-link" href="/studio/projects/">' + bi('浏览项目','Browse projects') + '</a></div></section>','404.html',profile=profile)
-    routes = [('' if path.relative_to(SITE).parent == Path('.') else str(path.relative_to(SITE).parent) + '/') for path in outputs if path.name=='index.html' and 'access' not in path.parts and 'portfolio' not in path.parts]
-    outputs[SITE/'sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join('  <url><loc>https://liozzazhang.github.io/studio/' + route + '</loc></url>\n' for route in routes) + '</urlset>\n'
+            outputs[SITE / 'projects' / item['slug'] / 'access' / 'index.html'] = access_page(item)
+    for group in DOWNLOADS:
+        for entry in group['files']:
+            outputs[SITE / 'downloads' / entry['file']] = entry['data']
+    outputs[SITE / 'portfolio' / 'index.html'] = portfolio_redirect()
+    outputs[SITE / '404.html'] = not_found()
+    routes = [('' if path.relative_to(SITE).parent == Path('.') else str(path.relative_to(SITE).parent) + '/') for path in outputs if path.name == 'index.html' and 'access' not in path.parts and 'portfolio' not in path.parts]
+    outputs[SITE / 'sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join('  <url><loc>https://liozzazhang.github.io/studio/' + route + '</loc></url>\n' for route in routes) + '</urlset>\n'
     generated = sorted(str(path.relative_to(SITE)) for path in outputs)
-    outputs[SITE/'.generated-pages.json'] = json.dumps(generated,ensure_ascii=False,indent=2)+'\n'
+    outputs[SITE / '.generated-pages.json'] = json.dumps(generated, ensure_ascii=False, indent=2) + '\n'
     return outputs
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--check',action='store_true',help='Check generated output without changing files')
+    parser.add_argument('--check', action='store_true', help='Check generated output without changing files')
     args = parser.parse_args()
     outputs = build()
-    manifest = SITE/'.generated-pages.json'
+    manifest = SITE / '.generated-pages.json'
     if manifest.is_symlink():
         raise ValueError('Generated manifest must be a regular file')
     for path in outputs:
@@ -319,10 +505,10 @@ def main():
     old = json.loads(manifest.read_text()) if manifest.exists() else []
     stale = []
     for name in old:
-        path = SITE/name
-        # Deletion is limited to prior generated pages in the project namespace.
+        path = SITE / name
+        # Deletion is limited to prior generated project pages and resume downloads.
         relative = Path(name)
-        if relative.is_absolute() or '..' in relative.parts or not re.fullmatch(r'projects/[A-Za-z0-9_.-]+/(?:access/)?index\.html',name):
+        if relative.is_absolute() or '..' in relative.parts or not STALE_OUTPUT.fullmatch(name):
             continue
         if not path.resolve().is_relative_to(SITE.resolve()):
             raise ValueError('Stale output must stay inside the website')
@@ -331,16 +517,17 @@ def main():
                 stale.append(name)
             else:
                 path.unlink()
-    for path,content in outputs.items():
+    for path, content in outputs.items():
+        data = content if isinstance(content, bytes) else content.encode('utf-8')
         if args.check:
-            if not path.is_file() or path.read_text(encoding='utf-8') != content:
+            if not path.is_file() or path.read_bytes() != data:
                 stale.append(str(path.relative_to(ROOT)))
         else:
-            path.parent.mkdir(parents=True,exist_ok=True)
-            path.write_text(content,encoding='utf-8')
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(data)
     if stale:
-        raise SystemExit('Regenerate Studio: '+', '.join(stale))
-    print(('Checked' if args.check else 'Built')+f' {len(outputs)} outputs from directory content modules.')
+        raise SystemExit('Regenerate Studio: ' + ', '.join(stale))
+    print(('Checked' if args.check else 'Built') + f' {len(outputs)} outputs from directory content modules.')
 
 
 if __name__ == '__main__':

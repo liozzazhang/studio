@@ -1,0 +1,168 @@
+{
+  "skip_link": {"zh": "跳到主要内容", "en": "Skip to content"},
+  "noscript": "当前为中文版；项目与履历可直接阅读，私有仓库链接会打开权限申请说明。启用 JavaScript 可切换语言与筛选项目。 / English and project filtering require JavaScript.",
+  "nav": [
+    {"key": "home", "href": "/studio/#about", "label": {"zh": "关于我", "en": "About"}},
+    {"key": "experience", "href": "/studio/#experience", "label": {"zh": "履历", "en": "Experience"}},
+    {"key": "evolution", "href": "/studio/#evolution", "label": {"zh": "工程演进", "en": "Evolution"}},
+    {"key": "projects", "href": "/studio/projects/", "label": {"zh": "作品", "en": "Projects"}}
+  ],
+  "header": {
+    "nav_label": "Main navigation",
+    "resume": {"zh": "下载简历", "en": "Resume"},
+    "contact": {"zh": "联系我 ↗", "en": "Contact ↗"}
+  },
+  "footer": {
+    "projects": {"zh": "项目目录", "en": "Project index"},
+    "top": {"zh": "回到顶部 ↑", "en": "Back to top ↑"}
+  },
+  "titles": {
+    "home": {"zh": "Lei Zhang / Liozza — 履历与工程作品", "en": "Lei Zhang / Liozza — Experience & engineering"},
+    "not_found": {"zh": "页面未找到 — Lei Zhang", "en": "Page not found — Lei Zhang"},
+    "access": {"zh": "申请访问 · {slug}", "en": "Request access · {slug}"}
+  },
+  "hero": {
+    "eyebrow": "PERSONAL PROFILE / ENGINEERING & PRACTICE",
+    "experience_button": {"zh": "阅读我的履历 ↓", "en": "Explore my experience ↓"},
+    "resume_button": {"zh": "下载简历 ↓", "en": "Download resume ↓"},
+    "projects_link": {"zh": "浏览作品 →", "en": "Explore projects →"},
+    "print_button": {"zh": "打印 / 存为 PDF", "en": "Print / save PDF"},
+    "glance_eyebrow": "AT A GLANCE"
+  },
+  "home_sections": ["highlights", "focus", "experience", "evolution", "selected", "resume", "beyond", "contact"],
+  "sections": {
+    "highlights": {"label": "Key results"},
+    "focus": {"title": {"zh": "我的工作", "en": "What I do"}},
+    "experience": {
+      "title": {"zh": "职业履历", "en": "Experience"},
+      "note": {"zh": "职责、代表项目与量化结果。", "en": "Responsibilities, selected projects, and measurable results."}
+    },
+    "evolution": {
+      "title": {"zh": "工程演进", "en": "Engineering evolution"},
+      "capabilities": {"zh": "能力与方法 · 点击展开", "en": "Capabilities & methods · Expand to read"}
+    },
+    "selected": {
+      "title": {"zh": "代表作品", "en": "Selected work"},
+      "note": {"zh": "从履历中的问题，到可以阅读的实现。", "en": "From engineering challenges to implementations you can explore."},
+      "all_projects": {"zh": "浏览全部 {count} 个项目 →", "en": "Explore all {count} projects →"}
+    },
+    "resume": {
+      "title": {"zh": "简历下载", "en": "Resume"},
+      "note": {"zh": "按岗位方向选择版本，均提供中英文 PDF 与 Word。", "en": "Choose a version by role focus; each is available in Chinese and English, as PDF or Word."}
+    },
+    "beyond": {
+      "title": {"zh": "工作之外", "en": "Beyond work"},
+      "wow_link": {"zh": "我的游戏与界面作品 →", "en": "Games & interface projects →"}
+    },
+    "contact": {
+      "title": {"zh": "联系我", "en": "Get in touch"},
+      "intro": {"zh": "欢迎就平台工程、AI 运维工作流、安全交付与工程团队协作交流。面试或项目沟通，请直接发邮件。", "en": "I welcome conversations about platform engineering, AI operations workflows, secure delivery, and engineering teams. For interviews or project discussions, email is the best way to reach me."}
+    }
+  },
+  "experience": {
+    "related": {"zh": "相关作品", "en": "Related work"}
+  },
+  "contacts": {
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "wechat": "WeChat",
+    "wechat_fallback": {"zh": "通过邮件联系获取", "en": "Available by email"}
+  },
+  "downloads": {
+    "languages": {
+      "zh": {"zh": "中文版", "en": "Chinese"},
+      "en": {"zh": "英文版", "en": "English"}
+    },
+    "formats": {"pdf": "PDF", "docx": "Word"}
+  },
+  "catalogs": {
+    "projects": {
+      "title": {"zh": "作品与项目", "en": "Projects & practice"},
+      "description": {"zh": "这些项目记录了我的工程实践：做过什么、如何设计，以及如何把经验变成工具。", "en": "A record of my engineering practice: what I built, how I designed it, and how experience became reusable tools."}
+    },
+    "lab": {
+      "title": {"zh": "工程项目", "en": "Engineering projects"},
+      "description": {"zh": "平台交付、安全、可观测性、AI 集成与开发工具。", "en": "Platform delivery, security, observability, AI integrations, and developer tools."}
+    },
+    "wow": {
+      "title": {"zh": "游戏与界面", "en": "Games & interfaces"},
+      "description": {"zh": "从信息展示、团队协作到技能提醒，把游戏中的想法写成工具。", "en": "Interface design, group collaboration, and ability reminders: turning ideas from games into tools."}
+    }
+  },
+  "catalog": {
+    "switcher_label": "Project directories",
+    "switcher": [
+      {"route": "projects", "label": {"zh": "全部作品", "en": "All projects"}},
+      {"route": "lab", "label": {"zh": "工程项目", "en": "Engineering"}},
+      {"route": "wow", "label": {"zh": "游戏与界面", "en": "Games & interfaces"}}
+    ],
+    "eyebrow": "PROJECT INDEX / {date}",
+    "meta": {"zh": "{total} 个项目 · {public} 公开 · {private} 私有", "en": "{total} projects · {public} public · {private} private"},
+    "catalog_label": "Project catalog",
+    "filter_label": "Filter by area",
+    "all": {"zh": "全部", "en": "All"},
+    "search_label": {"zh": "搜索项目", "en": "Search projects"},
+    "search_placeholder": {"zh": "搜索项目、功能或技术", "en": "Search projects, features, or technologies"},
+    "clear": {"zh": "清空", "en": "Clear"},
+    "showing": {"zh": "显示 {total} 个项目", "en": "Showing {total} projects"},
+    "showing_filtered": {"zh": "显示 {visible} / {total} 个项目", "en": "Showing {visible} of {total} projects"},
+    "visibility": {
+      "label": {"zh": "可见性", "en": "Visibility"},
+      "all": {"zh": "全部", "en": "All"},
+      "public": {"zh": "公开仓库", "en": "Public"},
+      "private": {"zh": "私有仓库", "en": "Private"}
+    },
+    "empty_title": {"zh": "没有匹配的项目", "en": "No matching projects"},
+    "empty_body": {"zh": "请调整关键词或筛选条件。", "en": "Try different keywords or filters."},
+    "reset": {"zh": "重置筛选", "en": "Reset filters"},
+    "footnote": {"zh": "私有项目展示经整理的公开摘要；仓库内容仍由 GitHub 权限控制。设计文档、早期实践与 Fork 均单独标识。", "en": "Private projects have curated public summaries; GitHub still controls access to repository contents. Design work, earlier projects, and forks are labeled."}
+  },
+  "project": {
+    "overview": {"zh": "项目介绍 →", "en": "Read overview →"},
+    "view_source": {"zh": "查看仓库 ↗", "en": "View source ↗"},
+    "request_access": {"zh": "申请访问 ↗", "en": "Request access ↗"},
+    "back": {"zh": "← 全部项目", "en": "← All projects"},
+    "private_note": {"zh": "此页仅介绍项目的功能和设计思路。源码需要单独申请权限。", "en": "This page covers functionality and design only. Repository access requires a separate request."},
+    "badges": {
+      "public": {"zh": "公开", "en": "Public"},
+      "private": {"zh": "私有", "en": "Private"},
+      "fork": {"zh": "Fork 参考", "en": "Reference fork"},
+      "archived": {"zh": "已归档", "en": "Archived"},
+      "collection": {"zh": "配置收藏", "en": "Collection"},
+      "legacy": {"zh": "早期实践", "en": "Earlier work"}
+    }
+  },
+  "access": {
+    "eyebrow": "REPOSITORY ACCESS",
+    "close": "Close",
+    "title": {"zh": "申请查看项目", "en": "Request repository access"},
+    "description": {"zh": "这个仓库是私有的。你可以先阅读本站的项目介绍；GitHub 负责验证实际访问权限。", "en": "This repository is private. You can read the project overview here; GitHub controls access to the repository itself."},
+    "steps": [
+      {"zh": "通过邮件提供你的 GitHub 用户名。", "en": "Email me your GitHub username."},
+      {"zh": "注明希望查看的项目、用途或面试背景。", "en": "Include the project and your purpose or interview context."},
+      {"zh": "我会根据可分享范围回复，并在合适时邀请协作。", "en": "I will reply with what can be shared and invite you when appropriate."}
+    ],
+    "email_button": {"zh": "发邮件申请 ↗", "en": "Request by email ↗"},
+    "github_button": {"zh": "已有权限，前往 GitHub ↗", "en": "Already have access? GitHub ↗"},
+    "page_back": {"zh": "← 返回项目介绍", "en": "← Back to overview"},
+    "page_eyebrow": "PRIVATE REPOSITORY",
+    "page_title": {"zh": "申请仓库访问权限", "en": "Request repository access"},
+    "page_body": {"zh": "仓库为私有状态，本站不会授予或绕过 GitHub 权限。请发邮件提供你的 GitHub 用户名、希望查看的内容和用途。我会根据可分享范围回复。", "en": "This repository is private. This site cannot grant or bypass GitHub permissions. Email me your GitHub username, what you would like to review, and your purpose. I will reply with what can be shared."},
+    "page_description": "Repository access request",
+    "email_subject": "Repository access request: {slug}",
+    "email_body": "Hi Lei,\n\nI would like to request access to {slug}.\nGitHub username:\nPurpose / interview context:\nWhat I would like to review:\n\nThank you."
+  },
+  "not_found": {
+    "description": "Page not found",
+    "eyebrow": "404 / PAGE NOT FOUND",
+    "title": {"zh": "这个页面暂时没有内容", "en": "This page could not be found"},
+    "body": {"zh": "可以返回个人主页，或继续浏览项目目录。", "en": "Return to my profile or browse the project index."},
+    "home": {"zh": "个人主页", "en": "My profile"},
+    "projects": {"zh": "浏览项目", "en": "Browse projects"}
+  },
+  "portfolio_redirect": {
+    "body": "个人介绍已移至首页。",
+    "link": "阅读履历 / Read my experience"
+  }
+}

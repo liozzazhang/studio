@@ -4,13 +4,14 @@
   "kind": "planned",
   "visibility": "private",
   "summary": {
-    "zh": "DNS 验证、监控与可视化方向的项目，目前处于仓库初始化阶段。",
-    "en": "A project direction for DNS verification, monitoring, and visualization, currently at repository initialization."
+    "zh": "DNS Eyes 分布式 DNS 保障平台的个人仓库。工作中主导的 DNS Eyes 已交付，检查 Agent 覆盖 20 个数据中心；该版本属于 Cisco 内部项目，本仓库仅完成初始化。",
+    "en": "Personal repository for DNS Eyes, a distributed DNS assurance platform. The DNS Eyes I led at work is delivered, with check agents in 20 data centers; that version is internal to Cisco, and this repository is only initialized."
   },
   "tags": [
     "DNS",
-    "Observability",
-    "Project Planning"
+    "Anycast / BGP",
+    "Distributed Checks",
+    "FastAPI"
   ],
   "slug": "dns-eyes",
   "url": "https://github.com/liozzazhang/dns-eyes",
@@ -24,7 +25,7 @@
   "order": 330,
   "disclosure": "summary-only",
   "status": {
-    "zh": "初始化 · 暂无实现",
-    "en": "Initialized · not implemented"
+    "zh": "工作版本已交付 · 个人仓库初始化",
+    "en": "Delivered at work · personal repo initialized"
   }
 }

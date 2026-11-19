@@ -3,9 +3,10 @@
 // The website never receives GitHub credentials. Access is decided on GitHub.
 const allowedLanguages = new Set(['zh', 'en']);
 const languageToggle = document.querySelector('[data-language-toggle]');
-let language = 'zh';
+const defaultLanguage = allowedLanguages.has(document.documentElement.dataset.defaultLanguage) ? document.documentElement.dataset.defaultLanguage : 'zh';
+let language = defaultLanguage;
 function setLanguage(value, persist = false) {
-  language = allowedLanguages.has(value) ? value : 'zh';
+  language = allowedLanguages.has(value) ? value : defaultLanguage;
   document.documentElement.lang = language === 'en' ? 'en' : 'zh-CN';
   for (const element of document.querySelectorAll('[data-zh][data-en]')) {
     element.textContent = element.getAttribute(`data-${language}`);

@@ -2,8 +2,8 @@
   "name": "Lei Zhang",
   "alias": "Liozza",
   "role": {
-    "zh": "云平台与 AI 工作流技术负责人",
-    "en": "Cloud & AI Workflow Engineering Leader"
+    "zh": "AI 应用工程与智能运维技术负责人",
+    "en": "AI Workflow Engineering & Intelligent Operations Leader"
   },
   "location": {
     "zh": "中国",
@@ -11,574 +11,486 @@
   },
   "intro": [
     {
-      "zh": "我是一名云基础设施与平台工程技术负责人，拥有十余年的 DevOps、可靠性与运维自动化经验。从云平台、自助服务和安全交付，到共享框架、集群生命周期和 AI 工作流，我的工作重点是把复杂且重复的工作变成可复用、可验证、可维护的工程能力。",
-      "en": "I am a cloud infrastructure and platform engineering leader with more than a decade of experience in DevOps, reliability and operations automation. Across cloud platforms, self-service tooling, secure delivery, shared frameworks, infrastructure lifecycles and AI workflows, my focus has remained consistent: turning complex, repetitive work into reusable, verifiable and maintainable engineering capabilities."
+      "zh": "十余年云基础设施与平台工程经验，兼具团队管理、架构设计和核心开发能力。理性、自驱，以五年以上的演进视角构建共享框架、配置模型和执行平台。当前在 Cisco 担任 Cloud Engineering Technical Leader，主导 AI 运维与 Skills 工程体系，将领域知识、生产工具和执行证据组织为可复用工作流，并推进部门级分享与使用。",
+      "en": "Cloud and platform engineering leader with more than a decade of experience, combining team leadership with architecture and core development. Analytical and self-driven, I plan reusable frameworks, configuration models and execution platforms over a horizon of five years or more. As a Cloud Engineering Technical Leader at Cisco, I lead AI operations and skill engineering, connecting domain knowledge, production tools and execution evidence into reusable workflows shared across the department."
     },
     {
-      "zh": "我兼具团队管理、架构设计与核心开发经验，习惯先理解业务目标、系统边界和长期维护成本，再把目标拆解为团队能够逐步交付的方案。当前在 Cisco 从事平台工程与 AI 运维工作，连接领域知识、执行工具和验证证据，让自动化能力真正进入日常工程流程。",
-      "en": "My work combines team leadership, architecture and core development. I start with the business objective, system boundaries and long-term maintenance costs, then turn the goal into work a team can deliver incrementally. At Cisco, I currently work on platform engineering and AI operations, connecting domain knowledge, execution tools and validation evidence within everyday engineering workflows."
+      "zh": "我擅长把多环境差异、服务依赖和运行约束转为明确的配置模型、接口契约与执行机制：CLC 管理 303 个生产集群，MUC 统一 10 个服务的滚动更新，DNS Eyes 覆盖 20 个数据中心，AI 运维工作流每日实施 40+ 项变更。",
+      "en": "I translate environment differences, service dependencies and operating constraints into explicit configuration models, contracts and execution mechanisms: CLC manages 303 production clusters, MUC unifies rolling updates for 10 services, DNS Eyes covers 20 data centers, and AI operations workflows implement 40+ changes every day."
     },
     {
-      "zh": "2021 年，我已在个人职业规划中提出从基础设施即代码、流水线和流程自动化走向 AI 智能工作流的方向。此后的共享库、配置驱动执行和平台控制能力，构成了今天开展 AI 工作流工程的基础。这个网站记录这条持续演进的主线，也展示我在工作之外制作的工具与游戏插件。",
-      "en": "In 2021, I articulated a direction from Infrastructure as Code, pipelines and process automation toward intelligent workflows based on AI. The shared libraries, configuration-driven execution and platform controls developed since then form the foundation for my current AI workflow work. This site documents that continuing thread alongside the tools and game addons I build outside work."
+      "zh": "2021 年，我提出运维工程的演进方向：IaC → Pipeline → ITIL → RPA → AI 智能工作流。此后持续主导公共库、配置驱动框架和平台控制能力建设，如今通过 AI Skills、MUC 与企业工具协作，在生产运维中落地。这个网站记录这条主线，也展示我在工作之外制作的工具与游戏插件。",
+      "en": "In 2021, I set out a direction for operations engineering: IaC → Pipeline → ITIL → RPA → AI intelligent workflows. Since then I have led shared libraries, configuration-driven frameworks and platform controls, and now apply that direction in production operations through AI skills, MUC and enterprise tools. This site documents that thread alongside the tools and game addons I build outside work."
     }
+  ],
+  "glance": [
+    {"label": {"zh": "目前", "en": "Currently"}, "value": "Cisco"},
+    {"label": {"zh": "职位", "en": "Role"}, "value": "Cloud Engineering Technical Leader"},
+    {"label": {"zh": "方向", "en": "Focus"}, "value": {"zh": "AI 运维 · 平台工程 · 云基础设施", "en": "AI operations · Platform engineering · Cloud infrastructure"}},
+    {"label": {"zh": "所在地", "en": "Based in"}, "value": {"zh": "中国", "en": "China"}}
+  ],
+  "highlights": [
+    {"value": "303", "label": {"zh": "个生产集群由 CLC 管理，Build/Upgrade/Expand/Destroy 覆盖率 100%", "en": "production clusters managed by CLC, with 100% build, upgrade, expansion and decommissioning coverage"}},
+    {"value": "40+", "label": {"zh": "项变更由 AI 运维工作流每日实施，已实施变更部署成功率 100%", "en": "changes implemented daily by AI operations workflows, with 100% deployment success"}},
+    {"value": {"zh": "1 周 → 1 天", "en": "1 wk → 1 day"}, "label": {"zh": "集群新建周期；升级、扩容及销毁由 2 天缩短至 0.5 天", "en": "cluster build time (from one week); upgrades, expansion and decommissioning from 2 days to 0.5 day"}},
+    {"value": "20", "label": {"zh": "个数据中心由 DNS Eyes 检查 Agent 覆盖", "en": "data centers covered by DNS Eyes check agents"}}
   ],
   "contacts": {
     "email": "liozza@163.com",
     "linkedin": "https://www.linkedin.com/in/lei-zhang-84b3b7115/",
+    "linkedin_label": "Lei Zhang",
     "wechat": "D_L_MOON",
-    "github": "https://github.com/liozzazhang"
+    "github": "https://github.com/liozzazhang",
+    "github_label": "@liozzazhang"
   },
   "experience": [
     {
-      "period": "2025.05 — 至今 / Present",
+      "period": {"zh": "2025.05 — 至今", "en": "2025.05 — Present"},
       "company": "Cisco",
-      "role": {
-        "zh": "Cloud Engineering Technical Leader",
-        "en": "Cloud Engineering Technical Leader"
-      },
+      "role": {"zh": "Cloud Engineering Technical Leader", "en": "Cloud Engineering Technical Leader"},
+      "team": {"zh": "团队 2 人", "en": "Team of 2"},
       "summary": {
-        "zh": "平台工程、基础设施生命周期与 AI 工作流。",
-        "en": "Platform engineering, infrastructure lifecycles and AI workflows."
+        "zh": "Cisco 2021.06 至今，历经两次组织调整，先后负责 OSaaS、平台自动化与云工程。当前主导 AI 运维工作流、AI Skills 体系、集群生命周期与执行框架的架构和核心开发。",
+        "en": "At Cisco since June 2021, across two reorganizations and responsibilities in OSaaS, platform automation and cloud engineering. I currently lead architecture and core development for AI operations workflows, AI skills, cluster lifecycle and execution frameworks."
       },
-      "points": [
+      "projects": [
         {
-          "zh": "主导集群生命周期方案设计与核心开发，以声明式配置和 GitOps 工作流组织创建、升级、扩容与退役。",
-          "en": "Lead solution design and core development for cluster lifecycle management, organizing provisioning, upgrades, expansion and retirement through declarative configuration and GitOps workflows."
+          "title": {"zh": "AI 运维工作流与变更实施", "en": "AI operational workflows and change implementation"},
+          "metrics": [
+            {"zh": "日实施 40+ 项 CHG", "en": "40+ CHGs per day"},
+            {"zh": "10 个服务 · 4 个 DC", "en": "10 services · 4 data centers"},
+            {"zh": "Commercial / W4G 两个环境", "en": "Commercial / W4G"},
+            {"zh": "部署全自动 · 人工投入接近零", "en": "Automated deployment · near-zero manual effort"},
+            {"zh": "已实施变更部署成功率 100%", "en": "100% deployment success"}
+          ],
+          "points": [
+            {"zh": "连接 Confluence 计划、ServiceNow 变更与 Jenkins 执行，把服务映射、时间窗口、依赖顺序和健康检查纳入统一工作流。", "en": "Connected Confluence plans, ServiceNow changes and Jenkins execution, integrating service mappings, time windows, dependencies and health checks."},
+            {"zh": "以 Skills 编码领域知识、两层并发控制和失败停止规则；以逐主机包结果识别已更新或已达目标版本，按一个 CHG 一个闭环组织执行与验证。", "en": "Encoded domain knowledge, two levels of concurrency and stop rules in skills, using host-level package evidence to verify upgrades or already-at-target outcomes within each CHG lifecycle."},
+            {"zh": "将日志核查、实施验证和计划状态回写与部署衔接，使日常任务从计划到结果记录连续完成。", "en": "Connected log validation, implementation evidence and plan updates so daily work proceeds continuously from planning to recorded outcomes."}
+          ],
+          "related": ["mcp-jenkins", "mcp-servicenow-chg"]
         },
         {
-          "zh": "设计共享更新框架，统一前置检查、执行阶段、健康验证与失败恢复，并兼顾有状态服务的角色和复制要求。",
-          "en": "Design shared update frameworks that connect preflight checks, execution stages, health validation and failure recovery while accommodating roles and replication in stateful services."
+          "title": {"zh": "AI Skills 工程体系与 ias-skill 工具", "en": "AI skill engineering and ias-skill tooling"},
+          "metrics": [
+            {"zh": "3 个团队 · 30 名员工", "en": "3 teams · 30 employees"},
+            {"zh": "Cursor / Copilot / Codex", "en": "Cursor / Copilot / Codex"}
+          ],
+          "points": [
+            {"zh": "统一技能元数据校验、示例 Prompt、PR 发布与索引生成，将日常运维经验纳入可审阅、可版本化的发布流程。", "en": "Unified metadata checks, example prompts, PR-based publication and generated indexes, placing operational knowledge in a reviewable, versioned release process."},
+            {"zh": "自研跨平台 Python CLI，支持跨工具安装、版本列表、自升级和指定版本安装，统一不同开发工具的知识入口。", "en": "Built a cross-platform Python CLI for installation across tools, version listing, self-update and pinned versions, standardizing knowledge access across development tools."},
+            {"zh": "以内部主仓库为单一来源，按显式可见性生成跨团队共享镜像，分离工具发行与技能访问权限。", "en": "Used one authoritative internal repository and explicit visibility to generate a sharing mirror, separating tool distribution from skill access permissions."}
+          ],
+          "related": ["agent-harness", "KaaS"]
         },
         {
-          "zh": "建设分布式服务检查与 DNS 诊断能力，将检查逻辑、执行方式和目标发现解耦，为变更验证与故障分析提供依据。",
-          "en": "Develop distributed service checks and DNS diagnostics, separating check logic, execution and target discovery to support change validation and incident analysis."
+          "title": {"zh": "GitOps 审查与基础设施排障 Skills", "en": "GitOps review and infrastructure diagnosis skills"},
+          "metrics": [
+            {"zh": "大部门使用 · 独立维护 Case Center", "en": "Department-wide · dedicated Case Center"},
+            {"zh": "已排查问题 90% 以上需反馈开发团队解决", "en": "90%+ of investigated issues resolved by development teams"}
+          ],
+          "points": [
+            {"zh": "固定 PR 版本，定义证据完整性与采集依赖，区分实际变更、refresh-only 漂移、失败项目与未齐证据，使结论可追踪。", "en": "Pinned PR revisions and defined evidence completeness and collection dependencies, distinguishing planned changes, refresh-only drift, failed projects and incomplete evidence."},
+            {"zh": "贯通 Manifest、Argo 产物、集群与 DNS 分层验证，输出可交付开发团队的定位结论和问题证据。", "en": "Connected manifest, Argo artifact, cluster and layered DNS verification to produce actionable findings and evidence for development teams."},
+            {"zh": "把历史故障与定位路径沉淀为案例和故障字典，新问题持续纳入复用。", "en": "Turned incidents and diagnostic paths into reusable cases and failure dictionaries, continuously incorporating new issues."}
+          ]
         },
         {
-          "zh": "把领域知识、前置条件和验证方法整理成可复用的 AI Skills，连接计划、工具执行、结果核查与记录。",
-          "en": "Turn domain knowledge, prerequisites and verification methods into reusable AI skills that connect planning, tool execution, result checking and records."
+          "title": {"zh": "CLC 声明式集群生命周期与多集群交付", "en": "CLC declarative cluster lifecycle and fleet delivery"},
+          "metrics": [
+            {"zh": "303 个生产集群", "en": "303 production clusters"},
+            {"zh": "Build/Upgrade/Expand/Destroy 覆盖率 100%", "en": "100% lifecycle workflow coverage"},
+            {"zh": "新建 1 周 → 1 天", "en": "Builds: 1 week → 1 day"},
+            {"zh": "升级、扩容、销毁 2 天 → 0.5 天", "en": "Other operations: 2 days → 0.5 day"}
+          ],
+          "points": [
+            {"zh": "以 FastAPI、React 和共享 core 分离门户与领域逻辑；用递归模板继承、版本化 Manifest 和稀疏覆盖管理环境差异，使局部例外仍能继承未覆盖规则的更新。", "en": "Separated the portal from domain logic through FastAPI, React and a shared core. Recursive template inheritance, versioned manifests and sparse overrides preserve local exceptions while inheriting untouched rule updates."},
+            {"zh": "从 Manifest、PR、Atlantis 与 Argo 证据派生状态，为每次操作记录执行基线；以统一依赖图区分硬性前置条件与建议性参考，并限制每集群同时仅有一项活动操作。", "en": "Derived state from manifests, PRs, Atlantis and Argo evidence with a baseline for each operation; one dependency graph distinguishes mandatory prerequisites from advisory evidence, with one active operation per cluster."},
+            {"zh": "通过 GitOps 连接渲染、差异预览、PR、执行追踪与分轮 Rollout，将 Jira 依赖、CHG 审批和变更窗口纳入多集群发布条件。", "en": "Connected rendering, diff previews, PRs, execution tracking and phased fleet rollouts through GitOps, with Jira dependencies, CHG approvals and change-window gates."}
+          ],
+          "related": ["cluster-lifecycle-governance"]
+        },
+        {
+          "title": {"zh": "MUC 可配置滚动更新与有状态服务编排", "en": "MUC configurable rolling updates and stateful orchestration"},
+          "metrics": [
+            {"zh": "10 个服务 · 4 个 DC", "en": "10 services · 4 data centers"},
+            {"zh": "失败自动回滚", "en": "Automatic rollback"},
+            {"zh": "PostgreSQL / repmgr 受控切主", "en": "PostgreSQL / repmgr switchover"}
+          ],
+          "points": [
+            {"zh": "将默认值、服务定义、类型默认值与运行覆盖合并为有效 Stage 流程，以类型到 Handler 的映射扩展能力；执行前校验阶段，支持选择范围和 dry-run。", "en": "Merged defaults, service definitions, type defaults and run overrides into an effective stage flow; type-to-handler mappings provide extensions, with validation, stage selection and dry runs before execution."},
+            {"zh": "按主机串联负载摘除、Hook、更新、健康验证及恢复；Handler 失败后先执行 post-hook，再回滚失败阶段并终止，保留明确的收尾顺序。", "en": "Sequenced draining, hooks, updates, health checks and reattachment per host; after a handler failure, post-hooks run before failed-stage rollback and termination."},
+            {"zh": "按 PostgreSQL/repmgr 实际角色编排副本更新、受控切主、原主更新和角色恢复，并核查复制与读写；中断后依据现状继续，避免重复提升。", "en": "Orchestrated PostgreSQL/repmgr replica updates, controlled promotion, former-primary updates and role restoration with replication and read/write checks; recovery follows current roles to avoid repeated promotion."}
+          ],
+          "related": ["rolling-update-controller", "pg-repmgr-rolling-upgrade", "ansible-collection-ops-pipeline"]
+        },
+        {
+          "title": {"zh": "DNS Eyes 分布式保障与服务生命周期", "en": "DNS Eyes distributed assurance and service lifecycle"},
+          "metrics": [
+            {"zh": "检查 Agent 覆盖 20 个 DC", "en": "Check agents in 20 data centers"},
+            {"zh": "NS/ENS · Anycast/BGP · UDP/TCP", "en": "NS/ENS · Anycast/BGP · UDP/TCP"},
+            {"zh": "DNS Server Build/Destroy", "en": "DNS server build/destroy"}
+          ],
+          "points": [
+            {"zh": "以 Check/Context/Result、Agent、Target 和 Runner 分离检查规则、执行方式、目标发现与编排，以 YAML 组合验证矩阵，供 CLI 与门户共用。", "en": "Separated checks, execution, target discovery and orchestration through Check/Context/Result, Agent, Target and Runner contracts, with YAML verification matrices shared by the CLI and portal."},
+            {"zh": "预检失败保留目标证据，结果逐层汇总；调度器通过站点运行锁与并发信号量约束任务，并持久化超时、取消和异常，支持针对失败项复查。", "en": "Retained failed-target preflight evidence and hierarchical results; site locks and concurrency semaphores control scheduled work, persisting timeout, cancellation and error states for focused follow-up."},
+            {"zh": "建设 FastAPI、SQLite、SAML SSO 与集中模块权限；将成员配置固定到提交快照，从云资源与 Grid 事实推导生命周期阶段，统一设备交付与就绪检查。", "en": "Built FastAPI, SQLite, SAML SSO and centralized module authorization; pinned member configuration to commit snapshots and derived lifecycle stages from cloud and Grid evidence."}
+          ],
+          "related": ["dns-eyes", "py-duo"]
+        },
+        {
+          "title": {"zh": "IaS 可观测性配置与部署框架", "en": "IaS observability configuration and deployment framework"},
+          "points": [
+            {"zh": "建立 Plugin、Profile、Target 三层模型：插件维护模板与参数契约，场景组合采集能力，目标绑定主机、环境值与部署策略。", "en": "Defined Plugin, Profile and Target layers: plugins own templates and parameter contracts, profiles compose collection scenarios, and targets bind hosts, environment values and deployment policy."},
+            {"zh": "开发 ias-obs 工具链：先以 JSON Schema 校验、再以 StrictUndefined 模板渲染配置，提供 render、validate、install、deploy 入口并连接 Ansible check mode。", "en": "Built ias-obs tooling that validates with JSON Schema before StrictUndefined rendering, with render, validate, install and deploy commands connected to Ansible check mode."}
+          ],
+          "related": ["metrics-deploy"]
+        },
+        {
+          "title": {"zh": "DNS 服务接管与团队运行机制", "en": "DNS service transition and team operating practices"},
+          "points": [
+            {"zh": "以分阶段接管矩阵明确支持组、告警、库存、账号、发布流程和 Runbook，协调 Infoblox/UCS、OCP 就绪及 DNS API 构建转移与验证。", "en": "Used staged transition matrices for support ownership, alerts, inventories, accounts, releases and runbooks, coordinating Infoblox/UCS, OCP readiness and DNS API build transfer and verification."},
+            {"zh": "建立环境、服务、账号和轮换周期维护矩阵，将安全维护、RCA 原因和预防措施转为可跟踪工作。", "en": "Established maintenance matrices across environments, services, accounts and rotation cycles, tracking security maintenance and RCA prevention actions."},
+            {"zh": "以稳定 Session ID 组织培训目录，将导师与新员工职责拆入两个 Sprint，结合首月准备度评审衔接后续生产执行权限。", "en": "Organized training under stable session identifiers, divided mentor and new-hire responsibilities across two sprints, and connected first-month readiness reviews with production execution access."}
+          ]
         }
       ]
     },
     {
       "period": "2024.02 — 2025.05",
       "company": "Cisco",
-      "role": {
-        "zh": "Cloud Leader, Engineering",
-        "en": "Cloud Leader, Engineering"
-      },
+      "role": {"zh": "Cloud Leader, Engineering · Platform Automation", "en": "Cloud Leader, Engineering · Platform Automation"},
+      "team": {"zh": "团队 8 人", "en": "Team of 8"},
       "summary": {
-        "zh": "平台自动化、测试框架与共享工程能力。",
-        "en": "Platform automation, testing frameworks and shared engineering capabilities."
+        "zh": "带领平台自动化团队，主导 Python 测试框架、公共 SDK 与工程标准；框架、共享 SDK 与 CERTA 在职责转换后持续演进。",
+        "en": "Led the platform automation team, Python testing frameworks, shared SDKs and engineering standards; the frameworks, SDKs and CERTA continued across role transitions."
       },
-      "points": [
+      "projects": [
         {
-          "zh": "带领平台自动化团队，主导基于 Python 的测试框架设计与开发。",
-          "en": "Led the platform automation team and the design and development of Python-based testing frameworks."
+          "title": {"zh": "Python 测试工作流框架与公共 SDK", "en": "Python test workflow framework and shared SDKs"},
+          "points": [
+            {"zh": "以 YAML 描述 setup、业务 stages 与 teardown；同阶段按优先级分组并发、组间等待，以环境、阶段、步骤的变量覆盖表达不同场景。", "en": "Modeled setup, business stages and teardown in YAML, running equal-priority steps concurrently and waiting between groups; environment, stage and step overrides express scenario differences."},
+            {"zh": "以 pytest mark 选择行为，结合 OpenAPI 客户端、CLI 与共享 SDK 复用服务调用和配置访问，使测试框架与业务测试仓库分别演进。", "en": "Selected behavior through pytest marks and reused service calls and configuration through OpenAPI clients, a CLI and shared SDKs, letting the framework and test repositories evolve independently."}
+          ],
+          "related": ["super-dict", "pyrel"]
         },
         {
-          "zh": "通过配置模型、插件接口、执行上下文与统一结果，将场景逻辑和执行机制分离。",
-          "en": "Separated scenario logic from execution through configuration models, plugin interfaces, execution context and common result structures."
+          "title": {"zh": "CERTA 可扩展发布认证框架", "en": "CERTA extensible release certification framework"},
+          "points": [
+            {"zh": "通过审计/集群启动器契约及注册机制加载插件，由 YAML 流程声明启动器和审计顺序，新增产品能力通过扩展组件接入公共引擎。", "en": "Loaded plugins through audit/cluster-launcher contracts and registration, with YAML flows declaring launchers and audit order so new products plug into a shared engine."},
+            {"zh": "持久化 ExecutionContext 与集群元数据，统一重试及 AuditResult 输出，支持环境状态复用与结果追踪。", "en": "Persisted ExecutionContext and cluster metadata, standardizing retries and AuditResult output for reusable environment state and traceable results."}
+          ]
         },
         {
-          "zh": "推动共享 SDK、公共库、统一执行入口和开发规范，让不同项目能够复用已有工程积累。",
-          "en": "Advanced shared SDKs, libraries, common execution entry points and development conventions so projects could reuse existing engineering work."
+          "title": {"zh": "Stone 工程标准与公共资产治理", "en": "Stone engineering standards and shared-asset governance"},
+          "points": [
+            {"zh": "明确 SDK、CI 和脚本的职责边界，要求开发前说明背景、流程和组件边界，以共享库、独立仓库、README 和版本维护形成团队交付约定。", "en": "Defined responsibilities for SDKs, CI and scripts, required context, workflows and boundaries before development, and used shared libraries, separate repositories, READMEs and versions as delivery conventions."}
+          ]
         }
       ]
     },
     {
       "period": "2021.06 — 2024.02",
       "company": "Cisco",
-      "role": {
-        "zh": "Cloud Leader, Engineering",
-        "en": "Cloud Leader, Engineering"
-      },
+      "role": {"zh": "Cloud Leader, Engineering · OSaaS", "en": "Cloud Leader, Engineering · OSaaS"},
+      "team": {"zh": "团队 10 人", "en": "Team of 10"},
       "summary": {
-        "zh": "系统安全、多云基础制品与持续交付。",
-        "en": "System security, multi-cloud foundation artifacts and continuous delivery."
+        "zh": "带领 OSaaS 团队并主导核心开发，统一跨云安全镜像、中间件构建、补丁、加固和分布式扫描。",
+        "en": "Led the OSaaS team and core development across secure cloud images, middleware builds, patches, hardening and distributed scanning."
       },
-      "points": [
+      "projects": [
         {
-          "zh": "带领团队建设操作系统镜像和中间件的自动化构建与发布流程，覆盖多种 Linux 发行版及公有云、私有云环境。",
-          "en": "Led automated build and release work for operating system images and middleware across Linux distributions and public and private cloud environments."
+          "title": {"zh": "跨云安全镜像与月度 Bundle 发布", "en": "Cross-cloud secure images and monthly bundle releases"},
+          "metrics": [
+            {"zh": "AWS / GCP / Azure / OpenStack", "en": "AWS / GCP / Azure / OpenStack"},
+            {"zh": "2023.11：5 个 OS Bundle 目标 · 2 个 Tools Bundle 目标", "en": "Nov 2023: 5 OS Bundle and 2 Tools Bundle targets"},
+            {"zh": "7 类组件 · 14 个容器制品标签", "en": "7 component categories · 14 container artifact tags"}
+          ],
+          "points": [
+            {"zh": "以 Ansible、Jenkins、Terraform 统一 RHEL、Ubuntu、AlmaLinux、CentOS 与多云适配；采用 Base OS 加月度 Bundle、半年全量镜像的分层发布模型。", "en": "Unified RHEL, Ubuntu, AlmaLinux and CentOS delivery across clouds through Ansible, Jenkins and Terraform, separating Base OS from monthly bundles and six-monthly full releases."},
+            {"zh": "Bundle 控制器按环境、目标包差异和已装状态组织预览、安装及结果记录，支持 dry-run、force 与 repos-only。", "en": "The bundle controller uses environment and package-state differences for previews, installation and result records, with dry-run, force and repos-only modes."}
+          ]
         },
         {
-          "zh": "将安全基线、加固与验证要求纳入标准构建流程，使安全维护成为可重复执行的工程工作。",
-          "en": "Integrated security baselines, hardening and validation into standard build processes, making security maintenance repeatable engineering work."
+          "title": {"zh": "安全补丁数据流水线与 OS 加固", "en": "Security patch data pipeline and OS hardening"},
+          "points": [
+            {"zh": "建设从上游公告、CVE 到受管 OS/软件包的收集、归一与关系维护，连接月度发布清单；PMS 每日上传包，QA 先行节点持续验证更新影响。", "en": "Built collection, normalization and relationship maintenance from upstream advisories and CVEs to managed OS packages and monthly release lists; daily PMS uploads feed early QA validation."},
+            {"zh": "将 STIG、CIS-CAT、FIPS 要求转为按系统事实选择规则的 Ansible 角色，把版本、CVE 与 FIPS 状态纳入制品追溯。", "en": "Turned STIG, CIS-CAT and FIPS requirements into Ansible roles selected by system facts, linking versions, CVEs and FIPS status to artifacts."}
+          ]
         },
         {
-          "zh": "组织上游补丁收集、数据整理、增量更新与基础镜像发布，持续沉淀共享库和自动化流程。",
-          "en": "Organized upstream patch collection, data normalization, incremental updates and base-image releases while developing shared libraries and automation workflows."
+          "title": {"zh": "Mark40 中间件构建与共享 SDK/CLI", "en": "Mark40 middleware builds and shared SDK/CLI"},
+          "points": [
+            {"zh": "以组件描述、Prepare/Build 阶段和 OS 适配器统一 Tomcat、Redis、MySQL 等中间件构建，串联制品上传、QA 仓库与发布通知。", "en": "Standardized middleware builds such as Tomcat, Redis and MySQL through component descriptions, prepare/build phases and OS adapters, connecting artifact uploads, QA repositories and release notices."},
+            {"zh": "将模板渲染、制品接口和公告/CVE/包关系沉淀为可安装 SDK 与统一 CLI，替代分散的上传与关系维护脚本。", "en": "Delivered template rendering, artifact APIs and advisory/CVE/package relationships as installable SDKs and a common CLI, replacing scattered upload and maintenance scripts."}
+          ]
+        },
+        {
+          "title": {"zh": "OS Probe 安全代理与短期 SSH 证书", "en": "OS Probe security agent and short-lived SSH certificates"},
+          "points": [
+            {"zh": "OS Probe 解耦心跳、插件、输出和配置更新，以 SHA256 发现变化、校验后应用，失败保留当前配置并重试。", "en": "Separated OS Probe heartbeat, plugins, output and configuration updates, using SHA256 change detection and validation before adoption while retaining current configuration on failure."},
+            {"zh": "基于 Vault SSH Secrets Engine 设计证书认证方案，以角色、principals 与有效期描述访问边界，替代逐台公钥分发。", "en": "Designed certificate authentication on Vault's SSH secrets engine, describing access through roles, principals and validity periods instead of per-host key distribution."}
+          ],
+          "related": ["vault-approle-toolkit"]
         }
       ]
     },
     {
       "period": "2019.12 — 2021.06",
       "company": "Cloudwalk",
-      "role": {
-        "zh": "SRE Leader",
-        "en": "SRE Leader"
-      },
+      "role": {"zh": "SRE Leader", "en": "SRE Leader"},
       "summary": {
-        "zh": "部署平台、基础设施自动化与可靠性交付。",
-        "en": "Deployment platforms, infrastructure automation and reliable delivery."
+        "zh": "部署平台、Kubernetes 基础设施即代码与 SRE 运行保障。",
+        "en": "Deployment platforms, Kubernetes Infrastructure as Code and SRE operations."
       },
       "points": [
-        {
-          "zh": "主导部署平台 CLI/API 与 Kubernetes 基础设施即代码建设，为环境交付提供一致入口。",
-          "en": "Led deployment platform CLI/API and Kubernetes Infrastructure as Code work, providing a consistent entry point for environment delivery."
-        },
-        {
-          "zh": "建设 GitLab CI 流水线，贯通构建、扫描、自动测试、打包与发布。",
-          "en": "Developed GitLab CI pipelines connecting builds, scanning, automated tests, packaging and releases."
-        },
-        {
-          "zh": "组织监控告警、on-call 与 Runbook，连接平台建设和日常运营。",
-          "en": "Organized monitoring, alerting, on-call and runbook practices to connect platform engineering with daily operations."
-        }
-      ]
+        {"zh": "开发部署平台 CLI/API，支持多存储接入、文件编排与软件依赖解析，并与 AppStore、Manager 等上层系统通过接口连接。", "en": "Developed deployment CLI/API with multiple storage backends, file orchestration and dependency resolution, integrated with AppStore, Manager and other upper-layer systems."},
+        {"zh": "以 Ansible/IaC 自动构建多套 Kubernetes 环境，集成 JumpServer 认证与审计。", "en": "Automated multiple Kubernetes environments with Ansible and IaC, integrating JumpServer authentication and audit."},
+        {"zh": "开发 GitLab CI 打包工具，串联 Fortify、Sonar、自动化测试、打包、归档与应用发布。", "en": "Built GitLab CI packaging connecting Fortify, Sonar, automated tests, packaging, archiving and releases."},
+        {"zh": "整合 Prometheus、Elasticsearch 与 Consul 服务发现，建立 on-call、轮值与 Runbook。", "en": "Integrated Prometheus, Elasticsearch and Consul service discovery, establishing on-call rotations and runbooks."}
+      ],
+      "related": ["CI-CD", "jumpserver-helper"]
     },
     {
       "period": "2019.05 — 2019.12",
       "company": "Aidoin",
-      "role": {
-        "zh": "DevOps Expert",
-        "en": "DevOps Expert"
-      },
+      "role": {"zh": "DevOps Expert", "en": "DevOps Expert"},
       "summary": {
-        "zh": "监控日志、容器交付与 DevOps 流程。",
-        "en": "Monitoring, logging, container delivery and DevOps processes."
+        "zh": "监控日志、Kubernetes 交付与 DevOps 流程。",
+        "en": "Monitoring, logging, Kubernetes delivery and DevOps processes."
       },
+      "metrics": [
+        {"zh": "20+ 仪表盘 · 100+ 指标", "en": "20+ dashboards · 100+ metrics"},
+        {"zh": "约 40 个本地与阿里云集群", "en": "About 40 local and Alibaba Cloud clusters"}
+      ],
       "points": [
-        {
-          "zh": "建设集中监控与日志体系，连接虚拟机、容器、Kubernetes 和应用层的观察数据。",
-          "en": "Built centralized monitoring and logging across virtual machines, containers, Kubernetes and applications."
-        },
-        {
-          "zh": "落地 Kubernetes/Helm 交付流水线，并参与本地和公有云集群维护。",
-          "en": "Implemented Kubernetes/Helm delivery pipelines and maintained on-premises and public cloud clusters."
-        },
-        {
-          "zh": "推动流程规范和运维工具建设，减少依赖个人经验的重复操作。",
-          "en": "Improved operational processes and tooling to reduce repetitive work dependent on individual knowledge."
-        }
-      ]
+        {"zh": "建设仪表盘与指标，覆盖硬件、应用流量、压测与健康检查，接入自定义 Prometheus 业务告警；集中采集十余类虚拟机、Docker、Kubernetes 与应用日志。", "en": "Built dashboards and metrics for hardware, application traffic, load tests and health checks with custom Prometheus alerts; centralized logs from VMs, Docker, Kubernetes and applications."},
+        {"zh": "落地 Kubernetes/Helm 分布式 CI/CD，维护本地与阿里云集群，并建设集群资源可视化与日常操作入口。", "en": "Implemented distributed Kubernetes/Helm CI/CD, maintained local and Alibaba Cloud clusters and built cluster visualization and operations tooling."},
+        {"zh": "基于 Jira/ITIL 组织多级审批、通知与回滚流程，推进 GitLab 分支模型。", "en": "Organized multi-level approvals, notifications and rollbacks on Jira/ITIL, and introduced a GitLab branching model."}
+      ],
+      "related": ["message-transfer", "heketi-glusterfs-cluster"]
     },
     {
       "period": "2014.12 — 2019.04",
       "company": "Patsnap",
-      "role": {
-        "zh": "DevOps",
-        "en": "DevOps"
-      },
+      "role": {"zh": "DevOps", "en": "DevOps"},
       "summary": {
-        "zh": "云平台、自助服务与基础设施工程。",
-        "en": "Cloud platforms, self-service delivery and infrastructure engineering."
+        "zh": "AWS 云平台、自助服务与性能优化。",
+        "en": "AWS cloud platforms, self-service delivery and performance."
       },
+      "metrics": [
+        {"zh": "DynamoDB 查询提升 3–5 倍", "en": "DynamoDB queries 3–5× faster"},
+        {"zh": "部分发布与初始化压缩至秒级", "en": "Selected releases and initialization in seconds"}
+      ],
       "points": [
-        {
-          "zh": "参与 AWS IaaS/PaaS、自助化服务和运维门户建设，把云资源与服务交付转化为可编程能力。",
-          "en": "Worked on AWS IaaS/PaaS, self-service delivery and operations portals, turning cloud resource and service delivery into programmable capabilities."
-        },
-        {
-          "zh": "围绕 DynamoDB 查询、Lambda 冷启动、镜像构建和服务初始化开展性能与交付优化。",
-          "en": "Improved performance and delivery across DynamoDB queries, Lambda cold starts, image builds and service initialization."
-        },
-        {
-          "zh": "积累云 API、监控自动化、ITIL 流程和容器工具实践，为后续平台工程工作打下基础。",
-          "en": "Built experience with cloud APIs, monitoring automation, ITIL processes and container tooling that informed later platform engineering work."
-        }
-      ]
+        {"zh": "建设 AWS IaaS/PaaS、资源与服务自助平台和运维门户，以 Boto3、AWS CLI 封装云能力，并连接 ITIL 流程与审批。", "en": "Built AWS IaaS/PaaS, resource and service self-service and an operations portal, wrapping cloud capabilities with Boto3 and the AWS CLI and connecting ITIL processes and approvals."},
+        {"zh": "优化 DynamoDB 表结构、Lambda 冷启动与镜像构建，将部分发布步骤从分钟级、部分服务初始化从十分钟级缩短至秒级。", "en": "Optimized DynamoDB table design, Lambda cold starts and image builds, reducing selected release steps from minutes and service initialization from about ten minutes to seconds."},
+        {"zh": "基于 CloudWatch 建设监控告警 API，提供告警清理、二次聚合、分组与分级静默。", "en": "Built CloudWatch monitoring and alerting APIs with alert cleanup, secondary aggregation, grouping and tiered silencing."}
+      ],
+      "related": ["ecs-helper", "docker-builder"]
     }
   ],
   "education": [
     {
       "period": "2009.09 — 2013.07",
-      "institution": {
-        "zh": "南京信息工程大学",
-        "en": "Nanjing University of Information Science and Technology"
-      },
-      "degree": {
-        "zh": "本科",
-        "en": "Bachelor’s degree"
-      }
+      "institution": {"zh": "南京信息工程大学", "en": "Nanjing University of Information Science and Technology"},
+      "degree": {"zh": "本科 · 计算机相关专业", "en": "Bachelor’s degree in a computing discipline"}
     }
   ],
   "languages": [
-    {
-      "zh": "中文",
-      "en": "Chinese"
-    },
-    {
-      "zh": "英语 · CET-6",
-      "en": "English · CET-6"
-    }
+    {"zh": "中文", "en": "Chinese"},
+    {"zh": "英语 · CET-6", "en": "English · CET-6"}
   ],
   "evolution": {
-    "title": {
-      "zh": "从云基础设施，到 AI 工程工作流",
-      "en": "From cloud infrastructure to AI engineering workflows"
-    },
+    "title": {"zh": "从云基础设施，到 AI 工程工作流", "en": "From cloud infrastructure to AI engineering workflows"},
     "intro": {
-      "zh": "我的工程经历从云基础设施与 DevOps 起步，逐步扩展到安全交付、共享框架、平台控制与 AI 工作流。贯穿这些阶段的是同一种方法：明确接口与配置，把执行、验证和知识积累组织成可以持续复用的能力。展开下方主题，可以继续阅读相关方法与个人项目。",
-      "en": "My engineering work has grown from cloud infrastructure and DevOps into secure delivery, shared frameworks, platform controls, and AI workflows. A consistent approach connects these stages: define interfaces and configuration, then bring execution, validation, and knowledge into reusable capabilities. Expand a topic below to explore the methods and related personal projects."
+      "zh": "我的工程经历从云基础设施与 DevOps 起步，经过 OSaaS 安全交付、测试框架与共享 SDK，延伸到 CLC、MUC、DNS Eyes 和 AI 工作流。贯穿这些阶段的是同一种方法：明确接口与配置，把执行、验证和知识积累组织成可以持续复用的能力。2021 年提出的是方向，2025 年起在生产运维中落地；下方能力之间的关联表示方法与能力的复用，而非项目之间的直接调用。",
+      "en": "My engineering work began with cloud infrastructure and DevOps, moved through OSaaS secure delivery, testing frameworks and shared SDKs, and now extends to CLC, MUC, DNS Eyes and AI workflows. A consistent approach connects these stages: define interfaces and configuration, then bring execution, validation and knowledge into reusable capabilities. The 2021 milestone was a direction; production implementation began in 2025. Links between the capabilities below show reuse of methods and capabilities rather than direct calls between projects."
     },
+    "link": {"url": "https://github.com/liozzazhang/engineering-evolution", "label": "engineering-evolution ↗"},
     "stages": [
       {
         "period": "2014 — 2021",
-        "title": {
-          "zh": "云与 DevOps 基础",
-          "en": "Cloud & DevOps foundations"
-        },
-        "summary": {
-          "zh": "从云服务、自助平台、CI/CD 到 Kubernetes，把基础设施变得可编程。",
-          "en": "From cloud services and self-service platforms to CI/CD and Kubernetes: making infrastructure programmable."
-        },
+        "title": {"zh": "云与 DevOps 基础", "en": "Cloud & DevOps foundations"},
+        "summary": {"zh": "Patsnap、Aidoin 与 Cloudwalk：从 AWS 自助平台、可观测性、CI/CD 到 Kubernetes IaC，把基础设施变得可编程。", "en": "Patsnap, Aidoin and Cloudwalk: from AWS self-service platforms, observability and CI/CD to Kubernetes IaC, making infrastructure programmable."},
         "points": [
-          {
-            "zh": "围绕重复的资源交付和应用发布工作，建设 CLI、API 与基础设施即代码。",
-            "en": "Built CLI, API and Infrastructure as Code capabilities around repeated resource delivery and application release tasks."
-          },
-          {
-            "zh": "让构建、扫描、测试和发布成为连续流程，并以监控、轮值和 Runbook 承接运行工作。",
-            "en": "Connected builds, scanning, testing and releases while supporting operations with monitoring, on-call and runbooks."
-          }
+          {"zh": "建设 AWS IaaS/PaaS、自助服务与运维门户，封装云 API 并连接 ITIL 审批流程；DynamoDB 查询提升 3 至 5 倍。", "en": "Built AWS IaaS/PaaS, self-service and operations portals, wrapping cloud APIs and connecting ITIL approvals; improved DynamoDB queries by 3 to 5 times."},
+          {"zh": "建设 20+ 仪表盘、100+ 指标与集中日志；开发部署平台 CLI/API、Kubernetes IaC 和 GitLab CI，并以 on-call 与 Runbook 承接运行。", "en": "Built 20+ dashboards, 100+ metrics and centralized logging; developed deployment CLI/API, Kubernetes IaC and GitLab CI, supported by on-call and runbooks."},
+          {"zh": "开发镜像构建、ECS 部署、共享存储与分布式 CI/CD 等独立工具；以多线程 Shell 封装 AWS Data Pipeline，跨账户迁移约 30 TB S3 数据。", "en": "Developed standalone tools for image builds, ECS deployment, shared storage and distributed CI/CD, and wrapped AWS Data Pipeline in multithreaded Shell to migrate about 30 TB of S3 data across accounts."}
         ],
-        "projects": [
-          "CI-CD",
-          "docker-builder",
-          "ecs-helper",
-          "heketi-glusterfs-cluster"
-        ]
+        "projects": ["CI-CD", "docker-builder", "ecs-helper", "heketi-glusterfs-cluster"]
       },
       {
         "period": "2021 — 2024",
-        "title": {
-          "zh": "安全交付与自动化底座",
-          "en": "Secure delivery & automation foundations"
-        },
-        "summary": {
-          "zh": "把镜像、中间件、安全加固与补丁维护，组织成统一的构建和发布能力。",
-          "en": "Organized images, middleware, hardening and patch maintenance into shared build and release capabilities."
-        },
+        "title": {"zh": "OSaaS 安全交付", "en": "OSaaS secure delivery"},
+        "summary": {"zh": "Cloud Leader, Engineering · OSaaS · 团队 10 人：主导跨云安全镜像、中间件、补丁、加固与扫描的统一交付。", "en": "Cloud Leader, Engineering · OSaaS · team of 10: led unified delivery of secure images, middleware, patches, hardening and scanning across clouds."},
         "points": [
-          {
-            "zh": "将安全与交付要求写进流程，使不同环境采用共同的工程方法。",
-            "en": "Encoded security and delivery requirements in processes, using common engineering methods across environments."
-          },
-          {
-            "zh": "2021 年明确提出从 IaC、Pipeline、ITIL、RPA 向 AI 智能工作流演进的方向。",
-            "en": "Articulated a direction from IaC, pipelines, ITIL and RPA toward AI intelligent workflows in 2021."
-          }
+          {"zh": "以 Base OS 加月度 Bundle、半年全量镜像的模型统一 AWS、GCP、Azure 与 OpenStack 交付，并将版本、CVE 与 FIPS 状态纳入制品追溯。", "en": "Unified delivery across AWS, GCP, Azure and OpenStack with Base OS plus monthly bundles and semiannual full images, tracing versions, CVEs and FIPS status for each artifact."},
+          {"zh": "将模板渲染、制品接口和公告/CVE/包关系沉淀为可安装 SDK 与统一 CLI；建设 OS Probe 与基于 Vault 的短期 SSH 证书认证。", "en": "Turned template rendering, artifact interfaces and advisory/CVE/package relationships into an installable SDK and unified CLI; built OS Probe and Vault-based short-lived SSH certificate authentication."},
+          {"zh": "2021 年提出从 IaC、Pipeline、ITIL、RPA 向 AI 智能工作流演进的方向。", "en": "In 2021, set out a direction from IaC, pipelines, ITIL and RPA toward AI intelligent workflows."}
         ],
-        "projects": []
+        "projects": ["vault-approle-toolkit"]
       },
       {
         "period": "2024 — 2025",
-        "title": {
-          "zh": "共享框架与工程契约",
-          "en": "Shared frameworks & engineering contracts"
-        },
-        "summary": {
-          "zh": "把具体场景与执行机制分离，让框架、SDK 和公共能力能够跨项目复用。",
-          "en": "Separated scenario logic from execution so frameworks, SDKs and shared capabilities could be reused across projects."
-        },
+        "title": {"zh": "测试框架与共享 SDK", "en": "Testing frameworks & shared SDKs"},
+        "summary": {"zh": "Cloud Leader, Engineering · Platform Automation · 团队 8 人：主导 Python 测试工作流框架、公共 SDK 与 CERTA 认证框架。", "en": "Cloud Leader, Engineering · Platform Automation · team of 8: led the Python test workflow framework, shared SDKs and the CERTA certification framework."},
         "points": [
-          {
-            "zh": "以配置模型、插件契约、执行上下文和统一结果组织测试与自动化。",
-            "en": "Organized testing and automation through configuration models, plugin contracts, execution context and common results."
-          },
-          {
-            "zh": "持续维护共享库与开发规范，让工程积累跨团队和任职阶段延续。",
-            "en": "Maintained shared libraries and development conventions so engineering work could carry across teams and roles."
-          }
+          {"zh": "以 YAML 描述 setup、业务 stages 与 teardown，结合 pytest mark、OpenAPI 客户端和统一 CLI 组合跨服务验证。", "en": "Described setup, business stages and teardown in YAML, composing cross-service validation with pytest marks, OpenAPI clients and a unified CLI."},
+          {"zh": "CERTA 以审计/集群启动器契约、插件注册、ExecutionContext 与统一 AuditResult 组织认证，支持环境状态复用与结果追踪。", "en": "CERTA organizes certification through audit and cluster-launcher contracts, plugin registration, ExecutionContext and a common AuditResult, supporting environment reuse and result tracking."},
+          {"zh": "以 Stone 规范明确 SDK、CI 和脚本职责；框架、共享 SDK 与 CERTA 跨任职阶段持续演进。", "en": "Defined responsibilities for SDKs, CI and scripts through the Stone standard; the frameworks, shared SDKs and CERTA continued to evolve across role changes."}
         ],
-        "projects": [
-          "pyrel",
-          "super-dict"
-        ]
+        "projects": ["pyrel", "super-dict"]
       },
       {
-        "period": "2025 — 至今 / Present",
-        "title": {
-          "zh": "平台控制与 AI 工作流",
-          "en": "Platform controls & AI workflows"
-        },
-        "summary": {
-          "zh": "将生命周期管理、更新编排、分布式检查与可复用知识连接起来。",
-          "en": "Connected lifecycle management, update orchestration, distributed checks and reusable knowledge."
-        },
+        "period": {"zh": "2025 — 至今", "en": "2025 — Present"},
+        "title": {"zh": "平台控制与 AI 工作流", "en": "Platform controls & AI workflows"},
+        "summary": {"zh": "Cloud Engineering Technical Leader · 团队 2 人：以 CLC、MUC、DNS Eyes 与 AI Skills 连接生命周期管理、更新编排、分布式检查与可复用知识，在生产运维中落地 AI 工作流。", "en": "Cloud Engineering Technical Leader · team of 2: connecting lifecycle management, update orchestration, distributed checks and reusable knowledge through CLC, MUC, DNS Eyes and AI skills, applying AI workflows in production operations."},
         "points": [
-          {
-            "zh": "用声明式目标、评审和工作流管理基础设施变更，并以健康检查和恢复机制约束执行。",
-            "en": "Managed infrastructure changes through declarative intent, review and workflows, with health checks and recovery governing execution."
-          },
-          {
-            "zh": "把领域知识与验证要求工程化，形成能够调用工具、检查结果并留下记录的 AI 工作流。",
-            "en": "Engineered domain knowledge and verification requirements into AI workflows that call tools, check results and preserve records."
-          }
+          {"zh": "CLC 管理 303 个生产集群，四类生命周期流程覆盖 100%，新建由 1 周缩短至 1 天；MUC 接入 10 个服务、覆盖 4 个 DC，支持失败自动回滚。", "en": "CLC manages 303 production clusters with all four lifecycle workflows covered, cutting new builds from one week to one day; MUC serves 10 services across 4 DCs with automatic rollback on failure."},
+          {"zh": "AI 运维每日实施 40+ 项变更，覆盖 Commercial/W4G 两环境，已实施变更部署成功率 100%；Skills 分享至 3 个团队、30 名员工。", "en": "AI operations implement 40+ changes a day across Commercial and W4G, with 100% deployment success for implemented changes; skills are shared with 3 teams and 30 employees."},
+          {"zh": "DNS Eyes 检查 Agent 覆盖 20 个 DC；GitOps 排障 Skills 固定 PR 版本，以分层证据和持续维护的 Case Center 支撑问题定位。", "en": "DNS Eyes check agents span 20 DCs; GitOps diagnosis skills pin PR revisions and use layered evidence and a growing Case Center to localize issues."}
         ],
-        "projects": [
-          "rolling-update-controller",
-          "pg-repmgr-rolling-upgrade",
-          "mcp-jenkins",
-          "mcp-servicenow-chg"
-        ]
+        "projects": ["cluster-lifecycle-governance", "rolling-update-controller", "dns-eyes", "mcp-jenkins", "mcp-servicenow-chg"]
       }
     ],
     "capabilities": [
       {
         "id": "cloud",
         "phase": 0,
-        "title": {
-          "zh": "可编程基础设施",
-          "en": "Programmable infrastructure"
-        },
-        "summary": {
-          "zh": "云 API、自助平台、CLI、Kubernetes 与交付流水线，为后续平台控制提供基础。",
-          "en": "Cloud APIs, self-service platforms, CLIs, Kubernetes and delivery pipelines provide a foundation for later platform controls."
-        },
-        "projects": [
-          "CI-CD",
-          "docker-builder"
-        ]
+        "title": {"zh": "可编程基础设施", "en": "Programmable infrastructure"},
+        "summary": {"zh": "云与 DevOps：从云服务、自助平台、CI/CD 到 Kubernetes、CLI 与运维规范，积累可编程基础设施能力。", "en": "Cloud & DevOps: cloud services, self-service platforms, CI/CD, Kubernetes tooling, CLIs and operational practices build programmable infrastructure."},
+        "points": [
+          {"zh": "AWS · Kubernetes · Infrastructure as Code", "en": "AWS · Kubernetes · Infrastructure as Code"}
+        ],
+        "projects": ["CI-CD", "docker-builder", "ecs-helper"]
       },
       {
         "id": "secure-delivery",
         "phase": 1,
-        "title": {
-          "zh": "安全基础制品交付",
-          "en": "Secure foundation delivery"
-        },
-        "summary": {
-          "zh": "将构建、加固、验证、上游补丁和制品发布组织为可持续维护的流程。",
-          "en": "Bring builds, hardening, validation, upstream patches and artifact releases into maintainable processes."
-        },
-        "projects": [
-          "airflow-etl-framework"
-        ]
+        "title": {"zh": "安全基础制品交付", "en": "Secure foundation delivery"},
+        "summary": {"zh": "OSaaS：主导镜像、中间件、加固、补丁与 OS Probe；以 Base OS 加月度 Bundle、半年全量镜像统一四云安全交付。", "en": "OSaaS: led images, middleware, hardening, patches and OS Probe, unifying secure delivery across four clouds with monthly bundles and semiannual full images."},
+        "points": [
+          {"zh": "2023 年 11 月单月目录覆盖 5 个 OS Bundle 目标、2 个 Tools Bundle 目标、7 类组件及 14 个容器制品标签。", "en": "In November 2023, a single monthly catalog covered 5 OS bundle targets, 2 tools bundle targets, 7 component types and 14 container artifact tags."},
+          {"zh": "以 Vault SSH 证书集中签发限时证书，替代逐台分发与轮换长期公钥。", "en": "Vault SSH certificates replace per-host distribution and rotation of long-lived public keys with centrally issued, time-limited certificates."}
+        ],
+        "projects": ["vault-approle-toolkit"]
       },
       {
         "id": "frameworks",
         "phase": 2,
-        "title": {
-          "zh": "测试框架与共享 SDK",
-          "en": "Testing frameworks & shared SDKs"
-        },
-        "summary": {
-          "zh": "通过配置、插件接口、执行上下文和统一结果，分离业务场景与通用执行能力。",
-          "en": "Separate scenarios from shared execution through configuration, plugin interfaces, execution context and common results."
-        },
-        "projects": [
-          "pyrel",
-          "super-dict"
-        ]
+        "title": {"zh": "测试框架与共享 SDK", "en": "Testing frameworks & shared SDKs"},
+        "summary": {"zh": "测试框架与 CERTA：以 YAML、插件契约、执行上下文和统一结果分离业务场景与通用执行能力。", "en": "Test frameworks and CERTA: separate business scenarios from shared execution with YAML, plugin contracts, execution context and common results."},
+        "points": [
+          {"zh": "同阶段按优先级分组并发、组间等待，以环境、阶段、步骤的变量覆盖表达不同场景。", "en": "Steps run concurrently within priority groups and wait between groups; environment, stage and step overrides express different scenarios."},
+          {"zh": "CERTA、公共库与 Stone 规范跨任职阶段持续演进。", "en": "CERTA, shared libraries and the Stone standard continued to evolve across role changes."}
+        ],
+        "projects": ["pyrel", "super-dict"]
       },
       {
         "id": "lifecycle",
         "phase": 3,
-        "title": {
-          "zh": "基础设施生命周期",
-          "en": "Infrastructure lifecycles"
-        },
-        "summary": {
-          "zh": "以声明式配置、GitOps 审查与工作流，统一创建、升级、扩容和退役。",
-          "en": "Unify provisioning, upgrades, expansion and retirement through declarative configuration, GitOps review and workflows."
-        },
-        "projects": [
-          "KaaS"
-        ]
+        "title": {"zh": "基础设施生命周期", "en": "Infrastructure lifecycles"},
+        "summary": {"zh": "CLC：以 GitOps/Argo、递归模板继承、证据派生状态和单集群单操作约束，统一生产集群的 Build/Upgrade/Expand/Destroy。", "en": "CLC: unify Build/Upgrade/Expand/Destroy for production clusters through GitOps/Argo, recursive template inheritance, evidence-derived state and one active operation per cluster."},
+        "points": [
+          {"zh": "管理 303 个生产集群，四类生命周期流程覆盖 100%。", "en": "Manages 303 production clusters with all four lifecycle workflows covered."},
+          {"zh": "新建由 1 周缩短至 1 天；升级、扩容及销毁由 2 天缩短至 0.5 天。", "en": "New builds cut from one week to one day; upgrades, expansion and decommissioning from 2 days to 0.5 day."}
+        ],
+        "projects": ["cluster-lifecycle-governance"]
       },
       {
         "id": "rolling-updates",
         "phase": 3,
-        "title": {
-          "zh": "服务更新与变更编排",
-          "en": "Service updates & change orchestration"
-        },
-        "summary": {
-          "zh": "通过共享阶段执行器连接前置检查、更新、健康验证和失败恢复，并适配有状态服务。",
-          "en": "Connect preflight checks, updates, health validation and failure recovery through shared stage execution, with support for stateful services."
-        },
-        "projects": [
-          "rolling-update-controller",
-          "pg-repmgr-rolling-upgrade"
-        ]
+        "title": {"zh": "服务更新与变更编排", "en": "Service updates & change orchestration"},
+        "summary": {"zh": "MUC：以 Stage Runner 与分层配置统一滚动更新，连接前置检查、更新、健康验证与失败阶段回滚，为 AI 运维提供执行能力。", "en": "MUC: a common stage runner and layered configuration unify rolling updates, connecting preflight checks, updates, health validation and failed-stage rollback to provide execution for AI operations."},
+        "points": [
+          {"zh": "接入 10 个服务、覆盖 4 个 DC。", "en": "10 services across 4 DCs."},
+          {"zh": "PostgreSQL/repmgr 等有状态服务支持 dry-run、受控切主与复制校验。", "en": "Stateful services such as PostgreSQL/repmgr support dry runs, controlled switchovers and replication checks."}
+        ],
+        "projects": ["rolling-update-controller", "pg-repmgr-rolling-upgrade", "ansible-collection-ops-pipeline"]
       },
       {
         "id": "service-health",
         "phase": 3,
-        "title": {
-          "zh": "分布式服务保障",
-          "en": "Distributed service assurance"
-        },
-        "summary": {
-          "zh": "将检查、目标发现、执行与结果汇总解耦，把验证前移到变更流程。",
-          "en": "Separate checks, target discovery, execution and result aggregation, bringing validation earlier in change workflows."
-        },
-        "projects": [
-          "metrics-deploy",
-          "dns-eyes"
-        ]
+        "title": {"zh": "分布式服务保障", "en": "Distributed service assurance"},
+        "summary": {"zh": "DNS Eyes：Check、Agent、Target 与 Runner 解耦，覆盖 NS/ENS、Anycast/BGP、多类记录及 UDP/TCP，把验证前移到变更与上线准备。", "en": "DNS Eyes: decoupled checks, agents, targets and runners cover NS/ENS, Anycast/BGP, record types and UDP/TCP, bringing verification forward into changes and launch readiness."},
+        "points": [
+          {"zh": "检查 Agent 覆盖 20 个 DC，并支持 DNS Server Build/Destroy。", "en": "Check agents span 20 DCs, with support for DNS server build and decommissioning."},
+          {"zh": "IaS 可观测性：以 Plugin、Profile、Target 三层模型分离采集内容与执行位置，通过 ias-obs 渲染、校验并部署采集配置。", "en": "IaS observability: a Plugin, Profile and Target model separates what is collected from where it runs, with ias-obs rendering, validating and deploying collector configuration."}
+        ],
+        "projects": ["dns-eyes", "metrics-deploy"]
       },
       {
         "id": "ai-workflows",
         "phase": 3,
-        "title": {
-          "zh": "AI 运维工作流",
-          "en": "AI operations workflows"
-        },
-        "summary": {
-          "zh": "连接计划、变更记录、工具执行、结果核查和回写，将多步运维工作组织成完整流程。",
-          "en": "Connect planning, change records, tool execution, result checks and updates within complete multi-step operational workflows."
-        },
-        "projects": [
-          "mcp-jenkins",
-          "mcp-servicenow-chg"
-        ]
+        "title": {"zh": "AI 运维工作流", "en": "AI operations workflows"},
+        "summary": {"zh": "计划 → CHG → Jenkins/Ansible → 验证 → 回写，连接 Confluence、ServiceNow、Jenkins 与既有执行框架，按变更组织完整闭环。", "en": "Plan → CHG → Jenkins/Ansible → verify → record, connecting Confluence, ServiceNow, Jenkins and existing execution frameworks into a complete loop for each change."},
+        "points": [
+          {"zh": "每日实施 40+ 项变更，覆盖 10 个服务、4 个 DC 与 Commercial/W4G 两环境。", "en": "40+ changes a day across 10 services, 4 DCs and the Commercial and W4G environments."},
+          {"zh": "部署执行近零人工，已实施变更部署成功率 100%。", "en": "Near-zero manual deployment effort, with 100% deployment success for implemented changes."}
+        ],
+        "projects": ["mcp-jenkins", "mcp-servicenow-chg", "agent-harness"]
       },
       {
         "id": "skills",
         "phase": 3,
-        "title": {
-          "zh": "可复用领域知识与 Skills",
-          "en": "Reusable domain knowledge & skills"
-        },
-        "summary": {
-          "zh": "把领域经验、前置条件和验证要求转成可发现、可审查、可安装和可维护的知识模块。",
-          "en": "Turn domain experience, prerequisites and validation requirements into discoverable, reviewable, installable and maintainable knowledge modules."
-        },
-        "projects": [
-          "agent-harness"
-        ]
+        "title": {"zh": "可复用领域知识与 Skills", "en": "Reusable domain knowledge & skills"},
+        "summary": {"zh": "AI Skills / ias-skill：将领域知识、前置条件及验证要求工程化，统一发现、校验、PR 发布、Cursor/Copilot/Codex 安装、版本管理与自升级。", "en": "AI Skills / ias-skill: engineer domain knowledge, prerequisites and verification, unifying discovery, validation, PR publication, Cursor/Copilot/Codex installation, versioning and self-updates."},
+        "points": [
+          {"zh": "在大部门内分享，覆盖 3 个团队、30 名员工。", "en": "Shared across the department with 3 teams and 30 employees."}
+        ],
+        "projects": ["KaaS"]
       },
       {
         "id": "evidence",
         "phase": 3,
-        "title": {
-          "zh": "基于证据的诊断",
-          "en": "Evidence-based diagnosis"
-        },
-        "summary": {
-          "zh": "固定审查版本，连接声明式配置、工作流产物与服务检查，并让排障案例反哺知识库和开发修复。",
-          "en": "Pin review revisions, connect declarative configuration, workflow artifacts and service checks, and use diagnosis cases to improve shared knowledge and development fixes."
-        },
-        "projects": [
-          "engineering-evolution"
-        ]
+        "title": {"zh": "基于证据的诊断", "en": "Evidence-based diagnosis"},
+        "summary": {"zh": "GitOps 审查与排障 Skills：固定 PR 版本，贯通 Manifest、Argo 产物、集群和 DNS 证据。", "en": "GitOps review and diagnosis skills: pin PR revisions and link manifest, Argo, cluster and DNS evidence."},
+        "points": [
+          {"zh": "持续补入 Case Center 案例，面向部门定位问题，并向开发团队交付定位结论与问题证据。", "en": "A growing Case Center supports department-wide issue localization and gives development teams conclusions and evidence they can act on."}
+        ],
+        "projects": ["cluster-lifecycle-governance", "dns-eyes"]
       }
     ]
   },
   "strengths": [
     {
-      "title": {
-        "zh": "从问题到平台",
-        "en": "From problem to platform"
-      },
-      "summary": {
-        "zh": "先理解真实需求和约束，再寻找跨场景的共性，用接口、配置和框架承接重复工作。",
-        "en": "Start with real needs and constraints, identify shared patterns across scenarios, and use interfaces, configuration and frameworks to handle recurring work."
-      }
+      "title": {"zh": "知识工程与 AI 工作流", "en": "Knowledge engineering & AI workflows"},
+      "summary": {"zh": "将隐性经验转为前置条件、判断路径、工具调用和结果证据，覆盖运维实施、GitOps 审查与基础设施排障。", "en": "Turn tacit experience into prerequisites, decision paths, tool calls and evidence requirements for operations, GitOps review and infrastructure diagnosis."}
     },
     {
-      "title": {
-        "zh": "架构与核心开发",
-        "en": "Architecture & core development"
-      },
-      "summary": {
-        "zh": "既关注系统边界与长期演进，也深入关键实现，推动方案从设计走到可维护的工程结果。",
-        "en": "Work on system boundaries and long-term evolution while staying involved in critical implementation and maintainable delivery."
-      }
+      "title": {"zh": "领域建模与框架架构", "en": "Domain modeling & framework architecture"},
+      "summary": {"zh": "以声明式配置、版本基线、共享 core、插件契约和分层配置处理多环境差异，主导从设计到核心代码的实现。", "en": "Use declarative configuration, version baselines, shared cores, plugin contracts and layered configuration to handle environment differences, owning design through core implementation."}
     },
     {
-      "title": {
-        "zh": "技术领导与协作",
-        "en": "Technical leadership & collaboration"
-      },
-      "summary": {
-        "zh": "通过工程规范、共享库、设计文档和知识分享组织团队能力，减少工具和经验孤岛。",
-        "en": "Build team capabilities through engineering conventions, shared libraries, design documentation and knowledge sharing."
-      }
+      "title": {"zh": "安全交付与生产验证", "en": "Secure delivery & production verification"},
+      "summary": {"zh": "将加固、补丁、制品追溯、健康检查和变更条件纳入工程流程，把开发能力贯通到生产运行。", "en": "Build hardening, patches, artifact traceability, health checks and change conditions into engineering workflows from development through production."}
     },
     {
-      "title": {
-        "zh": "验证与持续改进",
-        "en": "Validation & continuous improvement"
-      },
-      "summary": {
-        "zh": "将前置条件、健康检查、结果证据和恢复机制纳入自动化设计，让每次执行能够被理解和复盘。",
-        "en": "Include prerequisites, health checks, result evidence and recovery in automation design so executions can be understood and reviewed."
-      }
+      "title": {"zh": "技术领导与长期演进", "en": "Technical leadership & long-term evolution"},
+      "summary": {"zh": "先后带领 10 人、8 人团队，历经两次组织调整，将公共库、Stone 规范和开发方法跨项目延续，兼顾团队交付与亲自解决关键问题。", "en": "Led teams of 10 and 8 across two reorganizations, carrying shared libraries, Stone standards and engineering methods across projects while owning critical technical work."}
     }
   ],
   "skills": [
     {
-      "title": {
-        "zh": "语言与工具工程",
-        "en": "Languages & tooling"
-      },
-      "items": [
-        "Python",
-        "CLI / API",
-        "SDK",
-        "Test Automation"
-      ]
+      "title": {"zh": "AI 工程", "en": "AI engineering"},
+      "items": ["AI Skills", "Context Engineering", "MCP", "Tool Integration", "Evidence-based Workflows"]
     },
     {
-      "title": {
-        "zh": "云与基础设施",
-        "en": "Cloud & infrastructure"
-      },
-      "items": [
-        "Linux",
-        "AWS",
-        "GCP",
-        "Azure",
-        "OpenStack",
-        "Kubernetes",
-        "Terraform"
-      ]
+      "title": {"zh": "语言与框架", "en": "Languages & frameworks"},
+      "items": ["Python", "FastAPI", "React", "pytest", "OpenAPI", "SDK / CLI", "Plugin Frameworks"]
     },
     {
-      "title": {
-        "zh": "交付与流程",
-        "en": "Delivery & workflows"
-      },
-      "items": [
-        "Ansible",
-        "Jenkins",
-        "GitLab CI",
-        "GitOps",
-        "Argo",
-        "CI/CD"
-      ]
+      "title": {"zh": "云与基础设施", "en": "Cloud & infrastructure"},
+      "items": ["Linux", "Kubernetes", "DNS / Infoblox", "AWS", "GCP", "Azure", "OpenStack", "Terraform"]
     },
     {
-      "title": {
-        "zh": "可靠性与安全",
-        "en": "Reliability & security"
-      },
-      "items": [
-        "DNS",
-        "Prometheus",
-        "Grafana",
-        "Elasticsearch",
-        "OS Hardening",
-        "Security Patching"
-      ]
+      "title": {"zh": "交付与流程", "en": "Delivery & workflows"},
+      "items": ["Ansible", "Jenkins", "GitOps", "Argo", "Atlantis", "GitLab CI", "ServiceNow"]
     },
     {
-      "title": {
-        "zh": "AI 工程",
-        "en": "AI engineering"
-      },
-      "items": [
-        "Agent Skills",
-        "MCP",
-        "Knowledge Engineering",
-        "Tool Integration",
-        "Evidence-based Workflows"
-      ]
+      "title": {"zh": "可靠性与安全", "en": "Reliability & security"},
+      "items": ["Prometheus", "Grafana", "Elasticsearch", "STIG / CIS / FIPS", "Security Patching", "Vault", "SAML SSO"]
     }
   ],
   "about": [
