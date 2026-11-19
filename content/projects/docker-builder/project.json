@@ -1,0 +1,26 @@
+{
+  "slug": "docker-builder",
+  "title": {
+    "zh": "docker-builder",
+    "en": "docker-builder"
+  },
+  "summary": {
+    "zh": "早期 Docker 镜像构建示例，包含 Makefile、GitLab CI 配置及构建流程说明。",
+    "en": "An early Docker image-building example with Makefiles, GitLab CI configuration, and workflow notes."
+  },
+  "url": "https://github.com/liozzazhang/docker-builder",
+  "tags": [
+    "Docker",
+    "GitLab CI",
+    "Makefile",
+    "Image Builds"
+  ],
+  "category": "archive",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": true,
+  "order": 220
+}

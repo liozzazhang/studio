@@ -1,0 +1,26 @@
+{
+  "slug": "pg-repmgr-rolling-upgrade",
+  "title": {
+    "zh": "pg-repmgr-rolling-upgrade",
+    "en": "pg-repmgr-rolling-upgrade"
+  },
+  "summary": {
+    "zh": "面向 repmgr 管理的 PostgreSQL 集群，以 Ansible 编排操作系统与软件包滚动升级，并提供健康与复制检查。",
+    "en": "Ansible playbooks for rolling OS and package upgrades of repmgr-managed PostgreSQL clusters, with health and replication checks."
+  },
+  "url": "https://github.com/liozzazhang/pg-repmgr-rolling-upgrade",
+  "tags": [
+    "Ansible",
+    "PostgreSQL",
+    "repmgr",
+    "Rolling Upgrades"
+  ],
+  "category": "platform",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 80
+}

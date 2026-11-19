@@ -1,73 +1,88 @@
-# studio
+# Studio · Lei Zhang / Liozza
 
-个人主页与公开作品目录，使用 GitHub Pages 静态托管。导航首页连接个人介绍、全部公开项目、工程工具箱与 WoW 插件目录。
+面向面试官、HR 与工程同行的个人网站。首页以详细履历、工程演进、代表作品和联系方式介绍我，项目目录作为履历的进一步证据与补充。
 
-**已上线**：[访问 Studio](https://liozzazhang.github.io/studio/)。2026-11-19 已核对首页、个人主页、全部项目、工程与 WoW 目录，以及线上关键词搜索。
+站点地址：[liozzazhang.github.io/studio](https://liozzazhang.github.io/studio/) · [GitHub 仓库](https://github.com/liozzazhang/studio)。本次改版的发布结果以仓库的 GitHub Actions 与线上页面为准。
 
-[成功部署记录](https://github.com/liozzazhang/studio/actions/runs/44478097083) · [仓库](https://github.com/liozzazhang/studio)
+采用纯静态 HTML、CSS 与 JavaScript，通过 GitHub Pages 发布，无需 VM 或运行时后端。当前内容包含 **38 个仓库：30 个公开、8 个私有摘要，分为 8 类**；其中工程与参考项目 30 个，WoW 项目 8 个。
 
-项目目录按 **2026-11-19（Asia/Shanghai）** 的公开快照整理，共 **29 个项目、8 个分类**，不含 `studio` 自身，也不包含私有仓库。
+## 页面与内容
 
-## 页面与地址
+| 地址 | 内容 |
+| --- | --- |
+| `/studio/` | 自我介绍、完整履历、教育、工程演进、代表作品及邮箱、LinkedIn、WeChat、GitHub |
+| `/studio/projects/` | 全部项目，可按分类、可见性与关键词浏览 |
+| `/studio/lab/` | 工程、设计与参考项目 |
+| `/studio/wow/` | WoW 插件、个人原型及历史配置收藏 |
+| `/studio/projects/<slug>/` | 自动生成的双语项目介绍 |
+| `/studio/projects/<slug>/access/` | 私有项目的访问申请说明，无 JavaScript 时也可使用 |
+| `/studio/portfolio/` | 兼容旧地址，跳转到首页履历区 |
 
-| 页面 | 内容 | GitHub Pages 路径 |
-| --- | --- | --- |
-| 导航首页 | 介绍与各目录入口 | `/studio/` |
-| 个人主页 | 个人介绍、高层案例与精选公开作品 | `/studio/portfolio/` |
-| 全部项目 | 29 个公开项目 | `/studio/projects/` |
-| 工程工具箱 | 22 个工程与参考项目 | `/studio/lab/` |
-| WoW 插件 | 7 个公开插件与配置项目 | `/studio/wow/` |
+首页整合了 `engineering-evolution` 的四阶段经历与九个能力主题，保留方法和演进关系，不镜像原图或内部细节。
 
-八类分别为 AI 与工具集成、平台交付与自动化、安全与访问、可观测性、可视化与架构、开发工具、WoW 插件与配置、历史与参考。目录提供中英文切换、分类和关键词筛选，并区分源码、可视化、参考资料及配置收藏。
+## 按目录维护项目
 
-仓库名称 `studio` 构成项目站点前缀，发布目录 `site/` 本身**不会**进入网址。根首页与各项目目录均已有内容，不再是占位页。
+每个项目是独立内容模块。向 `content/projects/` 放入一个项目目录，提交并推送到 `main` 后即可自动构建，无需修改中心项目列表或页面代码。
+
+```text
+content/
+  profile.json                  # 首页履历、联系方式、工程演进
+  site.json                     # 站点配置与 featured_limit
+  categories.json               # 分类名称与顺序
+  projects/
+    my-project/
+      project.json              # 项目卡片信息，必需
+      README.zh.md              # 中文项目详情，可选
+      README.en.md              # 英文项目详情，可选
+```
+
+最小项目示例：将下面内容保存为 `content/projects/my-project/project.json`，并把示例名称、URL 和简介替换为自己的真实仓库信息。
+
+```json
+{
+  "slug": "my-project",
+  "title": {"zh": "项目名称", "en": "Project name"},
+  "summary": {"zh": "项目解决的问题和主要能力。", "en": "The problem and main capability."},
+  "url": "https://github.com/liozzazhang/my-project",
+  "category": "tools",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "tags": ["Python", "CLI"],
+  "order": 400
+}
+```
+
+`slug` 必须与目录名和仓库名一致；URL 必须指向配置的 GitHub owner。`category` 使用 `categories.json` 中的分类 ID，`group` 为 `engineering` 或 `wow`。`order` 越小越靠前；设置整数 `featured` 可参与首页精选，按数值升序选取，数量由 `content/site.json` 的 `featured_limit` 控制，当前为 6。
+
+详情 Markdown 支持标题、列表、段落、粗体、行内代码与 HTTPS 链接。原始 HTML、JavaScript 和图片语法不会作为活动内容执行或加载。可选 `status` 使用 `{"zh": "设计阶段", "en": "Design stage"}`，用于区分设计文档、个人原型、初始化项目等实际状态。
+
+## 私有仓库的展示与申请
+
+私有项目设置 `"visibility": "private"` 和 `"disclosure": "summary-only"`。本轮按用户明确要求收录其名称及经过整理的高层摘要；**这些摘要和 Markdown 本身会公开**，不应放入仅供获授权读者阅读的材料。
+
+访问仓库时，网站显示权限说明和邮件申请入口；申请邮件包含项目名，并提示填写 GitHub 用户名、用途或面试背景。申请入口只打开邮件客户端，不自动发送邮件。已有权限者可继续前往 GitHub，实际权限由 GitHub 验证与管理。网站不会代理私有源码，也不改变仓库可见性。
 
 ## 本地构建与预览
 
-在仓库根目录依次运行：
+仅使用 Python 标准库，无需安装 npm 或 Python 第三方包。在仓库根目录运行：
 
 ```sh
 python3 scripts/build_catalog.py
+python3 scripts/build_catalog.py --check
 python3 scripts/preview.py
 ```
 
-构建器与预览服务均只使用 Python 标准库，无需第三方依赖、Node.js 或 npm 安装。生成的网站使用静态 HTML、CSS 与 JavaScript，不需要后端服务器。
+打开 `http://127.0.0.1:4174/studio/`，检查与 GitHub 项目站一致的 `/studio/` 前缀路径。生成页面由构建器维护；直接修改生成 HTML 会在下次构建时被覆盖。
 
-打开 `http://127.0.0.1:4174/studio/`。预览脚本按 `/studio/` 前缀挂载网站，用于检查与 GitHub 项目站点一致的导航和资源路径。按 `Ctrl+C` 停止服务器。直接打开 HTML 文件或按无前缀根目录预览，不能充分检查项目站点路径。
+删除项目模块并重新构建后，构建器根据生成清单清理其旧详情页和申请页。不要手动维护项目路由清单。
 
-可用以下命令检查生成页面是否与目录数据一致：
+## 自动发布与内容边界
 
-```sh
-python3 scripts/build_catalog.py --check
-```
+推送 `content/**`、共享模板、站点资源或构建脚本到 `main` 后，GitHub Actions 校验内容和公开仓库可见性、重新构建，并仅上传 `site/` 到 Pages，也支持手动触发。私有摘要必须显式声明 `summary-only`，发布检查不会下载其源码。公开项目变为私有或无法确认公开状态时，先调整其展示声明，再重新发布。
 
-## 内容与文件约定
+`content/`、模板、脚本和文档不进入 Pages 上传目录，但它们属于公开仓库，仍然可以被查看。只提交计划公开的资料；原始履历、聊天导出、内部文档、凭据、账号配置与敏感截图不放进这个仓库。
 
-- `data/projects.json`：项目目录的单一数据源，只提交经过核对的公开项目快照。
-- `_templates/pages/`：导航首页与目录页的生成模板。
-- `scripts/build_catalog.py`：读取数据和模板，生成首页、三个项目目录、个人页的精选公开项目区与站点地图。
-- `site/`：唯一上传到 GitHub Pages 的目录，包含所有公开页面与资源。
-- `site/assets/`：各入口共用的样式和脚本。
-- `site/portfolio/`：个人主页及其前端资源；原 `liozzazhang.github.io` 本地目录保持独立。
-- `_templates/site/`：新增独立子站的复制模板，不作为网页发布。
-- `scripts/preview.py`：带项目名前缀的本地预览工具。
-- `docs/`：结构、来源与逐项目目录文档，不进入 Pages 产物，但属于公开仓库内容。
-
-修改项目简介、标签、类别、公开链接或状态时，先编辑 `data/projects.json`，再重新构建。不要直接维护生成的目录 HTML；修改其版式应编辑 `_templates/pages/`。个人介绍和高层案例仍在个人页文件中维护，构建器会更新其中的精选公开项目区。
+项目介绍不等于已验证运行、部署或游戏兼容性；设计阶段和空仓库保留状态标记。Bene 项目不因源码可访问而变更许可，Fork 和第三方插件收藏单独标注归属。
 
 详见 [结构约定](docs/structure.md)、[内容来源](docs/content-sources.md) 和 [项目分类表](docs/project-catalog.md)。
-
-## GitHub Pages 部署
-
-1. 使用 `liozzazhang` 下名为 **`studio`** 的 **Public** 仓库，检查现有内容后再提交和推送 `main`。
-2. 进入 **Settings → Pages → Build and deployment → Source**，选择 **GitHub Actions**。
-3. 工作流先核对目录中的仓库仍为公开，再执行 `python3 scripts/build_catalog.py`，整体上传 `site/` 并部署。
-4. 在 **Actions** 中检查工作流结果，再检查 **Pages** 返回的地址与各子站。发布状态以这些实际结果为准。
-
-主分支中 `site/**`、`data/**`、`_templates/pages/**`、`scripts/build_catalog.py`、`scripts/check_public_catalog.py` 或发布工作流自身的变化会触发发布；也可以手动运行。工作流使用 GitHub 的短期工作流身份，无需把 PAT 放进前端或仓库。可见性检查只在构建阶段访问 GitHub API；浏览器不会调用 GitHub API。仓库改为私有或无法核实时，发布会停止，需先修正公开目录。
-
-## 公开内容边界
-
-网站展示公开源码和文档摘要，不表示自动化工具、MCP 服务、CLI 或游戏插件已在 Pages 中运行，也不代表已验证部署或游戏兼容性。Bene 系列只作为公开源码介绍；未镜像含玩家信息的截图，也未镜像 `engineering-evolution` 的原图。
-
-公开仓库中的所有已提交文件都可以被查看，包括数据、文档、模板和脚本。“不作为网页发布”不等于私密。原始履历、聊天导出、内部资料、账号配置、令牌和其他敏感文件不复制到此仓库。

@@ -1,0 +1,26 @@
+{
+  "slug": "ecs-helper",
+  "title": {
+    "zh": "ecs-helper",
+    "en": "ecs-helper"
+  },
+  "summary": {
+    "zh": "已归档的早期部署辅助代码，记录基于 Consul 的服务自动部署实践。",
+    "en": "Archived early deployment-helper code documenting Consul-driven service deployment automation."
+  },
+  "url": "https://github.com/liozzazhang/ecs-helper",
+  "tags": [
+    "Shell",
+    "Consul",
+    "Deployment Automation",
+    "Historical Code"
+  ],
+  "category": "archive",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": true,
+  "legacy": true,
+  "order": 230
+}

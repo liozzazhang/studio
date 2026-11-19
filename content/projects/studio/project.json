@@ -1,0 +1,27 @@
+{
+  "category": "tools",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "summary": {
+    "zh": "以个人履历、工程思考与项目案例组织的中英双语静态作品集，使用 GitHub Pages 发布。",
+    "en": "A bilingual static portfolio connecting my career, engineering approach, and project case studies, published with GitHub Pages."
+  },
+  "tags": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "GitHub Pages",
+    "Portfolio"
+  ],
+  "slug": "studio",
+  "url": "https://github.com/liozzazhang/studio",
+  "title": {
+    "zh": "studio",
+    "en": "studio"
+  },
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 370
+}

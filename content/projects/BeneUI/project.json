@@ -1,0 +1,42 @@
+{
+  "slug": "BeneUI",
+  "title": {
+    "zh": "BeneUI · 界面主题底座",
+    "en": "BeneUI · UI Theme Foundation"
+  },
+  "summary": {
+    "zh": "为 Bene 系列组织字体、材质、配色与插件外观覆盖，并通过公开接口连接 EllesmereUI 的配置方案。",
+    "en": "A shared theme foundation for Bene addons, organizing fonts, textures, colors, and addon styling with EllesmereUI profile integration."
+  },
+  "url": "https://github.com/liozzazhang/BeneUI",
+  "tags": [
+    "UI Themes",
+    "Shared Components",
+    "EllesmereUI Integration",
+    "Lua"
+  ],
+  "category": "wow",
+  "sub_category": "interface",
+  "group": "wow",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "features": {
+    "zh": [
+      "统一主题与详细外观偏好",
+      "共享 BeneKit 控件与主题继承",
+      "单插件外观覆盖",
+      "原生配置桥与只读诊断"
+    ],
+    "en": [
+      "Shared themes and appearance preferences",
+      "BeneKit components and theme inheritance",
+      "Per-addon style overrides",
+      "Native profile bridge and read-only diagnostics"
+    ]
+  },
+  "order": 40,
+  "featured": 50
+}

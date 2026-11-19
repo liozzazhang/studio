@@ -1,8 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://liozzazhang.github.io/studio/</loc></url>
-  <url><loc>https://liozzazhang.github.io/studio/portfolio/</loc></url>
   <url><loc>https://liozzazhang.github.io/studio/projects/</loc></url>
   <url><loc>https://liozzazhang.github.io/studio/lab/</loc></url>
   <url><loc>https://liozzazhang.github.io/studio/wow/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/ansible-collection-ops-pipeline/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/mcp-jenkins/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/metrics-deploy/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/BeneUI/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/raid_playbook/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/rolling-update-controller/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/mcp-servicenow-chg/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/pg-repmgr-rolling-upgrade/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/airflow-etl-framework/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/https-proxy/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/group_board/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/mplus_roadbook/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/key_skill_reminder/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/self_skill_reminder/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/engineering-evolution/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/jumpserver-helper/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/py-duo/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/pyrel/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/set_mtu/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/super-dict/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/CI-CD/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/docker-builder/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/ecs-helper/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/events_handler/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/heketi-glusterfs-cluster/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/JARVIS/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/kubernetes-handbook/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/message-transfer/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/wowaddones/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/agent-harness/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/cluster-lifecycle-governance/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/dns-eyes/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/KaaS/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/one_click_assistant/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/scrapy/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/studio/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/vault-approle-toolkit/</loc></url>
+  <url><loc>https://liozzazhang.github.io/studio/projects/webex-bot-core/</loc></url>
 </urlset>

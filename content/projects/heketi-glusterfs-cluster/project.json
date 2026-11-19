@@ -1,0 +1,27 @@
+{
+  "slug": "heketi-glusterfs-cluster",
+  "title": {
+    "zh": "heketi-glusterfs-cluster",
+    "en": "heketi-glusterfs-cluster"
+  },
+  "summary": {
+    "zh": "基于 Helm 的 GlusterFS 与 Heketi 部署示例及安装文档，记录早期 Kubernetes 存储实践。",
+    "en": "An early Helm-based GlusterFS and Heketi deployment example with installation notes for Kubernetes storage."
+  },
+  "url": "https://github.com/liozzazhang/heketi-glusterfs-cluster",
+  "tags": [
+    "Kubernetes",
+    "Helm",
+    "GlusterFS",
+    "Heketi",
+    "Storage"
+  ],
+  "category": "archive",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": true,
+  "order": 250
+}

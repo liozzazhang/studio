@@ -1,0 +1,41 @@
+{
+  "slug": "key_skill_reminder",
+  "title": {
+    "zh": "Bene KeySpell · 读条提醒",
+    "en": "Bene KeySpell · Cast Alerts"
+  },
+  "summary": {
+    "zh": "把可读取的敌对读条集中显示在屏幕中央，并提供本地姓名板强调与分副本外观设置。",
+    "en": "Bring available hostile cast information to central bars, with local nameplate emphasis and per-dungeon appearance settings."
+  },
+  "url": "https://github.com/liozzazhang/key_skill_reminder",
+  "tags": [
+    "Cast Information",
+    "Nameplates",
+    "Visual Alerts",
+    "Lua"
+  ],
+  "category": "wow",
+  "sub_category": "information",
+  "group": "wow",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "features": {
+    "zh": [
+      "中央读条与姓名板强调可分别开关",
+      "副本配置与外观调整",
+      "首领官方预警信息展示",
+      "配置导入导出与自检"
+    ],
+    "en": [
+      "Independent central cast bars and nameplate emphasis",
+      "Dungeon profiles and appearance controls",
+      "Official boss-warning display",
+      "Profile import/export and diagnostics"
+    ]
+  },
+  "order": 130
+}

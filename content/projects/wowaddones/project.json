@@ -1,0 +1,39 @@
+{
+  "slug": "wowaddones",
+  "title": {
+    "zh": "WoW 旧版插件与配置收藏",
+    "en": "WoW Addon & Configuration Archive"
+  },
+  "summary": {
+    "zh": "保留早期使用过的第三方插件与界面配置，记录个人游戏环境的历史形态。",
+    "en": "A historical collection of third-party addons and interface configuration, recording an earlier personal game setup."
+  },
+  "url": "https://github.com/liozzazhang/wowaddones",
+  "tags": [
+    "Historical Archive",
+    "Third-party Addons",
+    "UI Configuration",
+    "2018"
+  ],
+  "category": "wow",
+  "sub_category": "collection",
+  "group": "wow",
+  "kind": "collection",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": true,
+  "features": {
+    "zh": [
+      "历史插件目录",
+      "界面配置收藏",
+      "第三方作者归属保留"
+    ],
+    "en": [
+      "Historical addon directories",
+      "Interface-configuration collection",
+      "Separate third-party attribution"
+    ]
+  },
+  "order": 290
+}

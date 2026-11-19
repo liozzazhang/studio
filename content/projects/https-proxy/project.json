@@ -1,0 +1,27 @@
+{
+  "slug": "https-proxy",
+  "title": {
+    "zh": "https-proxy",
+    "en": "https-proxy"
+  },
+  "summary": {
+    "zh": "以声明式 YAML 生成 nginx 配置，并通过 Ansible 交付容器化 HTTPS 反向代理的工具。",
+    "en": "A declarative YAML workflow that renders nginx configuration and deploys a containerized HTTPS reverse proxy with Ansible."
+  },
+  "url": "https://github.com/liozzazhang/https-proxy",
+  "tags": [
+    "Python",
+    "nginx",
+    "Ansible",
+    "Docker",
+    "TLS"
+  ],
+  "category": "platform",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 100
+}

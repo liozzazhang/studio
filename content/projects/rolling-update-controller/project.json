@@ -1,0 +1,27 @@
+{
+  "slug": "rolling-update-controller",
+  "title": {
+    "zh": "rolling-update-controller",
+    "en": "rolling-update-controller"
+  },
+  "summary": {
+    "zh": "基于 Ansible 的服务软件包滚动更新控制器，整合阶段化执行、健康检查与失败恢复。",
+    "en": "An Ansible-based controller for rolling service package updates, combining staged execution, health checks, and recovery."
+  },
+  "url": "https://github.com/liozzazhang/rolling-update-controller",
+  "tags": [
+    "Ansible",
+    "Rolling Updates",
+    "Health Checks",
+    "Automation"
+  ],
+  "category": "platform",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 60,
+  "featured": 20
+}

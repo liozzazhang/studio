@@ -1,0 +1,28 @@
+{
+  "category": "security",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "private",
+  "summary": {
+    "zh": "通过 Vault AppRole 获取短期、最小权限凭据，并为命令行、Python 与 Ansible 提供统一的凭据生命周期管理。",
+    "en": "Obtain short-lived, least-privilege credentials through Vault AppRole, with a shared credential lifecycle across CLI, Python, and Ansible integrations."
+  },
+  "tags": [
+    "Python",
+    "Vault",
+    "AppRole",
+    "Ansible",
+    "Credential Lifecycle"
+  ],
+  "slug": "vault-approle-toolkit",
+  "url": "https://github.com/liozzazhang/vault-approle-toolkit",
+  "title": {
+    "zh": "vault-approle-toolkit",
+    "en": "vault-approle-toolkit"
+  },
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 380,
+  "disclosure": "summary-only"
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "raid_playbook",
+  "title": {
+    "zh": "Bene Raid · 团长战术板",
+    "en": "Bene Raid · Raid Playbook"
+  },
+  "summary": {
+    "zh": "把团本报名、首领时间轴与减伤任务排在开打之前，并向团员同步任务和文字语音提醒。",
+    "en": "Plan raid signups, boss timelines, and cooldown assignments before the pull, then share tasks and provide text and voice reminders."
+  },
+  "url": "https://github.com/liozzazhang/raid_playbook",
+  "tags": [
+    "Raid Planning",
+    "Signups",
+    "Boss Timelines",
+    "Task Reminders"
+  ],
+  "category": "wow",
+  "sub_category": "planning",
+  "group": "wow",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "features": {
+    "zh": [
+      "多来源活动报名名单",
+      "首领时间轴录制与编辑",
+      "减伤和任务分配与同步",
+      "团员任务 HUD 与中文语音提醒"
+    ],
+    "en": [
+      "Combined raid signup lists",
+      "Boss timeline recording and editing",
+      "Cooldown assignments and task sharing",
+      "Member task HUD and Chinese voice reminders"
+    ]
+  },
+  "order": 50
+}

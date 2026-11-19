@@ -1,0 +1,594 @@
+{
+  "name": "Lei Zhang",
+  "alias": "Liozza",
+  "role": {
+    "zh": "云平台与 AI 工作流技术负责人",
+    "en": "Cloud & AI Workflow Engineering Leader"
+  },
+  "location": {
+    "zh": "中国",
+    "en": "China"
+  },
+  "intro": [
+    {
+      "zh": "我是一名云基础设施与平台工程技术负责人，拥有十余年的 DevOps、可靠性与运维自动化经验。从云平台、自助服务和安全交付，到共享框架、集群生命周期和 AI 工作流，我的工作重点是把复杂且重复的工作变成可复用、可验证、可维护的工程能力。",
+      "en": "I am a cloud infrastructure and platform engineering leader with more than a decade of experience in DevOps, reliability and operations automation. Across cloud platforms, self-service tooling, secure delivery, shared frameworks, infrastructure lifecycles and AI workflows, my focus has remained consistent: turning complex, repetitive work into reusable, verifiable and maintainable engineering capabilities."
+    },
+    {
+      "zh": "我兼具团队管理、架构设计与核心开发经验，习惯先理解业务目标、系统边界和长期维护成本，再把目标拆解为团队能够逐步交付的方案。当前在 Cisco 从事平台工程与 AI 运维工作，连接领域知识、执行工具和验证证据，让自动化能力真正进入日常工程流程。",
+      "en": "My work combines team leadership, architecture and core development. I start with the business objective, system boundaries and long-term maintenance costs, then turn the goal into work a team can deliver incrementally. At Cisco, I currently work on platform engineering and AI operations, connecting domain knowledge, execution tools and validation evidence within everyday engineering workflows."
+    },
+    {
+      "zh": "2021 年，我已在个人职业规划中提出从基础设施即代码、流水线和流程自动化走向 AI 智能工作流的方向。此后的共享库、配置驱动执行和平台控制能力，构成了今天开展 AI 工作流工程的基础。这个网站记录这条持续演进的主线，也展示我在工作之外制作的工具与游戏插件。",
+      "en": "In 2021, I articulated a direction from Infrastructure as Code, pipelines and process automation toward intelligent workflows based on AI. The shared libraries, configuration-driven execution and platform controls developed since then form the foundation for my current AI workflow work. This site documents that continuing thread alongside the tools and game addons I build outside work."
+    }
+  ],
+  "contacts": {
+    "email": "liozza@163.com",
+    "linkedin": "https://www.linkedin.com/in/lei-zhang-84b3b7115/",
+    "wechat": "D_L_MOON",
+    "github": "https://github.com/liozzazhang"
+  },
+  "experience": [
+    {
+      "period": "2025.05 — 至今 / Present",
+      "company": "Cisco",
+      "role": {
+        "zh": "Cloud Engineering Technical Leader",
+        "en": "Cloud Engineering Technical Leader"
+      },
+      "summary": {
+        "zh": "平台工程、基础设施生命周期与 AI 工作流。",
+        "en": "Platform engineering, infrastructure lifecycles and AI workflows."
+      },
+      "points": [
+        {
+          "zh": "主导集群生命周期方案设计与核心开发，以声明式配置和 GitOps 工作流组织创建、升级、扩容与退役。",
+          "en": "Lead solution design and core development for cluster lifecycle management, organizing provisioning, upgrades, expansion and retirement through declarative configuration and GitOps workflows."
+        },
+        {
+          "zh": "设计共享更新框架，统一前置检查、执行阶段、健康验证与失败恢复，并兼顾有状态服务的角色和复制要求。",
+          "en": "Design shared update frameworks that connect preflight checks, execution stages, health validation and failure recovery while accommodating roles and replication in stateful services."
+        },
+        {
+          "zh": "建设分布式服务检查与 DNS 诊断能力，将检查逻辑、执行方式和目标发现解耦，为变更验证与故障分析提供依据。",
+          "en": "Develop distributed service checks and DNS diagnostics, separating check logic, execution and target discovery to support change validation and incident analysis."
+        },
+        {
+          "zh": "把领域知识、前置条件和验证方法整理成可复用的 AI Skills，连接计划、工具执行、结果核查与记录。",
+          "en": "Turn domain knowledge, prerequisites and verification methods into reusable AI skills that connect planning, tool execution, result checking and records."
+        }
+      ]
+    },
+    {
+      "period": "2024.02 — 2025.05",
+      "company": "Cisco",
+      "role": {
+        "zh": "Cloud Leader, Engineering",
+        "en": "Cloud Leader, Engineering"
+      },
+      "summary": {
+        "zh": "平台自动化、测试框架与共享工程能力。",
+        "en": "Platform automation, testing frameworks and shared engineering capabilities."
+      },
+      "points": [
+        {
+          "zh": "带领平台自动化团队，主导基于 Python 的测试框架设计与开发。",
+          "en": "Led the platform automation team and the design and development of Python-based testing frameworks."
+        },
+        {
+          "zh": "通过配置模型、插件接口、执行上下文与统一结果，将场景逻辑和执行机制分离。",
+          "en": "Separated scenario logic from execution through configuration models, plugin interfaces, execution context and common result structures."
+        },
+        {
+          "zh": "推动共享 SDK、公共库、统一执行入口和开发规范，让不同项目能够复用已有工程积累。",
+          "en": "Advanced shared SDKs, libraries, common execution entry points and development conventions so projects could reuse existing engineering work."
+        }
+      ]
+    },
+    {
+      "period": "2021.06 — 2024.02",
+      "company": "Cisco",
+      "role": {
+        "zh": "Cloud Leader, Engineering",
+        "en": "Cloud Leader, Engineering"
+      },
+      "summary": {
+        "zh": "系统安全、多云基础制品与持续交付。",
+        "en": "System security, multi-cloud foundation artifacts and continuous delivery."
+      },
+      "points": [
+        {
+          "zh": "带领团队建设操作系统镜像和中间件的自动化构建与发布流程，覆盖多种 Linux 发行版及公有云、私有云环境。",
+          "en": "Led automated build and release work for operating system images and middleware across Linux distributions and public and private cloud environments."
+        },
+        {
+          "zh": "将安全基线、加固与验证要求纳入标准构建流程，使安全维护成为可重复执行的工程工作。",
+          "en": "Integrated security baselines, hardening and validation into standard build processes, making security maintenance repeatable engineering work."
+        },
+        {
+          "zh": "组织上游补丁收集、数据整理、增量更新与基础镜像发布，持续沉淀共享库和自动化流程。",
+          "en": "Organized upstream patch collection, data normalization, incremental updates and base-image releases while developing shared libraries and automation workflows."
+        }
+      ]
+    },
+    {
+      "period": "2019.12 — 2021.06",
+      "company": "Cloudwalk",
+      "role": {
+        "zh": "SRE Leader",
+        "en": "SRE Leader"
+      },
+      "summary": {
+        "zh": "部署平台、基础设施自动化与可靠性交付。",
+        "en": "Deployment platforms, infrastructure automation and reliable delivery."
+      },
+      "points": [
+        {
+          "zh": "主导部署平台 CLI/API 与 Kubernetes 基础设施即代码建设，为环境交付提供一致入口。",
+          "en": "Led deployment platform CLI/API and Kubernetes Infrastructure as Code work, providing a consistent entry point for environment delivery."
+        },
+        {
+          "zh": "建设 GitLab CI 流水线，贯通构建、扫描、自动测试、打包与发布。",
+          "en": "Developed GitLab CI pipelines connecting builds, scanning, automated tests, packaging and releases."
+        },
+        {
+          "zh": "组织监控告警、on-call 与 Runbook，连接平台建设和日常运营。",
+          "en": "Organized monitoring, alerting, on-call and runbook practices to connect platform engineering with daily operations."
+        }
+      ]
+    },
+    {
+      "period": "2019.05 — 2019.12",
+      "company": "Aidoin",
+      "role": {
+        "zh": "DevOps Expert",
+        "en": "DevOps Expert"
+      },
+      "summary": {
+        "zh": "监控日志、容器交付与 DevOps 流程。",
+        "en": "Monitoring, logging, container delivery and DevOps processes."
+      },
+      "points": [
+        {
+          "zh": "建设集中监控与日志体系，连接虚拟机、容器、Kubernetes 和应用层的观察数据。",
+          "en": "Built centralized monitoring and logging across virtual machines, containers, Kubernetes and applications."
+        },
+        {
+          "zh": "落地 Kubernetes/Helm 交付流水线，并参与本地和公有云集群维护。",
+          "en": "Implemented Kubernetes/Helm delivery pipelines and maintained on-premises and public cloud clusters."
+        },
+        {
+          "zh": "推动流程规范和运维工具建设，减少依赖个人经验的重复操作。",
+          "en": "Improved operational processes and tooling to reduce repetitive work dependent on individual knowledge."
+        }
+      ]
+    },
+    {
+      "period": "2014.12 — 2019.04",
+      "company": "Patsnap",
+      "role": {
+        "zh": "DevOps",
+        "en": "DevOps"
+      },
+      "summary": {
+        "zh": "云平台、自助服务与基础设施工程。",
+        "en": "Cloud platforms, self-service delivery and infrastructure engineering."
+      },
+      "points": [
+        {
+          "zh": "参与 AWS IaaS/PaaS、自助化服务和运维门户建设，把云资源与服务交付转化为可编程能力。",
+          "en": "Worked on AWS IaaS/PaaS, self-service delivery and operations portals, turning cloud resource and service delivery into programmable capabilities."
+        },
+        {
+          "zh": "围绕 DynamoDB 查询、Lambda 冷启动、镜像构建和服务初始化开展性能与交付优化。",
+          "en": "Improved performance and delivery across DynamoDB queries, Lambda cold starts, image builds and service initialization."
+        },
+        {
+          "zh": "积累云 API、监控自动化、ITIL 流程和容器工具实践，为后续平台工程工作打下基础。",
+          "en": "Built experience with cloud APIs, monitoring automation, ITIL processes and container tooling that informed later platform engineering work."
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "period": "2009.09 — 2013.07",
+      "institution": {
+        "zh": "南京信息工程大学",
+        "en": "Nanjing University of Information Science and Technology"
+      },
+      "degree": {
+        "zh": "本科",
+        "en": "Bachelor’s degree"
+      }
+    }
+  ],
+  "languages": [
+    {
+      "zh": "中文",
+      "en": "Chinese"
+    },
+    {
+      "zh": "英语 · CET-6",
+      "en": "English · CET-6"
+    }
+  ],
+  "evolution": {
+    "title": {
+      "zh": "从云基础设施，到 AI 工程工作流",
+      "en": "From cloud infrastructure to AI engineering workflows"
+    },
+    "intro": {
+      "zh": "我的工程经历从云基础设施与 DevOps 起步，逐步扩展到安全交付、共享框架、平台控制与 AI 工作流。贯穿这些阶段的是同一种方法：明确接口与配置，把执行、验证和知识积累组织成可以持续复用的能力。展开下方主题，可以继续阅读相关方法与个人项目。",
+      "en": "My engineering work has grown from cloud infrastructure and DevOps into secure delivery, shared frameworks, platform controls, and AI workflows. A consistent approach connects these stages: define interfaces and configuration, then bring execution, validation, and knowledge into reusable capabilities. Expand a topic below to explore the methods and related personal projects."
+    },
+    "stages": [
+      {
+        "period": "2014 — 2021",
+        "title": {
+          "zh": "云与 DevOps 基础",
+          "en": "Cloud & DevOps foundations"
+        },
+        "summary": {
+          "zh": "从云服务、自助平台、CI/CD 到 Kubernetes，把基础设施变得可编程。",
+          "en": "From cloud services and self-service platforms to CI/CD and Kubernetes: making infrastructure programmable."
+        },
+        "points": [
+          {
+            "zh": "围绕重复的资源交付和应用发布工作，建设 CLI、API 与基础设施即代码。",
+            "en": "Built CLI, API and Infrastructure as Code capabilities around repeated resource delivery and application release tasks."
+          },
+          {
+            "zh": "让构建、扫描、测试和发布成为连续流程，并以监控、轮值和 Runbook 承接运行工作。",
+            "en": "Connected builds, scanning, testing and releases while supporting operations with monitoring, on-call and runbooks."
+          }
+        ],
+        "projects": [
+          "CI-CD",
+          "docker-builder",
+          "ecs-helper",
+          "heketi-glusterfs-cluster"
+        ]
+      },
+      {
+        "period": "2021 — 2024",
+        "title": {
+          "zh": "安全交付与自动化底座",
+          "en": "Secure delivery & automation foundations"
+        },
+        "summary": {
+          "zh": "把镜像、中间件、安全加固与补丁维护，组织成统一的构建和发布能力。",
+          "en": "Organized images, middleware, hardening and patch maintenance into shared build and release capabilities."
+        },
+        "points": [
+          {
+            "zh": "将安全与交付要求写进流程，使不同环境采用共同的工程方法。",
+            "en": "Encoded security and delivery requirements in processes, using common engineering methods across environments."
+          },
+          {
+            "zh": "2021 年明确提出从 IaC、Pipeline、ITIL、RPA 向 AI 智能工作流演进的方向。",
+            "en": "Articulated a direction from IaC, pipelines, ITIL and RPA toward AI intelligent workflows in 2021."
+          }
+        ],
+        "projects": []
+      },
+      {
+        "period": "2024 — 2025",
+        "title": {
+          "zh": "共享框架与工程契约",
+          "en": "Shared frameworks & engineering contracts"
+        },
+        "summary": {
+          "zh": "把具体场景与执行机制分离，让框架、SDK 和公共能力能够跨项目复用。",
+          "en": "Separated scenario logic from execution so frameworks, SDKs and shared capabilities could be reused across projects."
+        },
+        "points": [
+          {
+            "zh": "以配置模型、插件契约、执行上下文和统一结果组织测试与自动化。",
+            "en": "Organized testing and automation through configuration models, plugin contracts, execution context and common results."
+          },
+          {
+            "zh": "持续维护共享库与开发规范，让工程积累跨团队和任职阶段延续。",
+            "en": "Maintained shared libraries and development conventions so engineering work could carry across teams and roles."
+          }
+        ],
+        "projects": [
+          "pyrel",
+          "super-dict"
+        ]
+      },
+      {
+        "period": "2025 — 至今 / Present",
+        "title": {
+          "zh": "平台控制与 AI 工作流",
+          "en": "Platform controls & AI workflows"
+        },
+        "summary": {
+          "zh": "将生命周期管理、更新编排、分布式检查与可复用知识连接起来。",
+          "en": "Connected lifecycle management, update orchestration, distributed checks and reusable knowledge."
+        },
+        "points": [
+          {
+            "zh": "用声明式目标、评审和工作流管理基础设施变更，并以健康检查和恢复机制约束执行。",
+            "en": "Managed infrastructure changes through declarative intent, review and workflows, with health checks and recovery governing execution."
+          },
+          {
+            "zh": "把领域知识与验证要求工程化，形成能够调用工具、检查结果并留下记录的 AI 工作流。",
+            "en": "Engineered domain knowledge and verification requirements into AI workflows that call tools, check results and preserve records."
+          }
+        ],
+        "projects": [
+          "rolling-update-controller",
+          "pg-repmgr-rolling-upgrade",
+          "mcp-jenkins",
+          "mcp-servicenow-chg"
+        ]
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "cloud",
+        "phase": 0,
+        "title": {
+          "zh": "可编程基础设施",
+          "en": "Programmable infrastructure"
+        },
+        "summary": {
+          "zh": "云 API、自助平台、CLI、Kubernetes 与交付流水线，为后续平台控制提供基础。",
+          "en": "Cloud APIs, self-service platforms, CLIs, Kubernetes and delivery pipelines provide a foundation for later platform controls."
+        },
+        "projects": [
+          "CI-CD",
+          "docker-builder"
+        ]
+      },
+      {
+        "id": "secure-delivery",
+        "phase": 1,
+        "title": {
+          "zh": "安全基础制品交付",
+          "en": "Secure foundation delivery"
+        },
+        "summary": {
+          "zh": "将构建、加固、验证、上游补丁和制品发布组织为可持续维护的流程。",
+          "en": "Bring builds, hardening, validation, upstream patches and artifact releases into maintainable processes."
+        },
+        "projects": [
+          "airflow-etl-framework"
+        ]
+      },
+      {
+        "id": "frameworks",
+        "phase": 2,
+        "title": {
+          "zh": "测试框架与共享 SDK",
+          "en": "Testing frameworks & shared SDKs"
+        },
+        "summary": {
+          "zh": "通过配置、插件接口、执行上下文和统一结果，分离业务场景与通用执行能力。",
+          "en": "Separate scenarios from shared execution through configuration, plugin interfaces, execution context and common results."
+        },
+        "projects": [
+          "pyrel",
+          "super-dict"
+        ]
+      },
+      {
+        "id": "lifecycle",
+        "phase": 3,
+        "title": {
+          "zh": "基础设施生命周期",
+          "en": "Infrastructure lifecycles"
+        },
+        "summary": {
+          "zh": "以声明式配置、GitOps 审查与工作流，统一创建、升级、扩容和退役。",
+          "en": "Unify provisioning, upgrades, expansion and retirement through declarative configuration, GitOps review and workflows."
+        },
+        "projects": [
+          "KaaS"
+        ]
+      },
+      {
+        "id": "rolling-updates",
+        "phase": 3,
+        "title": {
+          "zh": "服务更新与变更编排",
+          "en": "Service updates & change orchestration"
+        },
+        "summary": {
+          "zh": "通过共享阶段执行器连接前置检查、更新、健康验证和失败恢复，并适配有状态服务。",
+          "en": "Connect preflight checks, updates, health validation and failure recovery through shared stage execution, with support for stateful services."
+        },
+        "projects": [
+          "rolling-update-controller",
+          "pg-repmgr-rolling-upgrade"
+        ]
+      },
+      {
+        "id": "service-health",
+        "phase": 3,
+        "title": {
+          "zh": "分布式服务保障",
+          "en": "Distributed service assurance"
+        },
+        "summary": {
+          "zh": "将检查、目标发现、执行与结果汇总解耦，把验证前移到变更流程。",
+          "en": "Separate checks, target discovery, execution and result aggregation, bringing validation earlier in change workflows."
+        },
+        "projects": [
+          "metrics-deploy",
+          "dns-eyes"
+        ]
+      },
+      {
+        "id": "ai-workflows",
+        "phase": 3,
+        "title": {
+          "zh": "AI 运维工作流",
+          "en": "AI operations workflows"
+        },
+        "summary": {
+          "zh": "连接计划、变更记录、工具执行、结果核查和回写，将多步运维工作组织成完整流程。",
+          "en": "Connect planning, change records, tool execution, result checks and updates within complete multi-step operational workflows."
+        },
+        "projects": [
+          "mcp-jenkins",
+          "mcp-servicenow-chg"
+        ]
+      },
+      {
+        "id": "skills",
+        "phase": 3,
+        "title": {
+          "zh": "可复用领域知识与 Skills",
+          "en": "Reusable domain knowledge & skills"
+        },
+        "summary": {
+          "zh": "把领域经验、前置条件和验证要求转成可发现、可审查、可安装和可维护的知识模块。",
+          "en": "Turn domain experience, prerequisites and validation requirements into discoverable, reviewable, installable and maintainable knowledge modules."
+        },
+        "projects": [
+          "agent-harness"
+        ]
+      },
+      {
+        "id": "evidence",
+        "phase": 3,
+        "title": {
+          "zh": "基于证据的诊断",
+          "en": "Evidence-based diagnosis"
+        },
+        "summary": {
+          "zh": "固定审查版本，连接声明式配置、工作流产物与服务检查，并让排障案例反哺知识库和开发修复。",
+          "en": "Pin review revisions, connect declarative configuration, workflow artifacts and service checks, and use diagnosis cases to improve shared knowledge and development fixes."
+        },
+        "projects": [
+          "engineering-evolution"
+        ]
+      }
+    ]
+  },
+  "strengths": [
+    {
+      "title": {
+        "zh": "从问题到平台",
+        "en": "From problem to platform"
+      },
+      "summary": {
+        "zh": "先理解真实需求和约束，再寻找跨场景的共性，用接口、配置和框架承接重复工作。",
+        "en": "Start with real needs and constraints, identify shared patterns across scenarios, and use interfaces, configuration and frameworks to handle recurring work."
+      }
+    },
+    {
+      "title": {
+        "zh": "架构与核心开发",
+        "en": "Architecture & core development"
+      },
+      "summary": {
+        "zh": "既关注系统边界与长期演进，也深入关键实现，推动方案从设计走到可维护的工程结果。",
+        "en": "Work on system boundaries and long-term evolution while staying involved in critical implementation and maintainable delivery."
+      }
+    },
+    {
+      "title": {
+        "zh": "技术领导与协作",
+        "en": "Technical leadership & collaboration"
+      },
+      "summary": {
+        "zh": "通过工程规范、共享库、设计文档和知识分享组织团队能力，减少工具和经验孤岛。",
+        "en": "Build team capabilities through engineering conventions, shared libraries, design documentation and knowledge sharing."
+      }
+    },
+    {
+      "title": {
+        "zh": "验证与持续改进",
+        "en": "Validation & continuous improvement"
+      },
+      "summary": {
+        "zh": "将前置条件、健康检查、结果证据和恢复机制纳入自动化设计，让每次执行能够被理解和复盘。",
+        "en": "Include prerequisites, health checks, result evidence and recovery in automation design so executions can be understood and reviewed."
+      }
+    }
+  ],
+  "skills": [
+    {
+      "title": {
+        "zh": "语言与工具工程",
+        "en": "Languages & tooling"
+      },
+      "items": [
+        "Python",
+        "CLI / API",
+        "SDK",
+        "Test Automation"
+      ]
+    },
+    {
+      "title": {
+        "zh": "云与基础设施",
+        "en": "Cloud & infrastructure"
+      },
+      "items": [
+        "Linux",
+        "AWS",
+        "GCP",
+        "Azure",
+        "OpenStack",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    {
+      "title": {
+        "zh": "交付与流程",
+        "en": "Delivery & workflows"
+      },
+      "items": [
+        "Ansible",
+        "Jenkins",
+        "GitLab CI",
+        "GitOps",
+        "Argo",
+        "CI/CD"
+      ]
+    },
+    {
+      "title": {
+        "zh": "可靠性与安全",
+        "en": "Reliability & security"
+      },
+      "items": [
+        "DNS",
+        "Prometheus",
+        "Grafana",
+        "Elasticsearch",
+        "OS Hardening",
+        "Security Patching"
+      ]
+    },
+    {
+      "title": {
+        "zh": "AI 工程",
+        "en": "AI engineering"
+      },
+      "items": [
+        "Agent Skills",
+        "MCP",
+        "Knowledge Engineering",
+        "Tool Integration",
+        "Evidence-based Workflows"
+      ]
+    }
+  ],
+  "about": [
+    {
+      "zh": "工作之外，我也把工具制作当作一种表达方式：为自己的实际需求写 Python 工具，探索 MCP 与服务集成，也为《魔兽世界》制作界面、组队和战斗辅助插件。它们和我的工作有一个共同点——从具体体验出发，把需要反复处理的事做好。",
+      "en": "Outside work, I also build tools as a form of expression: Python utilities for practical needs, MCP and service integrations, and World of Warcraft addons for interfaces, group coordination and encounter assistance. They share a starting point with my engineering work: a concrete experience and a recurring task worth improving."
+    },
+    {
+      "zh": "我偏理性、自驱，喜欢追问一个方案为什么有效、边界在哪里，以及未来如何维护。比起堆叠更多工具，我更关注已有能力能否被清晰组织、持续复用，并让一起工作的人更容易交付。",
+      "en": "I am analytical and self-driven. I like to understand why an approach works, where its boundaries lie and how it will be maintained. I care about organizing existing capabilities clearly, reusing them over time and making delivery easier for the people I work with."
+    }
+  ]
+}

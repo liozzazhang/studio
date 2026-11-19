@@ -1,0 +1,26 @@
+{
+  "slug": "airflow-etl-framework",
+  "title": {
+    "zh": "airflow-etl-framework",
+    "en": "airflow-etl-framework"
+  },
+  "summary": {
+    "zh": "以类组织 Airflow ETL 流程，提供配置加载、存储适配与任务通知等通用能力。",
+    "en": "A class-based Airflow ETL framework with configuration loading, storage adapters, and task notifications."
+  },
+  "url": "https://github.com/liozzazhang/airflow-etl-framework",
+  "tags": [
+    "Python",
+    "Apache Airflow",
+    "ETL",
+    "Docker"
+  ],
+  "category": "platform",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 90
+}

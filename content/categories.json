@@ -1,0 +1,10 @@
+[
+  {"id":"ai","zh":"AI 与工具集成","en":"AI & integrations"},
+  {"id":"platform","zh":"平台与交付","en":"Platform & delivery"},
+  {"id":"security","zh":"安全与访问","en":"Security & access"},
+  {"id":"observability","zh":"可观测性","en":"Observability"},
+  {"id":"tools","zh":"开发工具","en":"Developer tools"},
+  {"id":"visualization","zh":"工程表达","en":"Engineering stories"},
+  {"id":"wow","zh":"游戏与界面","en":"Games & interfaces"},
+  {"id":"archive","zh":"早期与参考","en":"Earlier & reference"}
+]

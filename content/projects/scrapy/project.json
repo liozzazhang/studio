@@ -1,0 +1,30 @@
+{
+  "category": "archive",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "private",
+  "legacy": true,
+  "summary": {
+    "zh": "早期 Scrapy 练习项目，记录 Python 数据采集方向的学习实践。",
+    "en": "An earlier Scrapy exercise recording learning and experiments in Python web data collection."
+  },
+  "tags": [
+    "Python",
+    "Scrapy",
+    "Learning"
+  ],
+  "slug": "scrapy",
+  "url": "https://github.com/liozzazhang/scrapy",
+  "title": {
+    "zh": "scrapy",
+    "en": "scrapy"
+  },
+  "fork": false,
+  "archived": false,
+  "order": 360,
+  "disclosure": "summary-only",
+  "status": {
+    "zh": "早期练习",
+    "en": "Earlier exercise"
+  }
+}

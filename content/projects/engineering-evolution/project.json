@@ -1,0 +1,27 @@
+{
+  "slug": "engineering-evolution",
+  "title": {
+    "zh": "Engineering Evolution",
+    "en": "Engineering Evolution"
+  },
+  "summary": {
+    "zh": "以交互式图谱整理云基础设施、平台架构与 AI 工作流方向的个人工程经历。",
+    "en": "An interactive map of personal engineering experience across cloud infrastructure, platform architecture, and AI workflows."
+  },
+  "url": "https://github.com/liozzazhang/engineering-evolution",
+  "tags": [
+    "Engineering",
+    "Architecture",
+    "HTML",
+    "Documentation"
+  ],
+  "category": "visualization",
+  "group": "engineering",
+  "kind": "visualization",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 150,
+  "featured": 60
+}

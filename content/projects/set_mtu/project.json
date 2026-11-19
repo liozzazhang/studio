@@ -1,0 +1,26 @@
+{
+  "slug": "set_mtu",
+  "title": {
+    "zh": "set_mtu",
+    "en": "set_mtu"
+  },
+  "summary": {
+    "zh": "用于查询 Linux 网卡 MTU 状态，并进行临时与持久化设置的 Shell 工具。",
+    "en": "A Shell utility for inspecting Linux interface MTU values and applying temporary or persistent settings."
+  },
+  "url": "https://github.com/liozzazhang/set_mtu",
+  "tags": [
+    "Shell",
+    "Linux",
+    "Networking",
+    "CLI"
+  ],
+  "category": "tools",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 190
+}

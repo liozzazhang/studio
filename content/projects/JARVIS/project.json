@@ -1,0 +1,25 @@
+{
+  "slug": "JARVIS",
+  "title": {
+    "zh": "JARVIS",
+    "en": "JARVIS"
+  },
+  "summary": {
+    "zh": "早期个人 Python 代码仓库，README 仅标注运维管理方向，具体功能未获充分说明。",
+    "en": "An early personal Python code repository whose brief README mentions operations management without detailing its features."
+  },
+  "url": "https://github.com/liozzazhang/JARVIS",
+  "tags": [
+    "Python",
+    "Historical Code",
+    "Reference"
+  ],
+  "category": "archive",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": true,
+  "order": 260
+}

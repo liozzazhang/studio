@@ -1,0 +1,27 @@
+{
+  "slug": "pyrel",
+  "title": {
+    "zh": "pyrel",
+    "en": "pyrel"
+  },
+  "summary": {
+    "zh": "按配置构建 Python 包，并向启用的 Git、GitHub Releases 或 PyPI 目标执行发布的命令行工具。",
+    "en": "A CLI that builds Python packages and publishes to enabled Git, GitHub Releases, or PyPI targets from a shared configuration."
+  },
+  "url": "https://github.com/liozzazhang/pyrel",
+  "tags": [
+    "Python",
+    "CLI",
+    "Packaging",
+    "PyPI",
+    "Release Automation"
+  ],
+  "category": "tools",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 180
+}

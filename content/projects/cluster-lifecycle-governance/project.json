@@ -1,0 +1,31 @@
+{
+  "category": "platform",
+  "group": "engineering",
+  "kind": "documentation",
+  "visibility": "private",
+  "summary": {
+    "zh": "面向 Kubernetes 集群创建、升级与迁移的生命周期治理方法，结合阶段门禁、责任边界、检查清单与交付记录模板。",
+    "en": "A lifecycle governance model for Kubernetes provisioning, upgrades, and migrations, combining stage gates, ownership boundaries, checklists, and delivery-record templates."
+  },
+  "tags": [
+    "Kubernetes",
+    "Lifecycle Governance",
+    "Change Management",
+    "Checklists"
+  ],
+  "slug": "cluster-lifecycle-governance",
+  "url": "https://github.com/liozzazhang/cluster-lifecycle-governance",
+  "title": {
+    "zh": "cluster-lifecycle-governance",
+    "en": "cluster-lifecycle-governance"
+  },
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 320,
+  "disclosure": "summary-only",
+  "status": {
+    "zh": "方法与模板",
+    "en": "Method & templates"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "category": "ai",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "private",
+  "summary": {
+    "zh": "模块化 Webex Bot 框架，整合角色权限、交互式任务调度与 Adaptive Cards，支持快速扩展协作工具。",
+    "en": "A modular Webex bot framework combining role-based access control, interactive scheduling, and Adaptive Cards for extensible collaboration tools."
+  },
+  "tags": [
+    "Python",
+    "Webex",
+    "ChatOps",
+    "RBAC",
+    "Adaptive Cards"
+  ],
+  "slug": "webex-bot-core",
+  "url": "https://github.com/liozzazhang/webex-bot-core",
+  "title": {
+    "zh": "webex-bot-core",
+    "en": "webex-bot-core"
+  },
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 390,
+  "disclosure": "summary-only"
+}

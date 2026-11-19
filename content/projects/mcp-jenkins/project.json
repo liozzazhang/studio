@@ -1,0 +1,28 @@
+{
+  "slug": "mcp-jenkins",
+  "title": {
+    "zh": "mcp-jenkins",
+    "en": "mcp-jenkins"
+  },
+  "summary": {
+    "zh": "面向受限定 Jenkins 作业范围的 MCP 服务，提供作业与构建查询、参数化触发、控制台日志及完成轮询。",
+    "en": "An MCP server for a restricted Jenkins job scope, offering job and build inspection, parameterized triggers, console logs, and completion polling."
+  },
+  "url": "https://github.com/liozzazhang/mcp-jenkins",
+  "tags": [
+    "Python",
+    "MCP",
+    "Jenkins",
+    "CI/CD",
+    "Docker"
+  ],
+  "category": "ai",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 20,
+  "featured": 10
+}

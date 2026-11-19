@@ -1,0 +1,25 @@
+{
+  "slug": "super-dict",
+  "title": {
+    "zh": "super-dict",
+    "en": "super-dict"
+  },
+  "summary": {
+    "zh": "为 Python 嵌套字典提供点路径读取、写入、合并与展开，并支持自定义路径分隔符。",
+    "en": "A Python nested-dictionary wrapper supporting dot-path access, updates, merges, flattening, and custom path separators."
+  },
+  "url": "https://github.com/liozzazhang/super-dict",
+  "tags": [
+    "Python",
+    "Data Structures",
+    "Developer Tools"
+  ],
+  "category": "tools",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 200
+}

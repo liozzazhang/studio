@@ -1,0 +1,27 @@
+{
+  "slug": "metrics-deploy",
+  "title": {
+    "zh": "metrics-deploy",
+    "en": "metrics-deploy"
+  },
+  "summary": {
+    "zh": "使用可复用插件、配置组合与目标定义，生成、校验并通过 Ansible 部署 Telegraf 采集配置。",
+    "en": "Render and validate Telegraf collector configuration from reusable plugins, profiles, and targets, then deploy it with Ansible."
+  },
+  "url": "https://github.com/liozzazhang/metrics-deploy",
+  "tags": [
+    "Python",
+    "Telegraf",
+    "Jinja2",
+    "Ansible"
+  ],
+  "category": "observability",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 30,
+  "featured": 40
+}

@@ -1,0 +1,32 @@
+{
+  "category": "wow",
+  "sub_category": "interface",
+  "group": "wow",
+  "kind": "source",
+  "visibility": "private",
+  "summary": {
+    "zh": "Bene Click：为玩家自行设置的技能序列提供按键驱动的宏配置、预设与分享工具。",
+    "en": "Bene Click: keypress-driven macro configuration, presets, and sharing for player-defined ability sequences."
+  },
+  "tags": [
+    "Lua",
+    "WoW",
+    "Macro Configuration",
+    "Presets"
+  ],
+  "slug": "one_click_assistant",
+  "url": "https://github.com/liozzazhang/one_click_assistant",
+  "title": {
+    "zh": "one_click_assistant",
+    "en": "one_click_assistant"
+  },
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 350,
+  "disclosure": "summary-only",
+  "status": {
+    "zh": "个人原型",
+    "en": "Personal prototype"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "self_skill_reminder",
+  "title": {
+    "zh": "Bene SelfSpell · 自身技能提醒",
+    "en": "Bene SelfSpell · Personal Reminders"
+  },
+  "summary": {
+    "zh": "为自身增益、技能、饰品与药水设置计时和组合条件，并通过文字、语音或音效提醒。",
+    "en": "Configure timers and combined conditions for personal buffs, abilities, trinkets, and potions, with text, voice, and sound reminders."
+  },
+  "url": "https://github.com/liozzazhang/self_skill_reminder",
+  "tags": [
+    "Buff Timers",
+    "Cooldown Reminders",
+    "Conditional Alerts",
+    "Voice"
+  ],
+  "category": "wow",
+  "sub_category": "information",
+  "group": "wow",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "features": {
+    "zh": [
+      "持续时间与冷却提醒",
+      "技能、饰品、物品和被动触发监控",
+      "组合条件与多种提醒时机",
+      "计时条、图标和文字语音展示"
+    ],
+    "en": [
+      "Duration and cooldown reminders",
+      "Ability, trinket, item, and proc monitors",
+      "Combined conditions and alert timing",
+      "Timer bars, icons, text, and voice display"
+    ]
+  },
+  "order": 140
+}

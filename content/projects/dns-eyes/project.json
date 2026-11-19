@@ -1,0 +1,30 @@
+{
+  "category": "observability",
+  "group": "engineering",
+  "kind": "planned",
+  "visibility": "private",
+  "summary": {
+    "zh": "DNS 验证、监控与可视化方向的项目，目前处于仓库初始化阶段。",
+    "en": "A project direction for DNS verification, monitoring, and visualization, currently at repository initialization."
+  },
+  "tags": [
+    "DNS",
+    "Observability",
+    "Project Planning"
+  ],
+  "slug": "dns-eyes",
+  "url": "https://github.com/liozzazhang/dns-eyes",
+  "title": {
+    "zh": "dns-eyes",
+    "en": "dns-eyes"
+  },
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 330,
+  "disclosure": "summary-only",
+  "status": {
+    "zh": "初始化 · 暂无实现",
+    "en": "Initialized · not implemented"
+  }
+}

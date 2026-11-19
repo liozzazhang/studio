@@ -1,0 +1,26 @@
+{
+  "slug": "CI-CD",
+  "title": {
+    "zh": "CI-CD",
+    "en": "CI-CD"
+  },
+  "summary": {
+    "zh": "早期 GitLab CI/CD 流水线架构与集成说明，配有流程图和示例文档。",
+    "en": "Early architecture and integration notes for GitLab CI/CD pipelines, with diagrams and examples."
+  },
+  "url": "https://github.com/liozzazhang/CI-CD",
+  "tags": [
+    "GitLab CI",
+    "CI/CD",
+    "Architecture",
+    "Documentation"
+  ],
+  "category": "archive",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": true,
+  "order": 210
+}

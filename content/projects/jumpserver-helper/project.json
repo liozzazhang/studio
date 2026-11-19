@@ -1,0 +1,26 @@
+{
+  "slug": "jumpserver-helper",
+  "title": {
+    "zh": "jumpserver-helper",
+    "en": "jumpserver-helper"
+  },
+  "summary": {
+    "zh": "用于 SSH 跳板机延迟探测、选择与目标别名管理的 Shell 工具集，支持生成 ProxyJump 配置。",
+    "en": "Shell tools for SSH jump-host latency probing, selection, and target aliases, with generated ProxyJump configuration."
+  },
+  "url": "https://github.com/liozzazhang/jumpserver-helper",
+  "tags": [
+    "Shell",
+    "SSH",
+    "ProxyJump",
+    "CLI"
+  ],
+  "category": "security",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 160
+}

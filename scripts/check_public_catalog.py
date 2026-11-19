@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify that every reviewed catalog entry is still a public GitHub repository."""
+"""Validate disclosure rules and verify public repository visibility before publication."""
 import argparse
 import json
 import os
@@ -10,6 +10,7 @@ from collections import Counter
 from urllib.error import HTTPError
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from build_catalog import load_content
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,7 +20,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--gh', metavar='GH_EXECUTABLE', help='Use an existing GitHub CLI login for local checks')
     args = parser.parse_args()
-    projects = json.loads((ROOT / 'data/projects.json').read_text())['projects']
+    _, _, _, modules = load_content()
+    projects = [item for item in modules if item['visibility'] == 'public']
+    private_count = sum(item['visibility'] == 'private' for item in modules)
+    # Private modules are intentionally published summaries, never fetched or copied here.
     token = os.environ.get('STUDIO_GITHUB_TOKEN')
 
     def verify(item):
@@ -60,7 +64,7 @@ def main():
     if failed:
         details = ", ".join(f"{reason}: {count}" for reason, count in sorted(failures.items()))
         raise SystemExit(f'Public visibility check failed for {failed} catalog entries ({details}). Review the public snapshot before deployment.')
-    print(f'Confirmed {len(projects)} catalog repositories are currently public.')
+    print(f'Confirmed {len(projects)} public repositories; validated {private_count} explicitly disclosed private summaries.')
 
 
 if __name__ == '__main__':

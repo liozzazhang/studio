@@ -1,0 +1,25 @@
+{
+  "slug": "events_handler",
+  "title": {
+    "zh": "events_handler",
+    "en": "events_handler"
+  },
+  "summary": {
+    "zh": "已归档的早期个人 Python 示例仓库，提供简要运行说明，具体功能未获 README 充分说明。",
+    "en": "An archived early personal Python sample repository with brief run instructions; its README does not sufficiently explain its functionality."
+  },
+  "url": "https://github.com/liozzazhang/events_handler",
+  "tags": [
+    "Python",
+    "Examples",
+    "Historical Code"
+  ],
+  "category": "archive",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": true,
+  "legacy": true,
+  "order": 240
+}

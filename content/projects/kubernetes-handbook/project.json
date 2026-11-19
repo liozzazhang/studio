@@ -1,0 +1,25 @@
+{
+  "slug": "kubernetes-handbook",
+  "title": {
+    "zh": "Kubernetes Handbook · Fork",
+    "en": "Kubernetes Handbook · Fork"
+  },
+  "summary": {
+    "zh": "Jimmy Song 的 Kubernetes 中文参考手册 Fork，作为云原生学习资料与参考索引收藏。",
+    "en": "A fork of Jimmy Song’s Chinese Kubernetes handbook, kept as a cloud-native learning and reference collection."
+  },
+  "url": "https://github.com/liozzazhang/kubernetes-handbook",
+  "tags": [
+    "Kubernetes",
+    "Cloud Native",
+    "Documentation"
+  ],
+  "category": "archive",
+  "group": "engineering",
+  "kind": "reference",
+  "visibility": "public",
+  "fork": true,
+  "archived": false,
+  "legacy": true,
+  "order": 270
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "mplus_roadbook",
+  "title": {
+    "zh": "Bene Route · 大秘境路书",
+    "en": "Bene Route · Mythic+ Roadbook"
+  },
+  "summary": {
+    "zh": "收录玩家自己的 MDT 路线，逐波整理计划和标记，并在副本中通过 HUD、声音与语音展示。",
+    "en": "Collect your own MDT routes, annotate pull plans and markers, and display them through an in-dungeon HUD with audio reminders."
+  },
+  "url": "https://github.com/liozzazhang/mplus_roadbook",
+  "tags": [
+    "Mythic+",
+    "MDT Routes",
+    "Pull Planning",
+    "HUD"
+  ],
+  "category": "wow",
+  "sub_category": "planning",
+  "group": "wow",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "features": {
+    "zh": [
+      "从玩家安装的 MDT 收录路线快照",
+      "逐波计划、备注与标记安排",
+      "波次 HUD 与语音播报",
+      "玩家触发的计划分享与标记宏"
+    ],
+    "en": [
+      "Route snapshots from the player's MDT installation",
+      "Pull plans, notes, and marker assignments",
+      "Pull HUD and voice announcements",
+      "Player-triggered plan sharing and marking macros"
+    ]
+  },
+  "order": 120
+}

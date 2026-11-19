@@ -1,0 +1,32 @@
+{
+  "category": "ai",
+  "group": "engineering",
+  "kind": "design",
+  "visibility": "private",
+  "summary": {
+    "zh": "面向平台运维的知识与决策服务设计，以来源追溯、权限和生命周期组织知识检索、变更评估与审计。",
+    "en": "A platform-operations knowledge and decision service design, organizing retrieval, change assessment, and audit through provenance, access control, and lifecycle management."
+  },
+  "tags": [
+    "Knowledge Architecture",
+    "Platform Ops",
+    "Evidence",
+    "Access Control"
+  ],
+  "slug": "KaaS",
+  "url": "https://github.com/liozzazhang/KaaS",
+  "title": {
+    "zh": "KaaS",
+    "en": "KaaS"
+  },
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 340,
+  "featured": 80,
+  "disclosure": "summary-only",
+  "status": {
+    "zh": "设计阶段 · 尚无实现",
+    "en": "Design stage · not implemented"
+  }
+}

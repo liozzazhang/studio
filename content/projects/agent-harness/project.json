@@ -1,0 +1,33 @@
+{
+  "category": "ai",
+  "group": "engineering",
+  "kind": "design",
+  "visibility": "private",
+  "summary": {
+    "zh": "为 MCP 驱动的运维 Agent 设计受治理的执行层，以策略、审批、锁、幂等和审计约束有副作用的操作。",
+    "en": "A design for a governed execution layer around MCP-driven operations agents, applying policy, approvals, locking, idempotency, and audit to actions with side effects."
+  },
+  "tags": [
+    "Agent Design",
+    "MCP",
+    "Policy",
+    "Idempotency",
+    "Audit"
+  ],
+  "slug": "agent-harness",
+  "url": "https://github.com/liozzazhang/agent-harness",
+  "title": {
+    "zh": "agent-harness",
+    "en": "agent-harness"
+  },
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 310,
+  "featured": 70,
+  "disclosure": "summary-only",
+  "status": {
+    "zh": "设计文档与伪代码",
+    "en": "Design & pseudocode"
+  }
+}

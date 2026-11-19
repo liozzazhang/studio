@@ -1,0 +1,28 @@
+{
+  "slug": "py-duo",
+  "title": {
+    "zh": "py-duo",
+    "en": "py-duo"
+  },
+  "summary": {
+    "zh": "面向 Duo 等身份提供方的 Python SAML SP 客户端，提供身份校验、组与属性策略、FastAPI 适配和调试工具。",
+    "en": "A Python SAML SP client for Duo and other identity providers, with identity validation, group and attribute policies, a FastAPI adapter, and debugging tools."
+  },
+  "url": "https://github.com/liozzazhang/py-duo",
+  "tags": [
+    "Python",
+    "SAML",
+    "SSO",
+    "Duo",
+    "FastAPI"
+  ],
+  "category": "security",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 170,
+  "featured": 30
+}

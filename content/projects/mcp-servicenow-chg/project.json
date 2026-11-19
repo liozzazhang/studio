@@ -1,0 +1,26 @@
+{
+  "slug": "mcp-servicenow-chg",
+  "title": {
+    "zh": "mcp-servicenow-chg",
+    "en": "mcp-servicenow-chg"
+  },
+  "summary": {
+    "zh": "将 ServiceNow 的变更与事件查询，以及变更和操作文档管理接入 AI 客户端的 MCP 服务。",
+    "en": "An MCP server connecting AI clients to ServiceNow change and incident queries, with change and procedure record management."
+  },
+  "url": "https://github.com/liozzazhang/mcp-servicenow-chg",
+  "tags": [
+    "Python",
+    "MCP",
+    "ServiceNow",
+    "Tool Integration"
+  ],
+  "category": "ai",
+  "group": "engineering",
+  "kind": "source",
+  "visibility": "public",
+  "fork": false,
+  "archived": false,
+  "legacy": false,
+  "order": 70
+}
