@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Generate Studio from independently discoverable, reviewed content modules."""
 import argparse
+import hashlib
 import json
 import re
 from html import escape
@@ -47,6 +48,11 @@ def txt(value, tag='span', attrs=''):
     if isinstance(value, str):
         return f'<{tag}{(" " + attrs) if attrs else ""}>{esc(value)}</{tag}>'
     return bi(value, tag=tag, attrs=attrs)
+
+
+def asset(name):
+    digest = hashlib.sha256((SITE / 'assets' / name).read_bytes()).hexdigest()[:10]
+    return f'/studio/assets/{name}?v={digest}'
 
 
 def pick(value):
@@ -247,7 +253,7 @@ def access_dialog():
 def layout(title, description, body, route='', active='home', scripts=''):
     template = (ROOT / '_templates/pages/layout.html').read_text(encoding='utf-8')
     language = LANGUAGE['default']
-    values = {'LANG': language, 'HTML_LANG': 'en' if language == 'en' else 'zh-CN', 'TITLE': esc(title[language]), 'TITLE_ZH': esc(title['zh']), 'TITLE_EN': esc(title['en']), 'DESCRIPTION': esc(pick(description)), 'URL': 'https://liozzazhang.github.io/studio/' + route, 'HEADER': header(active), 'BODY': body, 'FOOTER': footer(), 'SCRIPTS': scripts, 'DIALOG': access_dialog(), 'SKIP_LINK': bi(UI['skip_link'], tag='a', attrs='class="skip-link" href="#main"'), 'NOSCRIPT': esc(UI['noscript'])}
+    values = {'FAVICON': asset('favicon.svg'), 'STYLESHEET': asset('studio.css'), 'SCRIPT': asset('studio.js'), 'LANG': language, 'HTML_LANG': 'en' if language == 'en' else 'zh-CN', 'TITLE': esc(title[language]), 'TITLE_ZH': esc(title['zh']), 'TITLE_EN': esc(title['en']), 'DESCRIPTION': esc(pick(description)), 'URL': 'https://liozzazhang.github.io/studio/' + route, 'HEADER': header(active), 'BODY': body, 'FOOTER': footer(), 'SCRIPTS': scripts, 'DIALOG': access_dialog(), 'SKIP_LINK': bi(UI['skip_link'], tag='a', attrs='class="skip-link" href="#main"'), 'NOSCRIPT': esc(UI['noscript'])}
     for key, value in values.items():
         template = template.replace('{{' + key + '}}', value)
     if re.search(r'\{\{[A-Z_]+\}\}', template):
@@ -428,7 +434,7 @@ def catalog(route, projects, categories, config):
     filtered = copy['showing_filtered']
     options = ''.join(f'<option value="{value}" data-zh="{esc(visibility[value]["zh"])}" data-en="{esc(visibility[value]["en"])}">{esc(visibility[value][LANGUAGE["default"]])}</option>' for value in ('all', 'public', 'private'))
     body = '<div class="shell catalog-main">' + nav + '<section class="catalog-hero"><p class="eyebrow">' + esc(fill(copy['eyebrow'], date=config['checked_at'])) + '</p><h1>' + bi(title) + '</h1>' + bi(description, tag='p') + '<div class="catalog-meta">' + bi(fill(copy['meta'], total=total, public=public, private=total - public)) + '</div></section><section aria-label="' + esc(copy['catalog_label']) + '"><div class="catalog-toolbar"><div class="catalog-filters" role="group" aria-label="' + esc(copy['filter_label']) + '">' + filters + '</div><label class="catalog-search"><span class="sr-only">' + bi(copy['search_label']) + '</span><input type="search" id="catalog-search" autocomplete="off" placeholder="' + esc(pick(copy['search_placeholder'])) + '" data-placeholder-zh="' + esc(copy['search_placeholder']['zh']) + '" data-placeholder-en="' + esc(copy['search_placeholder']['en']) + '"><button id="clear-search" hidden type="button">' + bi(copy['clear']) + '</button></label></div><div class="catalog-status"><p id="catalog-result-count" role="status" aria-live="polite" data-total="' + str(total) + '" data-filtered-zh="' + esc(filtered['zh']) + '" data-filtered-en="' + esc(filtered['en']) + '">' + bi(fill(copy['showing'], total=total)) + '</p><label class="visibility-select">' + bi(visibility['label']) + '<select id="visibility-filter">' + options + '</select></label></div><div class="catalog-grid">' + ''.join(project_card(item, categories) for item in projects) + '</div><div id="catalog-empty" class="catalog-empty" hidden><h2>' + bi(copy['empty_title']) + '</h2>' + bi(copy['empty_body'], tag='p') + '<button type="button" data-reset-filters>' + bi(copy['reset']) + '</button></div></section><aside class="catalog-footnote">' + bi(copy['footnote'], tag='p') + '</aside></div>'
-    return layout(title, description, body, route + '/', active='projects', scripts='<script src="/studio/assets/catalog.js" defer></script>')
+    return layout(title, description, body, route + '/', active='projects', scripts='<script src="' + asset('catalog.js') + '" defer></script>')
 
 
 def detail(item):

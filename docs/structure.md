@@ -42,7 +42,7 @@ studio/
     preview.py                      # 按 /studio/ 前缀提供本地预览
   site/                             # 唯一上传 Pages 的产物目录
     index.html
-    assets/
+    assets/                         # 手写 CSS/JS；页面按内容哈希引用（?v=），修改后需重新构建
     projects/
       index.html
       <slug>/index.html
